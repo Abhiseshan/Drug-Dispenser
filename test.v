@@ -1,39 +1,72 @@
-module test(CLOCK_50, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	input CLOCK_50;
+	input [9:0] SW; 
+	input [3:0] KEY;
+	
+	//KEYMAAP Table
+	
+	//SW[9] Clock Set
+	//KEY[0] Reset
+	//KEY[1] IncrementSeconds
+	//KEY[2] IncrementMinutes
+	//KEY[3] IncrementHours
+	
 	output [9:0] LEDR;
 	
 	output [0:6] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
+	//Pulses
 	wire secondP, minuteP, hoursP;
-	wire [4:0] hours;
 	
+	//Counter Values
+	wire [4:0] hours;
 	wire [5:0] minutes, seconds;
 	
-	SecondCounter Sc(CLOCK_50, secondP, LEDR[3]);
-	MinuteCounter Mc(CLOCK_50, secondP, minuteP, seconds);
-	HourCounter Hc (CLOCK_50, minuteP, hoursP, minutes);
-	Hours H(CLOCK_50, hoursP, hours);
+	//OutPut Hex Values
+	wire [5:0] hexMinutes, hexSeconds;
+	wire [4:0] hexHours;
 	
+	//Set Values
+	wire [5:0] setMinutes, setSeconds;
+	wire [4:0] setHours;
+	
+	//Blinking Values
+	wire [5:0] blinkMinutes, blinkSeconds;
+	wire [4:0] blinkHours;
+
+	//Counters
+	SecondCounter Sc(CLOCK_50, KEY[0], secondP, LEDR[3]);
+	MinuteCounter Mc(CLOCK_50, secondP, SW[9], setMinutes, KEY[0], minuteP, seconds);
+	HourCounter Hc (CLOCK_50, minuteP, SW[9], setHours, KEY[0], hoursP, minutes);
+	Hours H(CLOCK_50, hoursP, SW[9], setHours, KEY[0], hours);
+	
+	//Clock Management
+	setTime setT(CLOCK_50, SW[9], seconds, hours, minutes, KEY[3], KEY[2], KEY[1], secondP, setHours, setMinutes, setSeconds, blinkHours, blinkMinutes, blinkSeconds);
+	FSMCLOCK FSMClk(CLOCK_50, SW[9], KEY[0], minutes, seconds, hours, blinkHours, blinkMinutes, blinkSeconds, hexHours, hexMinutes, hexSeconds);
+
 	assign LEDR[0] = secondP;
 	assign LEDR[1] = minuteP;
 	assign LEDR[2] = hoursP;
 	
-	hex h0(HEX0, seconds[3:0]);
-	hex h1(HEX1, seconds[5:4]);
-	hex h2(HEX2, minutes[3:0]);
-	hex h3(HEX3, minutes[5:4]);
-	hex h4(HEX4, hours[3:0]);
-	hex h5(HEX5, hours[4]);
+	hex h0(HEX0, hexSeconds[3:0]);
+	hex h1(HEX1, hexSeconds[5:4]);
+	hex h2(HEX2, hexMinutes[3:0]);
+	hex h3(HEX3, hexMinutes[5:4]);
+	hex h4(HEX4, hexHours[3:0]);
+	hex h5(HEX5, hexHours[4]);
 	
 endmodule
 
-module SecondCounter(input CLOCK_50, output reg pulse, output reg LED);
+module SecondCounter(input CLOCK_50, reset, output reg pulse, output reg LED);
 	
 	reg [30:0] counter;
 	initial counter = 0;
 	
 	always @(posedge CLOCK_50)
 	begin
+		if (reset == 0)
+			counter <= 0;
+		else
 		if (counter == 49999999)
 			begin
 				counter <= 0;
@@ -48,13 +81,17 @@ module SecondCounter(input CLOCK_50, output reg pulse, output reg LED);
 	end
 endmodule
 
-module MinuteCounter(input CLOCK_50, input secondsPulse, output reg pulse, output reg [5:0] counter);
+module MinuteCounter(input CLOCK_50, input secondsPulse, input set, input [5:0] setSeconds, input reset, output reg pulse, output reg [5:0] counter);
 	
 	initial counter = 0;
 	
 	always @(posedge CLOCK_50)
 	begin
-		if (secondsPulse == 1)
+		if (set == 1)
+			counter <= setSeconds;
+		else if (reset == 0)
+			counter <= 0;
+		else if (secondsPulse == 1)
 		begin
 			if (counter == 59)
 				begin
@@ -72,13 +109,17 @@ module MinuteCounter(input CLOCK_50, input secondsPulse, output reg pulse, outpu
 	end
 endmodule
 
-module HourCounter(input CLOCK_50, input MinutesPulse, output reg pulse, output reg [5:0] counter);	
+module HourCounter(input CLOCK_50, input MinutesPulse, input set, input [5:0] setMinutes, input reset, output reg pulse, output reg [5:0] counter);	
 	
 	initial counter = 0;
 	
 	always @(posedge CLOCK_50)
 	begin
-		if (MinutesPulse == 1)
+		if (set == 1)
+			counter <= setMinutes;
+		else if (reset == 0)
+			counter <= 0;
+		else if (MinutesPulse == 1)
 		begin
 			if (counter == 59)
 				begin
@@ -96,13 +137,17 @@ module HourCounter(input CLOCK_50, input MinutesPulse, output reg pulse, output 
 	end
 endmodule
 
-module Hours(input CLOCK_50, input hourPulse, output reg [4:0] hours);
+module Hours(input CLOCK_50, input hourPulse, input set, input [4:0] setHours, input reset, output reg [4:0] hours);
 
 	initial hours = 0;
 	
 	always @(posedge CLOCK_50)
 	begin
-		if (hourPulse == 1)
+		if (set == 1)
+			hours <= setHours;
+		else if (reset == 0)
+			hours <= 0;
+		else if (hourPulse == 1)
 		begin
 			if (hours == 23)
 				begin
@@ -137,6 +182,146 @@ module hex(out,in);
 			13 : out=7'b1000010;
 			14 : out=7'b0110000;
 			15 : out=7'b0111000;
-			default: out=7'bx;
+			default: out=7'b0;
 		endcase
+endmodule
+
+module FSMCLOCK(clock, set, reset, minutes, seconds, hours, blinkHours, blinkMinutes, blinkSeconds, outhours, outminutes, outseconds);
+
+	input clock, set, reset; 
+	
+	input [5:0] minutes, seconds;
+	input [4:0] hours;
+	
+	input [5:0] blinkMinutes, blinkSeconds;
+	input [4:0] blinkHours;
+		
+	output reg [5:0] outminutes, outseconds;
+	output reg [4:0] outhours;
+	
+	parameter clockMode = 1'b00, setMode = 1'b01, resetMode = 1'b10;
+	
+	reg [1:0] currentstate, nextstate;
+
+	//Controling output to hex display
+	always @(*)
+	begin
+		case (currentstate)
+			clockMode: begin
+				outseconds <= seconds;
+				outminutes <= minutes;
+				outhours <= hours;
+			end
+		
+			setMode: begin
+				//Control Blinking here
+				outseconds <= blinkSeconds;
+				outminutes <= blinkMinutes;
+				outhours <= blinkHours;
+			end
+			
+			resetMode: begin
+				outseconds <= 0;
+				outminutes <= 0;
+				outhours <= 0;
+			end
+		endcase
+	end
+	
+	always @(posedge clock)
+	begin
+		if (set == 1)
+			currentstate = setMode;
+		if (reset == 0)
+			currentstate = resetMode;
+	end
+	
+	always @(*)
+	begin
+		case (currentstate)
+			clockMode: nextstate = clockMode;
+			setMode: nextstate = (set == 1)?setMode:clockMode;
+			resetMode: nextstate = clockMode;
+		endcase
+	end
+endmodule
+
+module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMinutes, incrementSeconds, secondsP, outHours, outMinutes, outSeconds, hexHours, hexMinutes, hexSeconds);
+	
+	input clock, set, incrementMinutes, incrementHours, incrementSeconds, secondsP;
+	
+	input [5:0] seconds, minutes;
+	input [4:0] hours;
+	
+	reg [5:0] setSeconds, setMinutes;
+	reg [4:0] setHours;
+	
+	output reg [5:0] outSeconds, outMinutes;
+	output reg [4:0] outHours;
+	
+	output reg [5:0] hexMinutes, hexSeconds;
+	output reg [4:0] hexHours;
+	
+	reg flag;
+	initial flag = 0;
+
+	always @(posedge clock)
+	begin
+		if (set == 1) begin
+			setSeconds <= seconds;
+			setMinutes <= minutes;
+			setHours <= hours;
+		end
+	end
+	
+	always @(posedge clock)
+	begin
+		if (incrementSeconds == 0) begin
+			if (outSeconds == 59)
+				outSeconds <= 0;
+			else
+				outSeconds <= setSeconds + 1;
+		end
+		else
+			outSeconds <= setSeconds;
+			
+		if (incrementMinutes == 0) begin
+			if (outMinutes == 59)
+				outMinutes <= 0;
+			else
+				outMinutes <= setMinutes + 1;
+		end
+		else
+			outMinutes <= setMinutes;
+			
+		if (incrementHours == 0)begin
+			if (outHours == 23)
+				outHours <= 0;
+			else
+				outHours <= setHours + 1;
+		end
+		else
+			outHours <= setHours;
+	end
+	
+	always @(posedge clock)
+	begin
+		if (secondsP == 1)
+		begin
+			if (flag == 1)
+			begin
+				flag <= flag + 1;
+				hexSeconds <= outSeconds;
+				hexMinutes <= outMinutes;
+				hexHours <= outHours;
+			end
+			else
+			begin
+				flag <= flag + 1;
+				hexHours <= 0;
+				hexMinutes <= 0;
+				hexSeconds <= 0;
+			end
+		end
+	end
 endmodule

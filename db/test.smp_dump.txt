@@ -1,0 +1,5 @@
+
+State Machine - |test|FSMCLOCK:FSMClk|currentstate
+Name currentstate.setMode 
+currentstate.clockMode 0 
+currentstate.setMode 1 
