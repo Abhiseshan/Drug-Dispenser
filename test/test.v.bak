@@ -1,0 +1,12 @@
+module test(CLOCK_50);
+	input CLOCK_50;
+	
+	wire counter;
+	
+	initial counter = 0;
+	
+	always @(posedge CLOCK_50)
+	begin
+		counter <= counter + 1;
+	end
+endmodule
