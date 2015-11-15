@@ -1,5 +1,5 @@
 
-State Machine - |test|FSMCLOCK:FSMClk|currentstate
-Name currentstate.setMode 
-currentstate.clockMode 0 
-currentstate.setMode 1 
+State Machine - |test|clockControlFSM:FSMClk|currentstate
+Name currentstate.clockMode 
+currentstate.setMode 0 
+currentstate.clockMode 1 

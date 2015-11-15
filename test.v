@@ -1,8 +1,8 @@
-module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0);
 	input CLOCK_50;
 	input [9:0] SW; 
 	input [3:0] KEY;
-	
+	input [35:0] GPIO_0;
 	//KEYMAAP Table
 	
 	//SW[9] Clock Set
@@ -34,6 +34,12 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	wire [5:0] blinkMinutes, blinkSeconds;
 	wire [4:0] blinkHours;
 
+	//Dispense Time Pulses
+	wire morningP, afternoonP, eveningP;
+	
+	//Dispense Signals
+	wire dispenseMorning, dispenseAfternoon, dispenseEvening;
+	
 	//Counters
 	SecondCounter Sc(CLOCK_50, KEY[0], secondP, LEDR[3]);
 	MinuteCounter Mc(CLOCK_50, secondP, SW[9], setMinutes, KEY[0], minuteP, seconds);
@@ -42,12 +48,21 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	
 	//Clock Management
 	setTime setT(CLOCK_50, SW[9], seconds, hours, minutes, KEY[3], KEY[2], KEY[1], secondP, setHours, setMinutes, setSeconds, blinkHours, blinkMinutes, blinkSeconds);
-	FSMCLOCK FSMClk(CLOCK_50, SW[9], KEY[0], minutes, seconds, hours, blinkHours, blinkMinutes, blinkSeconds, hexHours, hexMinutes, hexSeconds);
+	clockControlFSM FSMClk(CLOCK_50, SW[9], KEY[0], minutes, seconds, hours, blinkHours, blinkMinutes, blinkSeconds, hexHours, hexMinutes, hexSeconds);
 
+	//Circuit Management
+	dispenseTime(CLOCK_50, seconds, minutes, hours, morningP, afternoonP, eveningP);
+	circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
+
+	//LEDR Assigned for testing purposes.
 	assign LEDR[0] = secondP;
 	assign LEDR[1] = minuteP;
 	assign LEDR[2] = hoursP;
+	assign LEDR[4] = dispenseMorning;
+	assign LEDR[5] = dispenseAfternoon;
+	assign LEDR[6] = dispenseEvening;
 	
+	//HEX Display for clock
 	hex h0(HEX0, hexSeconds[3:0]);
 	hex h1(HEX1, hexSeconds[5:4]);
 	hex h2(HEX2, hexMinutes[3:0]);
@@ -186,7 +201,7 @@ module hex(out,in);
 		endcase
 endmodule
 
-module FSMCLOCK(clock, set, reset, minutes, seconds, hours, blinkHours, blinkMinutes, blinkSeconds, outhours, outminutes, outseconds);
+module clockControlFSM(clock, set, reset, minutes, seconds, hours, blinkHours, blinkMinutes, blinkSeconds, outhours, outminutes, outseconds);
 
 	input clock, set, reset; 
 	
@@ -232,8 +247,10 @@ module FSMCLOCK(clock, set, reset, minutes, seconds, hours, blinkHours, blinkMin
 	begin
 		if (set == 1)
 			currentstate = setMode;
-		if (reset == 0)
+		else if (reset == 0)
 			currentstate = resetMode;
+		else
+			currentstate = nextstate;
 	end
 	
 	always @(*)
@@ -322,6 +339,91 @@ module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMin
 				hexMinutes <= 0;
 				hexSeconds <= 0;
 			end
+		end
+	end
+endmodule
+
+module circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
+
+	input clock, morningP, afternoonP, eveningP;
+	output reg dispenseMorning, dispenseAfternoon, dispenseEvening;
+
+	parameter steadyState = 3'b000, morning = 3'b001, afternoon = 3'b010, evening = 3'b011; //manualOverride = 3'b100
+	
+	reg currentState, nextState;
+	
+	always @(*)
+	begin
+		case (currentState)
+			steadyState: begin
+				dispenseMorning <= 0;
+				dispenseAfternoon <= 0;
+				dispenseEvening <= 0;
+			end
+			
+			morning: begin
+				dispenseMorning <= 1;
+				dispenseAfternoon <= 0;
+				dispenseEvening <= 0;
+			end
+			
+			afternoon: begin
+				dispenseMorning <= 0;
+				dispenseAfternoon <= 1;
+				dispenseEvening <= 0;
+			end
+			
+			evening: begin
+				dispenseMorning <= 0;
+				dispenseAfternoon <= 0;
+				dispenseEvening <= 1;
+			end
+		endcase
+	end
+	
+	always @(posedge clock)
+	begin
+		if (morningP == 1)
+			currentState <= dispenseMorning;
+		else if (afternoonP == 1)
+			currentState <= dispenseAfternoon;
+		else if (eveningP == 1)
+			currentState <= dispenseEvening;
+		else
+			currentState <= nextState;
+	end
+	
+	always @(*)
+	begin
+		case (currentState)
+			steadyState: nextState <= steadyState;
+			morning: nextState <= steadyState;
+			afternoon: nextState <= steadyState;
+			evening: nextState <= steadyState;
+		endcase
+	end
+endmodule
+
+module dispenseTime(clock, seconds, minutes, hours, dispenseMorning, dispenseAfternoon, dispenseEvening);
+	
+	input clock;
+	input [5:0] seconds, minutes;
+	input [4:0] hours;
+	
+	output reg dispenseMorning, dispenseAfternoon, dispenseEvening;
+	
+	always @(posedge clock)
+	begin
+		if (hours == 8 && minutes == 0 && seconds == 0)
+			dispenseMorning <= 1;
+		else if (hours == 13 && minutes == 0 && seconds == 0)
+			dispenseAfternoon <= 1;
+		else 	if (hours == 20 && minutes == 0 && seconds == 0)
+			dispenseEvening <= 1;
+		else begin
+			dispenseMorning <= 0;
+			dispenseEvening <= 0;
+			dispenseAfternoon <= 0;
 		end
 	end
 endmodule

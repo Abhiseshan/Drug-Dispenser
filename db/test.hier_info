@@ -1,5 +1,5 @@
 |test
-CLOCK_50 => CLOCK_50.IN6
+CLOCK_50 => CLOCK_50.IN7
 SW[0] => ~NO_FANOUT~
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
@@ -18,9 +18,9 @@ LEDR[0] <= secondP.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[1] <= minuteP.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[2] <= hoursP.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[3] <= SecondCounter:Sc.port3
-LEDR[4] <= <GND>
-LEDR[5] <= <GND>
-LEDR[6] <= <GND>
+LEDR[4] <= circuitControlFSM:comb_4.port4
+LEDR[5] <= circuitControlFSM:comb_4.port5
+LEDR[6] <= circuitControlFSM:comb_4.port6
 LEDR[7] <= <GND>
 LEDR[8] <= <GND>
 LEDR[9] <= <GND>
@@ -66,6 +66,42 @@ HEX5[3] <= hex:h5.port0
 HEX5[2] <= hex:h5.port0
 HEX5[1] <= hex:h5.port0
 HEX5[0] <= hex:h5.port0
+GPIO_0[0] => ~NO_FANOUT~
+GPIO_0[1] => ~NO_FANOUT~
+GPIO_0[2] => ~NO_FANOUT~
+GPIO_0[3] => ~NO_FANOUT~
+GPIO_0[4] => ~NO_FANOUT~
+GPIO_0[5] => ~NO_FANOUT~
+GPIO_0[6] => ~NO_FANOUT~
+GPIO_0[7] => ~NO_FANOUT~
+GPIO_0[8] => ~NO_FANOUT~
+GPIO_0[9] => ~NO_FANOUT~
+GPIO_0[10] => ~NO_FANOUT~
+GPIO_0[11] => ~NO_FANOUT~
+GPIO_0[12] => ~NO_FANOUT~
+GPIO_0[13] => ~NO_FANOUT~
+GPIO_0[14] => ~NO_FANOUT~
+GPIO_0[15] => ~NO_FANOUT~
+GPIO_0[16] => ~NO_FANOUT~
+GPIO_0[17] => ~NO_FANOUT~
+GPIO_0[18] => ~NO_FANOUT~
+GPIO_0[19] => ~NO_FANOUT~
+GPIO_0[20] => ~NO_FANOUT~
+GPIO_0[21] => ~NO_FANOUT~
+GPIO_0[22] => ~NO_FANOUT~
+GPIO_0[23] => ~NO_FANOUT~
+GPIO_0[24] => ~NO_FANOUT~
+GPIO_0[25] => ~NO_FANOUT~
+GPIO_0[26] => ~NO_FANOUT~
+GPIO_0[27] => ~NO_FANOUT~
+GPIO_0[28] => ~NO_FANOUT~
+GPIO_0[29] => ~NO_FANOUT~
+GPIO_0[30] => ~NO_FANOUT~
+GPIO_0[31] => ~NO_FANOUT~
+GPIO_0[32] => ~NO_FANOUT~
+GPIO_0[33] => ~NO_FANOUT~
+GPIO_0[34] => ~NO_FANOUT~
+GPIO_0[35] => ~NO_FANOUT~
 
 
 |test|SecondCounter:Sc
@@ -418,10 +454,12 @@ hexSeconds[4] <= hexSeconds[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 hexSeconds[5] <= hexSeconds[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|test|FSMCLOCK:FSMClk
+|test|clockControlFSM:FSMClk
 clock => currentstate~1.DATAIN
 set => currentstate.OUTPUTSELECT
 set => currentstate.OUTPUTSELECT
+set => nextstate.setMode.DATAB
+set => nextstate.clockMode.DATAB
 reset => currentstate.OUTPUTSELECT
 reset => currentstate.OUTPUTSELECT
 minutes[0] => Selector11.IN3
@@ -475,6 +513,52 @@ outseconds[2] <= Selector3.DB_MAX_OUTPUT_PORT_TYPE
 outseconds[3] <= Selector2.DB_MAX_OUTPUT_PORT_TYPE
 outseconds[4] <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
 outseconds[5] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|test|dispenseTime:comb_3
+clock => dispenseEvening~reg0.CLK
+clock => dispenseAfternoon~reg0.CLK
+clock => dispenseMorning~reg0.CLK
+seconds[0] => Equal4.IN31
+seconds[1] => Equal4.IN30
+seconds[2] => Equal4.IN29
+seconds[3] => Equal4.IN28
+seconds[4] => Equal4.IN27
+seconds[5] => Equal4.IN26
+minutes[0] => Equal3.IN31
+minutes[1] => Equal3.IN30
+minutes[2] => Equal3.IN29
+minutes[3] => Equal3.IN28
+minutes[4] => Equal3.IN27
+minutes[5] => Equal3.IN26
+hours[0] => Equal0.IN31
+hours[0] => Equal1.IN2
+hours[0] => Equal2.IN31
+hours[1] => Equal0.IN30
+hours[1] => Equal1.IN31
+hours[1] => Equal2.IN30
+hours[2] => Equal0.IN29
+hours[2] => Equal1.IN1
+hours[2] => Equal2.IN1
+hours[3] => Equal0.IN0
+hours[3] => Equal1.IN0
+hours[3] => Equal2.IN29
+hours[4] => Equal0.IN28
+hours[4] => Equal1.IN30
+hours[4] => Equal2.IN0
+dispenseMorning <= dispenseMorning~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dispenseAfternoon <= dispenseAfternoon~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dispenseEvening <= dispenseEvening~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|test|circuitControlFSM:comb_4
+clock => currentState.CLK
+morningP => currentState.OUTPUTSELECT
+afternoonP => ~NO_FANOUT~
+eveningP => ~NO_FANOUT~
+dispenseMorning <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+dispenseAfternoon <= <GND>
+dispenseEvening <= <GND>
 
 
 |test|hex:h0
