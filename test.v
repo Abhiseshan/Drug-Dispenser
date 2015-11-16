@@ -39,6 +39,12 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	//Update Signals
 	wire update;
 	
+	//Dispenser Module 1
+	wire d1m, d1a, d1e;
+	
+	//Dispenser Module 2
+	wire d2m, d2a, d2e;
+	
 	//Counters
 	SecondCounter Sc(CLOCK_50, KEY[0], secondP, LEDR[3]);
 	MinuteCounter Mc(CLOCK_50, secondP, update, setSeconds, KEY[0], minuteP, seconds);
@@ -61,7 +67,7 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	assign LEDR[5] = dispenseAfternoon;
 	assign LEDR[6] = dispenseEvening;
 	
-	//HEX Display for clock
+	//HEX Display for clock - To be removed later on.
 	hex h0(HEX0, hexSeconds[3:0]);
 	hex h1(HEX1, hexSeconds[5:4]);
 	hex h2(HEX2, hexMinutes[3:0]);
@@ -431,4 +437,47 @@ module dispenseTime(clock, seconds, minutes, hours, dispenseMorning, dispenseAft
 			dispenseAfternoon <= 0;
 		end
 	end
+endmodule
+
+module dispsenser(input clock, morningP, afternoonP, eveningP, dm, da, de, output GPIO_PORT);
+	
+	reg dispense;
+	initial dispense = 0;
+	
+	always@(posedge clock)
+		if (dm == 1 && morningP == 1)
+			dispense <= 1;
+		else if (da == 1 && afternoonP == 1)
+			dispense <= 1;
+		else if (de == 1 && eveningP == 1)
+			dispense <= 1;
+		else 
+			dispense <= 0;
+			
+		dispense d(clock, dispense, GPIO_PORT);
+endmodule
+
+module dispense(input clock, signal, output reg port);
+	
+	reg [30:0] counter;
+	initial counter = 0;
+	
+	always @(posedge clock)
+	begin
+		if (signal == 1) begin
+			counter <= 0;
+			port <= 1;
+		end
+		else
+		if (counter == 49999999)  
+			begin
+				counter <= 0;
+				port <= 0;
+			end
+		else
+			begin
+				counter <= counter + 1;
+			end
+	end
+
 endmodule

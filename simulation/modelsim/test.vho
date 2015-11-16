@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 15.0.0 Build 145 04/22/2015 SJ Web Edition"
 
--- DATE "11/15/2015 20:36:22"
+-- DATE "11/16/2015 01:46:56"
 
 -- 
 -- Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -41,13 +41,13 @@ ENTITY 	test IS
 	CLOCK_50 : IN std_logic;
 	SW : IN std_logic_vector(9 DOWNTO 0);
 	KEY : IN std_logic_vector(3 DOWNTO 0);
-	LEDR : OUT std_logic_vector(9 DOWNTO 0);
-	HEX0 : OUT std_logic_vector(0 TO 6);
-	HEX1 : OUT std_logic_vector(0 TO 6);
-	HEX2 : OUT std_logic_vector(0 TO 6);
-	HEX3 : OUT std_logic_vector(0 TO 6);
-	HEX4 : OUT std_logic_vector(0 TO 6);
-	HEX5 : OUT std_logic_vector(0 TO 6);
+	LEDR : BUFFER std_logic_vector(9 DOWNTO 0);
+	HEX0 : BUFFER std_logic_vector(0 TO 6);
+	HEX1 : BUFFER std_logic_vector(0 TO 6);
+	HEX2 : BUFFER std_logic_vector(0 TO 6);
+	HEX3 : BUFFER std_logic_vector(0 TO 6);
+	HEX4 : BUFFER std_logic_vector(0 TO 6);
+	HEX5 : BUFFER std_logic_vector(0 TO 6);
 	GPIO_0 : IN std_logic_vector(35 DOWNTO 0)
 	);
 END test;
@@ -416,20 +416,6 @@ SIGNAL \setT|outMinutes\ : std_logic_vector(5 DOWNTO 0);
 SIGNAL \Mc|counter\ : std_logic_vector(5 DOWNTO 0);
 SIGNAL \setT|outHours\ : std_logic_vector(4 DOWNTO 0);
 SIGNAL \Hc|counter\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \ALT_INV_KEY[3]~input_o\ : std_logic;
-SIGNAL \ALT_INV_KEY[2]~input_o\ : std_logic;
-SIGNAL \ALT_INV_KEY[1]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[9]~input_o\ : std_logic;
-SIGNAL \ALT_INV_KEY[0]~input_o\ : std_logic;
-SIGNAL \setT|ALT_INV_flag2~combout\ : std_logic;
-SIGNAL \setT|ALT_INV_LED~combout\ : std_logic;
-SIGNAL \setT|ALT_INV_comb~1_combout\ : std_logic;
-SIGNAL \setT|ALT_INV_outHours[4]~3_combout\ : std_logic;
-SIGNAL \setT|ALT_INV_Add1~2_combout\ : std_logic;
-SIGNAL \setT|ALT_INV_Add1~1_combout\ : std_logic;
-SIGNAL \setT|ALT_INV_outMinutes[4]~2_combout\ : std_logic;
-SIGNAL \setT|ALT_INV_Add1~0_combout\ : std_logic;
-SIGNAL \Sc|ALT_INV_counter\ : std_logic_vector(30 DOWNTO 0);
 SIGNAL \Hc|ALT_INV_Equal0~1_combout\ : std_logic;
 SIGNAL \setT|ALT_INV_Add0~2_combout\ : std_logic;
 SIGNAL \setT|ALT_INV_Add0~1_combout\ : std_logic;
@@ -474,6 +460,20 @@ SIGNAL \Sc|ALT_INV_LED~q\ : std_logic;
 SIGNAL \Hc|ALT_INV_pulse~q\ : std_logic;
 SIGNAL \Mc|ALT_INV_pulse~q\ : std_logic;
 SIGNAL \Sc|ALT_INV_pulse~q\ : std_logic;
+SIGNAL \Sc|ALT_INV_counter\ : std_logic_vector(30 DOWNTO 0);
+SIGNAL \ALT_INV_KEY[3]~input_o\ : std_logic;
+SIGNAL \ALT_INV_KEY[2]~input_o\ : std_logic;
+SIGNAL \ALT_INV_KEY[1]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[9]~input_o\ : std_logic;
+SIGNAL \ALT_INV_KEY[0]~input_o\ : std_logic;
+SIGNAL \setT|ALT_INV_flag2~combout\ : std_logic;
+SIGNAL \setT|ALT_INV_LED~combout\ : std_logic;
+SIGNAL \setT|ALT_INV_comb~1_combout\ : std_logic;
+SIGNAL \setT|ALT_INV_outHours[4]~3_combout\ : std_logic;
+SIGNAL \setT|ALT_INV_Add1~2_combout\ : std_logic;
+SIGNAL \setT|ALT_INV_Add1~1_combout\ : std_logic;
+SIGNAL \setT|ALT_INV_outMinutes[4]~2_combout\ : std_logic;
+SIGNAL \setT|ALT_INV_Add1~0_combout\ : std_logic;
 
 BEGIN
 
@@ -491,50 +491,6 @@ ww_GPIO_0 <= GPIO_0;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-\ALT_INV_KEY[3]~input_o\ <= NOT \KEY[3]~input_o\;
-\ALT_INV_KEY[2]~input_o\ <= NOT \KEY[2]~input_o\;
-\ALT_INV_KEY[1]~input_o\ <= NOT \KEY[1]~input_o\;
-\ALT_INV_SW[9]~input_o\ <= NOT \SW[9]~input_o\;
-\ALT_INV_KEY[0]~input_o\ <= NOT \KEY[0]~input_o\;
-\setT|ALT_INV_flag2~combout\ <= NOT \setT|flag2~combout\;
-\setT|ALT_INV_LED~combout\ <= NOT \setT|LED~combout\;
-\setT|ALT_INV_comb~1_combout\ <= NOT \setT|comb~1_combout\;
-\setT|ALT_INV_outHours[4]~3_combout\ <= NOT \setT|outHours[4]~3_combout\;
-\setT|ALT_INV_Add1~2_combout\ <= NOT \setT|Add1~2_combout\;
-\setT|ALT_INV_Add1~1_combout\ <= NOT \setT|Add1~1_combout\;
-\setT|ALT_INV_outMinutes[4]~2_combout\ <= NOT \setT|outMinutes[4]~2_combout\;
-\setT|ALT_INV_Add1~0_combout\ <= NOT \setT|Add1~0_combout\;
-\Sc|ALT_INV_counter\(6) <= NOT \Sc|counter\(6);
-\Sc|ALT_INV_counter\(5) <= NOT \Sc|counter\(5);
-\Sc|ALT_INV_counter\(20) <= NOT \Sc|counter\(20);
-\Sc|ALT_INV_counter\(4) <= NOT \Sc|counter\(4);
-\Sc|ALT_INV_counter\(3) <= NOT \Sc|counter\(3);
-\Sc|ALT_INV_counter\(2) <= NOT \Sc|counter\(2);
-\Sc|ALT_INV_counter\(1) <= NOT \Sc|counter\(1);
-\Sc|ALT_INV_counter\(0) <= NOT \Sc|counter\(0);
-\Sc|ALT_INV_counter\(8) <= NOT \Sc|counter\(8);
-\Sc|ALT_INV_counter\(9) <= NOT \Sc|counter\(9);
-\Sc|ALT_INV_counter\(10) <= NOT \Sc|counter\(10);
-\Sc|ALT_INV_counter\(11) <= NOT \Sc|counter\(11);
-\Sc|ALT_INV_counter\(21) <= NOT \Sc|counter\(21);
-\Sc|ALT_INV_counter\(19) <= NOT \Sc|counter\(19);
-\Sc|ALT_INV_counter\(18) <= NOT \Sc|counter\(18);
-\Sc|ALT_INV_counter\(17) <= NOT \Sc|counter\(17);
-\Sc|ALT_INV_counter\(16) <= NOT \Sc|counter\(16);
-\Sc|ALT_INV_counter\(7) <= NOT \Sc|counter\(7);
-\Sc|ALT_INV_counter\(28) <= NOT \Sc|counter\(28);
-\Sc|ALT_INV_counter\(27) <= NOT \Sc|counter\(27);
-\Sc|ALT_INV_counter\(26) <= NOT \Sc|counter\(26);
-\Sc|ALT_INV_counter\(25) <= NOT \Sc|counter\(25);
-\Sc|ALT_INV_counter\(24) <= NOT \Sc|counter\(24);
-\Sc|ALT_INV_counter\(22) <= NOT \Sc|counter\(22);
-\Sc|ALT_INV_counter\(14) <= NOT \Sc|counter\(14);
-\Sc|ALT_INV_counter\(13) <= NOT \Sc|counter\(13);
-\Sc|ALT_INV_counter\(12) <= NOT \Sc|counter\(12);
-\Sc|ALT_INV_counter\(23) <= NOT \Sc|counter\(23);
-\Sc|ALT_INV_counter\(30) <= NOT \Sc|counter\(30);
-\Sc|ALT_INV_counter\(29) <= NOT \Sc|counter\(29);
-\Sc|ALT_INV_counter\(15) <= NOT \Sc|counter\(15);
 \Hc|ALT_INV_Equal0~1_combout\ <= NOT \Hc|Equal0~1_combout\;
 \setT|ALT_INV_Add0~2_combout\ <= NOT \setT|Add0~2_combout\;
 \setT|ALT_INV_Add0~1_combout\ <= NOT \setT|Add0~1_combout\;
@@ -607,6 +563,50 @@ ww_devpor <= devpor;
 \Hc|ALT_INV_pulse~q\ <= NOT \Hc|pulse~q\;
 \Mc|ALT_INV_pulse~q\ <= NOT \Mc|pulse~q\;
 \Sc|ALT_INV_pulse~q\ <= NOT \Sc|pulse~q\;
+\Sc|ALT_INV_counter\(6) <= NOT \Sc|counter\(6);
+\Sc|ALT_INV_counter\(5) <= NOT \Sc|counter\(5);
+\Sc|ALT_INV_counter\(20) <= NOT \Sc|counter\(20);
+\Sc|ALT_INV_counter\(4) <= NOT \Sc|counter\(4);
+\Sc|ALT_INV_counter\(3) <= NOT \Sc|counter\(3);
+\Sc|ALT_INV_counter\(2) <= NOT \Sc|counter\(2);
+\Sc|ALT_INV_counter\(1) <= NOT \Sc|counter\(1);
+\Sc|ALT_INV_counter\(0) <= NOT \Sc|counter\(0);
+\Sc|ALT_INV_counter\(8) <= NOT \Sc|counter\(8);
+\Sc|ALT_INV_counter\(9) <= NOT \Sc|counter\(9);
+\Sc|ALT_INV_counter\(10) <= NOT \Sc|counter\(10);
+\Sc|ALT_INV_counter\(11) <= NOT \Sc|counter\(11);
+\Sc|ALT_INV_counter\(21) <= NOT \Sc|counter\(21);
+\Sc|ALT_INV_counter\(19) <= NOT \Sc|counter\(19);
+\Sc|ALT_INV_counter\(18) <= NOT \Sc|counter\(18);
+\Sc|ALT_INV_counter\(17) <= NOT \Sc|counter\(17);
+\Sc|ALT_INV_counter\(16) <= NOT \Sc|counter\(16);
+\Sc|ALT_INV_counter\(7) <= NOT \Sc|counter\(7);
+\Sc|ALT_INV_counter\(28) <= NOT \Sc|counter\(28);
+\Sc|ALT_INV_counter\(27) <= NOT \Sc|counter\(27);
+\Sc|ALT_INV_counter\(26) <= NOT \Sc|counter\(26);
+\Sc|ALT_INV_counter\(25) <= NOT \Sc|counter\(25);
+\Sc|ALT_INV_counter\(24) <= NOT \Sc|counter\(24);
+\Sc|ALT_INV_counter\(22) <= NOT \Sc|counter\(22);
+\Sc|ALT_INV_counter\(14) <= NOT \Sc|counter\(14);
+\Sc|ALT_INV_counter\(13) <= NOT \Sc|counter\(13);
+\Sc|ALT_INV_counter\(12) <= NOT \Sc|counter\(12);
+\Sc|ALT_INV_counter\(23) <= NOT \Sc|counter\(23);
+\Sc|ALT_INV_counter\(30) <= NOT \Sc|counter\(30);
+\Sc|ALT_INV_counter\(29) <= NOT \Sc|counter\(29);
+\Sc|ALT_INV_counter\(15) <= NOT \Sc|counter\(15);
+\ALT_INV_KEY[3]~input_o\ <= NOT \KEY[3]~input_o\;
+\ALT_INV_KEY[2]~input_o\ <= NOT \KEY[2]~input_o\;
+\ALT_INV_KEY[1]~input_o\ <= NOT \KEY[1]~input_o\;
+\ALT_INV_SW[9]~input_o\ <= NOT \SW[9]~input_o\;
+\ALT_INV_KEY[0]~input_o\ <= NOT \KEY[0]~input_o\;
+\setT|ALT_INV_flag2~combout\ <= NOT \setT|flag2~combout\;
+\setT|ALT_INV_LED~combout\ <= NOT \setT|LED~combout\;
+\setT|ALT_INV_comb~1_combout\ <= NOT \setT|comb~1_combout\;
+\setT|ALT_INV_outHours[4]~3_combout\ <= NOT \setT|outHours[4]~3_combout\;
+\setT|ALT_INV_Add1~2_combout\ <= NOT \setT|Add1~2_combout\;
+\setT|ALT_INV_Add1~1_combout\ <= NOT \setT|Add1~1_combout\;
+\setT|ALT_INV_outMinutes[4]~2_combout\ <= NOT \setT|outMinutes[4]~2_combout\;
+\setT|ALT_INV_Add1~0_combout\ <= NOT \setT|Add1~0_combout\;
 
 -- Location: IOOBUF_X52_Y0_N2
 \LEDR[0]~output\ : cyclonev_io_obuf
