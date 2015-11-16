@@ -220,10 +220,12 @@ module clockControlFSM(clock, set, update, reset, minutes, seconds, hours, setHo
 	output reg [4:0] outhours;
 	
 	output reg update;
+	initial update = 0;
 	
 	parameter clockMode = 1'b00, setMode = 1'b01, resetMode = 1'b10, updateMode = 1'b11;
 	
 	reg [1:0] currentstate, nextstate;
+	initial currentstate = clockMode;
 
 	//Controling output to hex display
 	always @(*)
@@ -238,6 +240,7 @@ module clockControlFSM(clock, set, update, reset, minutes, seconds, hours, setHo
 		
 			setMode: begin
 				//Control Blinking here
+				update <= 0;
 				outseconds <= setSeconds;
 				outminutes <= setMinutes;
 				outhours <= setHours;
@@ -275,7 +278,7 @@ module clockControlFSM(clock, set, update, reset, minutes, seconds, hours, setHo
 			clockMode: nextstate = clockMode;
 			setMode: nextstate = (set == 1)?setMode:updateMode;
 			updateMode: nextstate = clockMode;
-			resetMode: nextstate = clockMode;
+			resetMode: nextstate = (set == 1)?setMode:clockMode;
 		endcase
 	end
 endmodule
@@ -313,7 +316,7 @@ module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMin
 		end
 	end
 	
-	always @(posedge clock)
+	always @(*)
 	begin
 		if (flag2 == 1) begin
 			outSeconds <= seconds;
@@ -323,7 +326,6 @@ module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMin
 		end
 		if (flag2 == 0)
 			flag3 <= 0;
-		else begin
 		if (incrementSeconds == 0) begin
 			if (outSeconds == 59)
 				outSeconds <= 0;
@@ -350,7 +352,6 @@ module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMin
 		end
 		else
 			outHours <= hours;
-		end
 	end
 endmodule
 
