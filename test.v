@@ -36,15 +36,18 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	//Dispense Signals
 	wire dispenseMorning, dispenseAfternoon, dispenseEvening;
 	
+	//Update Signals
+	wire update;
+	
 	//Counters
 	SecondCounter Sc(CLOCK_50, KEY[0], secondP, LEDR[3]);
-	MinuteCounter Mc(CLOCK_50, secondP, SW[9], setSeconds, KEY[0], minuteP, seconds);
-	HourCounter Hc (CLOCK_50, minuteP, SW[9], setMinutes, KEY[0], hoursP, minutes);
-	Hours H(CLOCK_50, hoursP, SW[9], setHours, KEY[0], hours);
+	MinuteCounter Mc(CLOCK_50, secondP, update, setSeconds, KEY[0], minuteP, seconds);
+	HourCounter Hc (CLOCK_50, minuteP, update, setMinutes, KEY[0], hoursP, minutes);
+	Hours H(CLOCK_50, hoursP, update, setHours, KEY[0], hours);
 	
 	//Clock Management
 	setTime setT(CLOCK_50, SW[9], seconds, hours, minutes, KEY[3], KEY[2], KEY[1], secondP, setHours, setMinutes, setSeconds, LEDR[7]);
-	clockControlFSM FSMClk(CLOCK_50, SW[9], KEY[0], minutes, seconds, hours, hexHours, hexMinutes, hexSeconds);
+	clockControlFSM FSMClk(CLOCK_50, SW[9], update, KEY[0], minutes, seconds, hours, setHours, setMinutes, setSeconds, hexHours, hexMinutes, hexSeconds);
 
 	//Circuit Management
 	dispenseTime dT(CLOCK_50, seconds, minutes, hours, morningP, afternoonP, eveningP);
@@ -197,17 +200,22 @@ module hex(out,in);
 		endcase
 endmodule
 
-module clockControlFSM(clock, set, reset, minutes, seconds, hours, outhours, outminutes, outseconds);
+module clockControlFSM(clock, set, update, reset, minutes, seconds, hours, setHours, setMinutes, setSeconds, outhours, outminutes, outseconds);
 
 	input clock, set, reset; 
 	
 	input [5:0] minutes, seconds;
 	input [4:0] hours;
-		
+	
+	input [5:0] setMinutes, setSeconds;
+	input [4:0] setHours;
+	
 	output reg [5:0] outminutes, outseconds;
 	output reg [4:0] outhours;
 	
-	parameter clockMode = 1'b00, setMode = 1'b01, resetMode = 1'b10;
+	output reg update;
+	
+	parameter clockMode = 1'b00, setMode = 1'b01, resetMode = 1'b10, updateMode = 1'b11;
 	
 	reg [1:0] currentstate, nextstate;
 
@@ -216,6 +224,7 @@ module clockControlFSM(clock, set, reset, minutes, seconds, hours, outhours, out
 	begin
 		case (currentstate)
 			clockMode: begin
+				update <= 0;
 				outseconds <= seconds;
 				outminutes <= minutes;
 				outhours <= hours;
@@ -223,9 +232,9 @@ module clockControlFSM(clock, set, reset, minutes, seconds, hours, outhours, out
 		
 			setMode: begin
 				//Control Blinking here
-				outseconds <= seconds;
-				outminutes <= minutes;
-				outhours <= hours;
+				outseconds <= setSeconds;
+				outminutes <= setMinutes;
+				outhours <= setHours;
 			end
 			
 			resetMode: begin
@@ -233,6 +242,14 @@ module clockControlFSM(clock, set, reset, minutes, seconds, hours, outhours, out
 				outminutes <= 0;
 				outhours <= 0;
 			end
+			
+			updateMode: begin
+				outseconds <= setSeconds;
+				outminutes <= setMinutes;
+				outhours <= setHours;
+				update <= 1;
+			end
+				
 		endcase
 	end
 	
@@ -250,7 +267,8 @@ module clockControlFSM(clock, set, reset, minutes, seconds, hours, outhours, out
 	begin
 		case (currentstate)
 			clockMode: nextstate = clockMode;
-			setMode: nextstate = (set == 1)?setMode:clockMode;
+			setMode: nextstate = (set == 1)?setMode:updateMode;
+			updateMode: nextstate = clockMode;
 			resetMode: nextstate = clockMode;
 		endcase
 	end

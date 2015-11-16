@@ -1,5 +1,5 @@
 Assembler report for test
-Sun Nov 15 01:30:01 2015
+Sun Nov 15 20:36:04 2015
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Nov 15 01:30:01 2015 ;
+; Assembler Status      ; Successful - Sun Nov 15 20:36:04 2015 ;
 ; Revision Name         ; test                                  ;
 ; Top-level Entity Name ; test                                  ;
 ; Family                ; Cyclone V                             ;
@@ -68,8 +68,8 @@ agreement for further details.
 ; Option         ; Setting                                                                    ;
 +----------------+----------------------------------------------------------------------------+
 ; Device         ; 5CSEMA5F31C6                                                               ;
-; JTAG usercode  ; 0x00B2597D                                                                 ;
-; Checksum       ; 0x00B2597D                                                                 ;
+; JTAG usercode  ; 0x00B1F7AE                                                                 ;
+; Checksum       ; 0x00B1F7AE                                                                 ;
 +----------------+----------------------------------------------------------------------------+
 
 
@@ -79,13 +79,13 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Sun Nov 15 01:29:44 2015
+    Info: Processing started: Sun Nov 15 20:35:49 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off test -c test
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 754 megabytes
-    Info: Processing ended: Sun Nov 15 01:30:01 2015
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Peak virtual memory: 757 megabytes
+    Info: Processing ended: Sun Nov 15 20:36:04 2015
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:13
 
 
