@@ -1,5 +1,5 @@
 |test
-CLOCK_50 => CLOCK_50.IN7
+CLOCK_50 => CLOCK_50.IN10
 SW[0] => ~NO_FANOUT~
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
@@ -9,63 +9,63 @@ SW[5] => ~NO_FANOUT~
 SW[6] => ~NO_FANOUT~
 SW[7] => ~NO_FANOUT~
 SW[8] => ~NO_FANOUT~
-SW[9] => SW[9].IN2
+SW[9] => SW[9].IN1
 KEY[0] => KEY[0].IN5
 KEY[1] => KEY[1].IN1
 KEY[2] => KEY[2].IN1
 KEY[3] => KEY[3].IN1
-LEDR[0] << secondP.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[1] << minuteP.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[2] << hoursP.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[3] << SecondCounter:Sc.port3
-LEDR[4] << circuitControlFSM:ccFSM.port4
-LEDR[5] << circuitControlFSM:ccFSM.port5
-LEDR[6] << circuitControlFSM:ccFSM.port6
-LEDR[7] << setTime:setT.port12
-LEDR[8] << <GND>
-LEDR[9] << <GND>
-HEX0[6] << hex:h0.port0
-HEX0[5] << hex:h0.port0
-HEX0[4] << hex:h0.port0
-HEX0[3] << hex:h0.port0
-HEX0[2] << hex:h0.port0
-HEX0[1] << hex:h0.port0
-HEX0[0] << hex:h0.port0
-HEX1[6] << hex:h1.port0
-HEX1[5] << hex:h1.port0
-HEX1[4] << hex:h1.port0
-HEX1[3] << hex:h1.port0
-HEX1[2] << hex:h1.port0
-HEX1[1] << hex:h1.port0
-HEX1[0] << hex:h1.port0
-HEX2[6] << hex:h2.port0
-HEX2[5] << hex:h2.port0
-HEX2[4] << hex:h2.port0
-HEX2[3] << hex:h2.port0
-HEX2[2] << hex:h2.port0
-HEX2[1] << hex:h2.port0
-HEX2[0] << hex:h2.port0
-HEX3[6] << hex:h3.port0
-HEX3[5] << hex:h3.port0
-HEX3[4] << hex:h3.port0
-HEX3[3] << hex:h3.port0
-HEX3[2] << hex:h3.port0
-HEX3[1] << hex:h3.port0
-HEX3[0] << hex:h3.port0
-HEX4[6] << hex:h4.port0
-HEX4[5] << hex:h4.port0
-HEX4[4] << hex:h4.port0
-HEX4[3] << hex:h4.port0
-HEX4[2] << hex:h4.port0
-HEX4[1] << hex:h4.port0
-HEX4[0] << hex:h4.port0
-HEX5[6] << hex:h5.port0
-HEX5[5] << hex:h5.port0
-HEX5[4] << hex:h5.port0
-HEX5[3] << hex:h5.port0
-HEX5[2] << hex:h5.port0
-HEX5[1] << hex:h5.port0
-HEX5[0] << hex:h5.port0
+LEDR[0] <= testLightLED:LED0.port2
+LEDR[1] <= testLightLED:LED1.port2
+LEDR[2] <= testLightLED:LED2.port2
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+HEX0[6] <= hex:h0.port0
+HEX0[5] <= hex:h0.port0
+HEX0[4] <= hex:h0.port0
+HEX0[3] <= hex:h0.port0
+HEX0[2] <= hex:h0.port0
+HEX0[1] <= hex:h0.port0
+HEX0[0] <= hex:h0.port0
+HEX1[6] <= hex:h1.port0
+HEX1[5] <= hex:h1.port0
+HEX1[4] <= hex:h1.port0
+HEX1[3] <= hex:h1.port0
+HEX1[2] <= hex:h1.port0
+HEX1[1] <= hex:h1.port0
+HEX1[0] <= hex:h1.port0
+HEX2[6] <= hex:h2.port0
+HEX2[5] <= hex:h2.port0
+HEX2[4] <= hex:h2.port0
+HEX2[3] <= hex:h2.port0
+HEX2[2] <= hex:h2.port0
+HEX2[1] <= hex:h2.port0
+HEX2[0] <= hex:h2.port0
+HEX3[6] <= hex:h3.port0
+HEX3[5] <= hex:h3.port0
+HEX3[4] <= hex:h3.port0
+HEX3[3] <= hex:h3.port0
+HEX3[2] <= hex:h3.port0
+HEX3[1] <= hex:h3.port0
+HEX3[0] <= hex:h3.port0
+HEX4[6] <= hex:h4.port0
+HEX4[5] <= hex:h4.port0
+HEX4[4] <= hex:h4.port0
+HEX4[3] <= hex:h4.port0
+HEX4[2] <= hex:h4.port0
+HEX4[1] <= hex:h4.port0
+HEX4[0] <= hex:h4.port0
+HEX5[6] <= hex:h5.port0
+HEX5[5] <= hex:h5.port0
+HEX5[4] <= hex:h5.port0
+HEX5[3] <= hex:h5.port0
+HEX5[2] <= hex:h5.port0
+HEX5[1] <= hex:h5.port0
+HEX5[0] <= hex:h5.port0
 GPIO_0[0] => ~NO_FANOUT~
 GPIO_0[1] => ~NO_FANOUT~
 GPIO_0[2] => ~NO_FANOUT~
@@ -105,7 +105,6 @@ GPIO_0[35] => ~NO_FANOUT~
 
 
 |test|SecondCounter:Sc
-CLOCK_50 => LED~reg0.CLK
 CLOCK_50 => pulse~reg0.CLK
 CLOCK_50 => counter[0].CLK
 CLOCK_50 => counter[1].CLK
@@ -170,9 +169,7 @@ reset => counter.OUTPUTSELECT
 reset => counter.OUTPUTSELECT
 reset => counter.OUTPUTSELECT
 reset => pulse~reg0.ENA
-reset => LED~reg0.ENA
 pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
-LED <= LED~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |test|MinuteCounter:Mc
@@ -297,64 +294,41 @@ hours[4] <= hours[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |test|setTime:setT
-clock => flag3.CLK
-clock => outHours[0]~reg0.CLK
-clock => outHours[1]~reg0.CLK
-clock => outHours[2]~reg0.CLK
-clock => outHours[3]~reg0.CLK
-clock => outHours[4]~reg0.CLK
-clock => outMinutes[0]~reg0.CLK
-clock => outMinutes[1]~reg0.CLK
-clock => outMinutes[2]~reg0.CLK
-clock => outMinutes[3]~reg0.CLK
-clock => outMinutes[4]~reg0.CLK
-clock => outMinutes[5]~reg0.CLK
-clock => outSeconds[0]~reg0.CLK
-clock => outSeconds[1]~reg0.CLK
-clock => outSeconds[2]~reg0.CLK
-clock => outSeconds[3]~reg0.CLK
-clock => outSeconds[4]~reg0.CLK
-clock => outSeconds[5]~reg0.CLK
-set => LED.IN1
-set => flag2.IN1
-set => comb.IN1
-set => comb.IN1
-set => comb.IN1
-set => comb.IN1
+clock => clock.IN1
+set => outSeconds.OUTPUTSELECT
+set => outSeconds.OUTPUTSELECT
+set => outSeconds.OUTPUTSELECT
+set => outSeconds.OUTPUTSELECT
+set => outSeconds.OUTPUTSELECT
+set => outSeconds.OUTPUTSELECT
+set => outMinutes.OUTPUTSELECT
+set => outMinutes.OUTPUTSELECT
+set => outMinutes.OUTPUTSELECT
+set => outMinutes.OUTPUTSELECT
+set => outMinutes.OUTPUTSELECT
+set => outMinutes.OUTPUTSELECT
+set => outHours.OUTPUTSELECT
+set => outHours.OUTPUTSELECT
+set => outHours.OUTPUTSELECT
+set => outHours.OUTPUTSELECT
+set => outHours.OUTPUTSELECT
 seconds[0] => outSeconds.DATAB
-seconds[0] => outSeconds.DATAA
 seconds[1] => outSeconds.DATAB
-seconds[1] => outSeconds.DATAA
 seconds[2] => outSeconds.DATAB
-seconds[2] => outSeconds.DATAA
 seconds[3] => outSeconds.DATAB
-seconds[3] => outSeconds.DATAA
 seconds[4] => outSeconds.DATAB
-seconds[4] => outSeconds.DATAA
 seconds[5] => outSeconds.DATAB
-seconds[5] => outSeconds.DATAA
 hours[0] => outHours.DATAB
-hours[0] => outHours.DATAA
 hours[1] => outHours.DATAB
-hours[1] => outHours.DATAA
 hours[2] => outHours.DATAB
-hours[2] => outHours.DATAA
 hours[3] => outHours.DATAB
-hours[3] => outHours.DATAA
 hours[4] => outHours.DATAB
-hours[4] => outHours.DATAA
 minutes[0] => outMinutes.DATAB
-minutes[0] => outMinutes.DATAA
 minutes[1] => outMinutes.DATAB
-minutes[1] => outMinutes.DATAA
 minutes[2] => outMinutes.DATAB
-minutes[2] => outMinutes.DATAA
 minutes[3] => outMinutes.DATAB
-minutes[3] => outMinutes.DATAA
 minutes[4] => outMinutes.DATAB
-minutes[4] => outMinutes.DATAA
 minutes[5] => outMinutes.DATAB
-minutes[5] => outMinutes.DATAA
 incrementHours => outHours.OUTPUTSELECT
 incrementHours => outHours.OUTPUTSELECT
 incrementHours => outHours.OUTPUTSELECT
@@ -390,16 +364,62 @@ outSeconds[2] <= outSeconds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 outSeconds[3] <= outSeconds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 outSeconds[4] <= outSeconds[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 outSeconds[5] <= outSeconds[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-LED <= LED$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|test|setTime:setT|buttonPushTimer:bpt
+clock => pulse~reg0.CLK
+clock => counter[0].CLK
+clock => counter[1].CLK
+clock => counter[2].CLK
+clock => counter[3].CLK
+clock => counter[4].CLK
+clock => counter[5].CLK
+clock => counter[6].CLK
+clock => counter[7].CLK
+clock => counter[8].CLK
+clock => counter[9].CLK
+clock => counter[10].CLK
+clock => counter[11].CLK
+clock => counter[12].CLK
+clock => counter[13].CLK
+clock => counter[14].CLK
+clock => counter[15].CLK
+clock => counter[16].CLK
+clock => counter[17].CLK
+clock => counter[18].CLK
+clock => counter[19].CLK
+clock => counter[20].CLK
+clock => counter[21].CLK
+clock => counter[22].CLK
+clock => counter[23].CLK
+clock => counter[24].CLK
+clock => counter[25].CLK
+clock => counter[26].CLK
+clock => counter[27].CLK
+clock => counter[28].CLK
+clock => counter[29].CLK
+clock => counter[30].CLK
+pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |test|clockControlFSM:FSMClk
 clock => currentstate~1.DATAIN
+set => always1.IN0
+set => always1.IN0
 set => currentstate.OUTPUTSELECT
 set => currentstate.OUTPUTSELECT
+set => currentstate.OUTPUTSELECT
+set => currentstate.OUTPUTSELECT
+set => currentstate.DATAA
+set => Selector18.IN3
+set => Selector18.IN4
+set => Selector17.IN2
+set => nextstate.updateMode.DATAB
 update <= update$latch.DB_MAX_OUTPUT_PORT_TYPE
 reset => currentstate.OUTPUTSELECT
 reset => currentstate.OUTPUTSELECT
+reset => currentstate.OUTPUTSELECT
+reset => currentstate.DATAA
 minutes[0] => Selector11.IN3
 minutes[1] => Selector10.IN3
 minutes[2] => Selector9.IN3
@@ -451,6 +471,7 @@ outseconds[2] <= Selector3.DB_MAX_OUTPUT_PORT_TYPE
 outseconds[3] <= Selector2.DB_MAX_OUTPUT_PORT_TYPE
 outseconds[4] <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
 outseconds[5] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+setInitVal <= setInitVal$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |test|dispenseTime:dT
@@ -497,6 +518,24 @@ eveningP => ~NO_FANOUT~
 dispenseMorning <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 dispenseAfternoon <= <GND>
 dispenseEvening <= <GND>
+
+
+|test|testLightLED:LED0
+clock => LED~reg0.CLK
+enable => LED~reg0.ENA
+LED <= LED~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|test|testLightLED:LED1
+clock => LED~reg0.CLK
+enable => LED~reg0.ENA
+LED <= LED~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|test|testLightLED:LED2
+clock => LED~reg0.CLK
+enable => LED~reg0.ENA
+LED <= LED~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |test|hex:h0
