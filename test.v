@@ -60,9 +60,9 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	circuitControlFSM ccFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
 
 	//LEDR Assigned for testing purposes.
-	testLightLED LED0(CLOCK_50, dispenseMorning, LEDR[0]);
-	testLightLED LED1(CLOCK_50, dispenseAfternoon, LEDR[1]);
-	testLightLED LED2(CLOCK_50, dispenseEvening, LEDR[2]);
+	dispense LED0(CLOCK_50, morningP, LEDR[0]);
+	dispense LED1(CLOCK_50, afternoonP, LEDR[1]);
+	dispense LED2(CLOCK_50, eveningP, LEDR[2]);
 	
 	//HEX Display for clock - To be removed later on.
 	hex h0(HEX0, hexSeconds[3:0]);
@@ -79,6 +79,8 @@ module testLightLED(input clock, enable, output reg LED);
 	begin
 		if (enable == 1)
 			LED <= 1;
+		else
+			LED <= 0;
 	end
 endmodule
 
@@ -141,6 +143,7 @@ module circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning,
 	parameter steadyState = 3'b000, morning = 3'b001, afternoon = 3'b010, evening = 3'b011; //manualOverride = 3'b100
 	
 	reg [2:0] currentState, nextState;
+	initial currentState = 0;
 	
 	always @(*)
 	begin
