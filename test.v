@@ -82,85 +82,6 @@ module testLightLED(input clock, enable, output reg LED);
 	end
 endmodule
 
-module SecondCounter(input CLOCK_50, reset, output reg pulse);
-	
-	reg [30:0] counter;
-	initial counter = 0;
-	
-	always @(posedge CLOCK_50)
-	begin
-		if (reset == 0)
-			counter <= 0;
-		else
-		if (counter == 49999999)  
-			begin
-				counter <= 0;
-				pulse <= 1;
-			end
-		else
-			begin
-				counter <= counter + 1;
-				pulse <= 0;
-			end
-	end
-endmodule
-
-module MinuteCounter(input CLOCK_50, input secondsPulse, input set, input [5:0] setSeconds, input reset, output reg pulse, output reg [5:0] counter);
-	
-	initial counter = 0;
-	
-	always @(posedge CLOCK_50)
-	begin
-		if (set == 1)
-			counter <= setSeconds;
-		else if (reset == 0)
-			counter <= 0;
-		else if (secondsPulse == 1)
-		begin
-			if (counter == 59)
-				begin
-					counter <= 0;
-					pulse <= 1;
-				end
-			else
-				begin
-					counter <= counter + 1;
-					pulse <= 0;
-				end
-		end
-		else
-			pulse <= 0;
-	end
-endmodule
-
-module HourCounter(input CLOCK_50, input MinutesPulse, input set, input [5:0] setMinutes, input reset, output reg pulse, output reg [5:0] counter);	
-	
-	initial counter = 0;
-	
-	always @(posedge CLOCK_50)
-	begin
-		if (set == 1)
-			counter <= setMinutes;
-		else if (reset == 0)
-			counter <= 0;
-		else if (MinutesPulse == 1)
-		begin
-			if (counter == 59)
-				begin
-					counter <= 0;
-					pulse <= 1;
-				end
-			else
-				begin
-					counter <= counter + 1;
-					pulse <= 0;
-				end
-		end
-		else
-			pulse <= 0;
-	end
-endmodule
-
 module Hours(input CLOCK_50, input hourPulse, input set, input [4:0] setHours, input reset, output reg [4:0] hours);
 
 	initial hours = 0;
@@ -210,148 +131,7 @@ module hex(out,in);
 		endcase
 endmodule
 
-module clockControlFSM(clock, set, update, reset, minutes, seconds, hours, setHours, setMinutes, setSeconds, outhours, outminutes, outseconds, setInitVal);
 
-	input clock, set, reset; 
-	
-	input [5:0] minutes, seconds;
-	input [4:0] hours;
-	
-	input [5:0] setMinutes, setSeconds;
-	input [4:0] setHours;
-	
-	output reg [5:0] outminutes, outseconds;
-	output reg [4:0] outhours;
-	
-	output reg update, setInitVal;
-	initial update = 0;
-	initial setInitVal = 0;
-	
-	parameter clockMode = 3'b000, preSetMode = 3'b001, setMode = 3'b010, resetMode = 3'b011, updateMode = 3'b101;
-	
-	reg [2:0] currentstate, nextstate;
-	initial currentstate = clockMode;
-
-	//Controling output to hex display
-	always @(*)
-	begin
-		case (currentstate)
-			clockMode: begin
-				update <= 0;
-				outseconds <= seconds;
-				outminutes <= minutes;
-				outhours <= hours;
-			end
-			
-			preSetMode: begin
-				update <= 0;
-				setInitVal <= 1;
-				outseconds <= seconds;
-				outminutes <= minutes;
-				outhours <= hours;
-			end
-			
-			setMode: begin
-				setInitVal <= 0;
-				update <= 0;
-				outseconds <= setSeconds;
-				outminutes <= setMinutes;
-				outhours <= setHours;
-			end
-			
-			resetMode: begin
-				outseconds <= 0;
-				outminutes <= 0;
-				outhours <= 0;
-			end
-			
-			updateMode: begin
-				outseconds <= setSeconds;
-				outminutes <= setMinutes;
-				outhours <= setHours;
-				update <= 1;
-			end
-				
-		endcase
-	end
-	
-	always @(posedge clock)
-	begin
-		if (set == 1 && currentstate == setMode)
-			currentstate <= setMode;
-		else if (set == 1 && currentstate == preSetMode)
-			currentstate <= setMode;
-		else if (set == 1)
-			currentstate <= preSetMode;
-		else if (reset == 0)
-			currentstate <= resetMode;
-		else
-			currentstate <= nextstate;
-	end
-	
-	always @(*)
-	begin
-		case (currentstate)
-			clockMode: nextstate = clockMode;
-			preSetMode: nextstate = setMode;
-			setMode: nextstate = (set == 1)?setMode:updateMode;
-			updateMode: nextstate = clockMode;
-			resetMode: nextstate = (set == 1)?setMode:clockMode;
-		endcase
-	end
-endmodule
-
-module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMinutes, incrementSeconds, secondsP, outHours, outMinutes, outSeconds);
-	
-	input clock, set, incrementMinutes, incrementHours, incrementSeconds, secondsP;
-	
-	input [5:0] seconds, minutes;
-	input [4:0] hours;
-	
-	reg [5:0] setSeconds, setMinutes;
-	reg [4:0] setHours;
-	
-	output reg [5:0] outSeconds, outMinutes;
-	output reg [4:0] outHours;
-	
-	wire push;
-
-	initial outSeconds = 0;
-	initial outMinutes = 0;
-	initial outHours = 0;
-	
-	always @(posedge push)
-	begin
-		if (set == 1) begin
-			outSeconds <= seconds;
-			outMinutes <= minutes;
-			outHours <= hours;
-		end
-		
-		if (incrementSeconds == 0) begin
-			if (outSeconds == 59)
-				outSeconds <= 0;
-			else
-				outSeconds <= outSeconds + 1;
-		end
-			
-		if (incrementMinutes == 0) begin
-			if (outMinutes == 59)
-				outMinutes <= 0;
-			else
-				outMinutes <= outMinutes + 1;
-		end
-			
-		if (incrementHours == 0) begin
-			if (outHours == 23)
-				outHours <= 0;
-			else
-				outHours <= outHours + 1;
-		end
-	end
-	
-	buttonPushTimer bpt(clock, push);
-endmodule
 
 module circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
 
@@ -360,7 +140,7 @@ module circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning,
 
 	parameter steadyState = 3'b000, morning = 3'b001, afternoon = 3'b010, evening = 3'b011; //manualOverride = 3'b100
 	
-	reg currentState, nextState;
+	reg [2:0] currentState, nextState;
 	
 	always @(*)
 	begin
@@ -394,11 +174,11 @@ module circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning,
 	always @(posedge clock)
 	begin
 		if (morningP == 1)
-			currentState <= dispenseMorning;
+			currentState <= morning;
 		else if (afternoonP == 1)
-			currentState <= dispenseAfternoon;
+			currentState <= afternoon;
 		else if (eveningP == 1)
-			currentState <= dispenseEvening;
+			currentState <= evening;
 		else
 			currentState <= nextState;
 	end
@@ -406,10 +186,10 @@ module circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning,
 	always @(*)
 	begin
 		case (currentState)
-			steadyState: nextState <= steadyState;
-			morning: nextState <= steadyState;
-			afternoon: nextState <= steadyState;
-			evening: nextState <= steadyState;
+			steadyState: nextState = steadyState;
+			morning: nextState = steadyState;
+			afternoon: nextState = steadyState;
+			evening: nextState = steadyState;
 		endcase
 	end
 endmodule
@@ -480,22 +260,3 @@ module dispense(input clock, signal, output reg port);
 	end
 endmodule
 
-module buttonPushTimer(input clock, output reg pulse);
-	
-	reg [30:0] counter;
-	initial counter = 0;
-	
-	always @(posedge clock)
-	begin
-		if (counter == 9999999)  
-			begin
-				counter <= 0;
-				pulse <= 1;
-			end
-		else
-			begin
-				pulse <= 0;
-				counter <= counter + 1;
-			end
-	end
-endmodule

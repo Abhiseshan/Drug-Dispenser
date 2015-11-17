@@ -1,5 +1,5 @@
 Fitter report for test
-Mon Nov 16 17:37:55 2015
+Tue Nov 17 11:15:09 2015
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -64,7 +64,7 @@ agreement for further details.
 +------------------------------------------------------------------------------+
 ; Fitter Summary                                                               ;
 +---------------------------------+--------------------------------------------+
-; Fitter Status                   ; Successful - Mon Nov 16 17:37:55 2015      ;
+; Fitter Status                   ; Successful - Tue Nov 17 11:15:09 2015      ;
 ; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                   ; test                                       ;
 ; Top-level Entity Name           ; test                                       ;
@@ -437,12 +437,12 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 +-------------------------------------------------------------+--------------------+-------+
 ; Logic utilization (ALMs needed / total ALMs on device)      ; 115 / 32,070       ; < 1 % ;
 ; ALMs needed [=A-B+C]                                        ; 115                ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 122 / 32,070       ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 46                 ;       ;
-;         [b] ALMs used for LUT logic                         ; 69                 ;       ;
-;         [c] ALMs used for registers                         ; 7                  ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 118 / 32,070       ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 49                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 65                 ;       ;
+;         [c] ALMs used for registers                         ; 4                  ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 7 / 32,070         ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 3 / 32,070         ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32,070         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
@@ -451,8 +451,8 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 16 / 3,207         ; < 1 % ;
-;     -- Logic LABs                                           ; 16                 ;       ;
+; Total LABs:  partially or completely used                   ; 18 / 3,207         ; < 1 % ;
+;     -- Logic LABs                                           ; 18                 ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
 ; Combinational ALUT usage for logic                          ; 193                ;       ;
@@ -461,7 +461,7 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 ;     -- 5 input functions                                    ; 18                 ;       ;
 ;     -- 4 input functions                                    ; 33                 ;       ;
 ;     -- <=3 input functions                                  ; 89                 ;       ;
-; Combinational ALUT usage for route-throughs                 ; 1                  ;       ;
+; Combinational ALUT usage for route-throughs                 ; 0                  ;       ;
 ; Dedicated logic registers                                   ; 105                ;       ;
 ;     -- By type:                                             ;                    ;       ;
 ;         -- Primary logic registers                          ; 105 / 64,140       ; < 1 % ;
@@ -524,10 +524,10 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
 ; Average interconnect usage (total/H/V)                      ; 0.2% / 0.2% / 0.2% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 3.5% / 3.5% / 3.3% ;       ;
+; Peak interconnect usage (total/H/V)                         ; 3.7% / 3.8% / 3.2% ;       ;
 ; Maximum fan-out                                             ; 87                 ;       ;
 ; Highest non-global fan-out                                  ; 32                 ;       ;
-; Total fan-out                                               ; 1180               ;       ;
+; Total fan-out                                               ; 1179               ;       ;
 ; Average fan-out                                             ; 2.33               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
@@ -539,12 +539,12 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Logic utilization (ALMs needed / total ALMs on device)      ; 115 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
 ; ALMs needed [=A-B+C]                                        ; 115                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 122 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 46                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 69                    ; 0                              ;
-;         [c] ALMs used for registers                         ; 7                     ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 118 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 49                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 65                    ; 0                              ;
+;         [c] ALMs used for registers                         ; 4                     ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 7 / 32070 ( < 1 % )   ; 0 / 32070 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 3 / 32070 ( < 1 % )   ; 0 / 32070 ( 0 % )              ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )     ; 0 / 32070 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
@@ -553,8 +553,8 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 16 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 16                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 18 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 18                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Combinational ALUT usage for logic                          ; 193                   ; 0                              ;
@@ -563,7 +563,7 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 ;     -- 5 input functions                                    ; 18                    ; 0                              ;
 ;     -- 4 input functions                                    ; 33                    ; 0                              ;
 ;     -- <=3 input functions                                  ; 89                    ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 1                     ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 0                     ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
@@ -591,7 +591,7 @@ The pin-out file can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/out
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 1180                  ; 0                              ;
+;     -- Total Connections                                    ; 1179                  ; 0                              ;
 ;     -- Registered Connections                               ; 458                   ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
@@ -1670,19 +1670,19 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+----------------------------------------+--------------+
 ; Compilation Hierarchy Node  ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Library Name ;
 +-----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+----------------------------------------+--------------+
-; |test                       ; 115.0 (0.5)          ; 121.0 (0.5)                      ; 6.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 193 (1)             ; 105 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 103  ; 0            ; |test                                  ; work         ;
-;    |HourCounter:Hc|         ; 7.8 (7.8)            ; 8.3 (8.3)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 12 (12)             ; 7 (7)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|HourCounter:Hc                   ; work         ;
-;    |Hours:H|                ; 6.2 (6.2)            ; 6.3 (6.3)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 5 (5)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|Hours:H                          ; work         ;
-;    |MinuteCounter:Mc|       ; 8.5 (8.5)            ; 9.7 (9.7)                        ; 1.2 (1.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 13 (13)             ; 7 (7)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|MinuteCounter:Mc                 ; work         ;
-;    |SecondCounter:Sc|       ; 22.5 (22.5)          ; 23.5 (23.5)                      ; 1.0 (1.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 39 (39)             ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|SecondCounter:Sc                 ; work         ;
-;    |clockControlFSM:FSMClk| ; 13.3 (13.3)          ; 14.8 (14.8)                      ; 1.5 (1.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (27)             ; 5 (5)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|clockControlFSM:FSMClk           ; work         ;
+; |test                       ; 115.0 (0.5)          ; 117.0 (0.5)                      ; 2.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 193 (1)             ; 105 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 103  ; 0            ; |test                                  ; work         ;
+;    |HourCounter:Hc|         ; 9.0 (9.0)            ; 9.3 (9.3)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 12 (12)             ; 7 (7)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|HourCounter:Hc                   ; work         ;
+;    |Hours:H|                ; 6.0 (6.0)            ; 6.0 (6.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 5 (5)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|Hours:H                          ; work         ;
+;    |MinuteCounter:Mc|       ; 8.7 (8.7)            ; 9.8 (9.8)                        ; 1.2 (1.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 13 (13)             ; 7 (7)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|MinuteCounter:Mc                 ; work         ;
+;    |SecondCounter:Sc|       ; 22.5 (22.5)          ; 22.5 (22.5)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 39 (39)             ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|SecondCounter:Sc                 ; work         ;
+;    |clockControlFSM:FSMClk| ; 12.5 (12.5)          ; 12.8 (12.8)                      ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (27)             ; 5 (5)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|clockControlFSM:FSMClk           ; work         ;
 ;    |hex:h0|                 ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|hex:h0                           ; work         ;
 ;    |hex:h1|                 ; 3.0 (3.0)            ; 3.0 (3.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|hex:h1                           ; work         ;
 ;    |hex:h2|                 ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|hex:h2                           ; work         ;
 ;    |hex:h3|                 ; 3.0 (3.0)            ; 3.0 (3.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|hex:h3                           ; work         ;
 ;    |hex:h4|                 ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|hex:h4                           ; work         ;
-;    |setTime:setT|           ; 39.7 (18.2)          ; 41.3 (19.3)                      ; 1.7 (1.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 66 (29)             ; 49 (17)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|setTime:setT                     ; work         ;
-;       |buttonPushTimer:bpt| ; 21.5 (21.5)          ; 22.0 (22.0)                      ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 37 (37)             ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|setTime:setT|buttonPushTimer:bpt ; work         ;
+;    |setTime:setT|           ; 39.2 (17.7)          ; 39.5 (17.7)                      ; 0.3 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 66 (29)             ; 49 (17)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|setTime:setT                     ; work         ;
+;       |buttonPushTimer:bpt| ; 21.5 (21.5)          ; 21.8 (21.8)                      ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 37 (37)             ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |test|setTime:setT|buttonPushTimer:bpt ; work         ;
 +-----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+----------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1790,8 +1790,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; GPIO_0[34] ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; GPIO_0[35] ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[1]     ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; SW[9]      ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; KEY[0]     ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; SW[9]      ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; KEY[0]     ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; CLOCK_50   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[2]     ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[3]     ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
@@ -1850,9 +1850,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; GPIO_0[35]                                    ;                   ;         ;
 ; KEY[1]                                        ;                   ;         ;
 ;      - setTime:setT|outSeconds~0              ; 0                 ; 0       ;
-;      - setTime:setT|outSeconds[5]~1           ; 0                 ; 0       ;
+;      - setTime:setT|outSeconds[1]~1           ; 0                 ; 0       ;
 ;      - setTime:setT|outSeconds~2              ; 0                 ; 0       ;
-;      - setTime:setT|outSeconds[5]~3           ; 0                 ; 0       ;
+;      - setTime:setT|outSeconds[1]~3           ; 0                 ; 0       ;
 ;      - setTime:setT|outSeconds~4              ; 0                 ; 0       ;
 ;      - setTime:setT|outSeconds~5              ; 0                 ; 0       ;
 ;      - setTime:setT|outSeconds~6              ; 0                 ; 0       ;
@@ -1860,46 +1860,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - setTime:setT|outSeconds~8              ; 0                 ; 0       ;
 ;      - setTime:setT|outSeconds~9              ; 0                 ; 0       ;
 ; SW[9]                                         ;                   ;         ;
-;      - clockControlFSM:FSMClk|currentstate~9  ; 0                 ; 0       ;
-;      - clockControlFSM:FSMClk|currentstate~10 ; 0                 ; 0       ;
-;      - clockControlFSM:FSMClk|currentstate~11 ; 0                 ; 0       ;
-;      - clockControlFSM:FSMClk|currentstate~12 ; 0                 ; 0       ;
-;      - clockControlFSM:FSMClk|currentstate~14 ; 0                 ; 0       ;
-; KEY[0]                                        ;                   ;         ;
 ;      - clockControlFSM:FSMClk|currentstate~9  ; 1                 ; 0       ;
 ;      - clockControlFSM:FSMClk|currentstate~10 ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter~0             ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter[0]~1          ; 1                 ; 0       ;
+;      - clockControlFSM:FSMClk|currentstate~11 ; 1                 ; 0       ;
 ;      - clockControlFSM:FSMClk|currentstate~12 ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter~2             ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter~3             ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter~4             ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter~5             ; 1                 ; 0       ;
-;      - HourCounter:Hc|counter~0               ; 1                 ; 0       ;
-;      - HourCounter:Hc|counter[2]~1            ; 1                 ; 0       ;
-;      - HourCounter:Hc|counter~2               ; 1                 ; 0       ;
-;      - HourCounter:Hc|counter~3               ; 1                 ; 0       ;
-;      - HourCounter:Hc|counter~4               ; 1                 ; 0       ;
-;      - HourCounter:Hc|counter~5               ; 1                 ; 0       ;
-;      - Hours:H|hours~0                        ; 1                 ; 0       ;
-;      - Hours:H|hours[4]~1                     ; 1                 ; 0       ;
-;      - Hours:H|hours~3                        ; 1                 ; 0       ;
-;      - Hours:H|hours~5                        ; 1                 ; 0       ;
-;      - Hours:H|hours~6                        ; 1                 ; 0       ;
-;      - SecondCounter:Sc|pulse~0               ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter[0]~6          ; 1                 ; 0       ;
 ;      - clockControlFSM:FSMClk|currentstate~14 ; 1                 ; 0       ;
-;      - SecondCounter:Sc|counter[1]~0          ; 1                 ; 0       ;
-;      - Hours:H|hours~7                        ; 1                 ; 0       ;
-;      - HourCounter:Hc|counter~6               ; 1                 ; 0       ;
-;      - MinuteCounter:Mc|counter~7             ; 1                 ; 0       ;
+; KEY[0]                                        ;                   ;         ;
+;      - clockControlFSM:FSMClk|currentstate~9  ; 0                 ; 0       ;
+;      - clockControlFSM:FSMClk|currentstate~10 ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter~0             ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter[0]~1          ; 0                 ; 0       ;
+;      - clockControlFSM:FSMClk|currentstate~12 ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter~2             ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter~3             ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter~4             ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter~5             ; 0                 ; 0       ;
+;      - HourCounter:Hc|counter~0               ; 0                 ; 0       ;
+;      - HourCounter:Hc|counter[3]~1            ; 0                 ; 0       ;
+;      - HourCounter:Hc|counter~2               ; 0                 ; 0       ;
+;      - HourCounter:Hc|counter~3               ; 0                 ; 0       ;
+;      - HourCounter:Hc|counter~4               ; 0                 ; 0       ;
+;      - HourCounter:Hc|counter~5               ; 0                 ; 0       ;
+;      - Hours:H|hours~0                        ; 0                 ; 0       ;
+;      - Hours:H|hours[0]~1                     ; 0                 ; 0       ;
+;      - Hours:H|hours~3                        ; 0                 ; 0       ;
+;      - Hours:H|hours~5                        ; 0                 ; 0       ;
+;      - Hours:H|hours~6                        ; 0                 ; 0       ;
+;      - SecondCounter:Sc|pulse~0               ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter[0]~6          ; 0                 ; 0       ;
+;      - clockControlFSM:FSMClk|currentstate~14 ; 0                 ; 0       ;
+;      - SecondCounter:Sc|counter[3]~0          ; 0                 ; 0       ;
+;      - Hours:H|hours~7                        ; 0                 ; 0       ;
+;      - HourCounter:Hc|counter~6               ; 0                 ; 0       ;
+;      - MinuteCounter:Mc|counter~7             ; 0                 ; 0       ;
 ; CLOCK_50                                      ;                   ;         ;
 ;      - setTime:setT|buttonPushTimer:bpt|pulse ; 0                 ; 0       ;
 ; KEY[2]                                        ;                   ;         ;
 ;      - setTime:setT|outMinutes~0              ; 1                 ; 0       ;
-;      - setTime:setT|outMinutes[4]~1           ; 1                 ; 0       ;
+;      - setTime:setT|outMinutes[1]~1           ; 1                 ; 0       ;
 ;      - setTime:setT|outMinutes~2              ; 1                 ; 0       ;
-;      - setTime:setT|outMinutes[4]~3           ; 1                 ; 0       ;
+;      - setTime:setT|outMinutes[1]~3           ; 1                 ; 0       ;
 ;      - setTime:setT|outMinutes~4              ; 1                 ; 0       ;
 ;      - setTime:setT|outMinutes~5              ; 1                 ; 0       ;
 ;      - setTime:setT|outMinutes~6              ; 1                 ; 0       ;
@@ -1908,7 +1908,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - setTime:setT|outMinutes~9              ; 1                 ; 0       ;
 ; KEY[3]                                        ;                   ;         ;
 ;      - setTime:setT|outHours~0                ; 0                 ; 0       ;
-;      - setTime:setT|outHours[2]~1             ; 0                 ; 0       ;
+;      - setTime:setT|outHours[1]~1             ; 0                 ; 0       ;
 ;      - setTime:setT|outHours~2                ; 0                 ; 0       ;
 ;      - setTime:setT|outHours~3                ; 0                 ; 0       ;
 ;      - setTime:setT|outHours~5                ; 0                 ; 0       ;
@@ -1916,26 +1916,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------+-------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                              ;
-+-----------------------------------------------+----------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                          ; Location             ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------------------------------------+----------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                                      ; PIN_AF14             ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; CLOCK_50                                      ; PIN_AF14             ; 87      ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; HourCounter:Hc|counter[2]~1                   ; MLABCELL_X87_Y9_N18  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; Hours:H|hours[4]~1                            ; MLABCELL_X87_Y9_N45  ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; MinuteCounter:Mc|counter[0]~1                 ; MLABCELL_X87_Y9_N54  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; MinuteCounter:Mc|counter[0]~6                 ; MLABCELL_X87_Y9_N6   ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; SecondCounter:Sc|counter[1]~0                 ; MLABCELL_X87_Y12_N54 ; 31      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; clockControlFSM:FSMClk|currentstate.resetMode ; FF_X87_Y9_N35        ; 1       ; Latch enable ; no     ; --                   ; --               ; --                        ;
-; clockControlFSM:FSMClk|currentstate~13        ; MLABCELL_X87_Y9_N3   ; 1       ; Latch enable ; no     ; --                   ; --               ; --                        ;
-; setTime:setT|buttonPushTimer:bpt|Equal0~5     ; LABCELL_X83_Y7_N54   ; 32      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; setTime:setT|buttonPushTimer:bpt|pulse        ; FF_X84_Y9_N38        ; 17      ; Clock        ; no     ; --                   ; --               ; --                        ;
-; setTime:setT|outHours[2]~1                    ; LABCELL_X88_Y9_N3    ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; setTime:setT|outMinutes[4]~1                  ; LABCELL_X88_Y10_N45  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; setTime:setT|outSeconds[5]~1                  ; MLABCELL_X87_Y9_N36  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+-----------------------------------------------+----------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                             ;
++-----------------------------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                          ; Location            ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                                      ; PIN_AF14            ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; CLOCK_50                                      ; PIN_AF14            ; 87      ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; HourCounter:Hc|counter[3]~1                   ; LABCELL_X88_Y10_N6  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; Hours:H|hours[0]~1                            ; LABCELL_X88_Y9_N27  ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; MinuteCounter:Mc|counter[0]~1                 ; LABCELL_X85_Y9_N27  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; MinuteCounter:Mc|counter[0]~6                 ; LABCELL_X85_Y10_N39 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; SecondCounter:Sc|counter[3]~0                 ; MLABCELL_X84_Y11_N6 ; 31      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; clockControlFSM:FSMClk|currentstate.resetMode ; FF_X88_Y9_N44       ; 1       ; Latch enable ; no     ; --                   ; --               ; --                        ;
+; clockControlFSM:FSMClk|currentstate~13        ; LABCELL_X88_Y9_N6   ; 1       ; Latch enable ; no     ; --                   ; --               ; --                        ;
+; setTime:setT|buttonPushTimer:bpt|Equal0~5     ; MLABCELL_X82_Y8_N36 ; 32      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; setTime:setT|buttonPushTimer:bpt|pulse        ; FF_X87_Y8_N20       ; 17      ; Clock        ; no     ; --                   ; --               ; --                        ;
+; setTime:setT|outHours[1]~1                    ; LABCELL_X88_Y8_N30  ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; setTime:setT|outMinutes[1]~1                  ; LABCELL_X88_Y9_N0   ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; setTime:setT|outSeconds[1]~1                  ; MLABCELL_X87_Y9_N0  ; 6       ; Clock enable ; no     ; --                   ; --               ; --                        ;
++-----------------------------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -1952,14 +1952,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------+-------------------------+
 ; Routing Resource Type                       ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Block interconnects                         ; 320 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 28 / 13,420 ( < 1 % )   ;
+; Block interconnects                         ; 315 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 17 / 13,420 ( < 1 % )   ;
 ; C2 interconnects                            ; 132 / 119,108 ( < 1 % ) ;
-; C4 interconnects                            ; 137 / 56,300 ( < 1 % )  ;
+; C4 interconnects                            ; 126 / 56,300 ( < 1 % )  ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
-; Direct links                                ; 34 / 289,320 ( < 1 % )  ;
+; Direct links                                ; 49 / 289,320 ( < 1 % )  ;
 ; Global clocks                               ; 1 / 16 ( 6 % )          ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
@@ -2015,12 +2015,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
-; Local interconnects                         ; 91 / 84,580 ( < 1 % )   ;
+; Local interconnects                         ; 71 / 84,580 ( < 1 % )   ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
-; R14 interconnects                           ; 91 / 12,676 ( < 1 % )   ;
-; R14/C12 interconnect drivers                ; 110 / 20,720 ( < 1 % )  ;
-; R3 interconnects                            ; 183 / 130,992 ( < 1 % ) ;
-; R6 interconnects                            ; 245 / 266,960 ( < 1 % ) ;
+; R14 interconnects                           ; 96 / 12,676 ( < 1 % )   ;
+; R14/C12 interconnect drivers                ; 105 / 20,720 ( < 1 % )  ;
+; R3 interconnects                            ; 161 / 130,992 ( < 1 % ) ;
+; R6 interconnects                            ; 251 / 266,960 ( < 1 % ) ;
 ; Spine clocks                                ; 1 / 360 ( < 1 % )       ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
 +---------------------------------------------+-------------------------+
@@ -2239,12 +2239,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------+----------------------------------------+-------------------+
 ; Source Clock(s)                                            ; Destination Clock(s)                   ; Delay Added in ns ;
 +------------------------------------------------------------+----------------------------------------+-------------------+
-; clockControlFSM:FSMClk|currentstate.resetMode              ; CLOCK_50                               ; 71.6              ;
-; setTime:setT|buttonPushTimer:bpt|pulse                     ; CLOCK_50                               ; 49.3              ;
-; CLOCK_50                                                   ; CLOCK_50                               ; 26.5              ;
-; setTime:setT|buttonPushTimer:bpt|pulse                     ; setTime:setT|buttonPushTimer:bpt|pulse ; 15.6              ;
-; I/O,CLOCK_50,clockControlFSM:FSMClk|currentstate.resetMode ; CLOCK_50                               ; 8.5               ;
-; CLOCK_50,I/O,CLOCK_50                                      ; CLOCK_50                               ; 2.0               ;
+; clockControlFSM:FSMClk|currentstate.resetMode              ; CLOCK_50                               ; 69.4              ;
+; setTime:setT|buttonPushTimer:bpt|pulse                     ; CLOCK_50                               ; 47.9              ;
+; CLOCK_50                                                   ; CLOCK_50                               ; 25.5              ;
+; setTime:setT|buttonPushTimer:bpt|pulse                     ; setTime:setT|buttonPushTimer:bpt|pulse ; 14.2              ;
+; I/O,CLOCK_50,clockControlFSM:FSMClk|currentstate.resetMode ; CLOCK_50                               ; 5.7               ;
+; CLOCK_50,I/O,CLOCK_50                                      ; CLOCK_50                               ; 1.9               ;
 +------------------------------------------------------------+----------------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the TimeQuest Timing Analyzer.
@@ -2255,106 +2255,106 @@ This will disable optimization of problematic paths and expose them for further 
 +------------------------------------------------+------------------------------------------------+-------------------+
 ; Source Register                                ; Destination Register                           ; Delay Added in ns ;
 +------------------------------------------------+------------------------------------------------+-------------------+
-; clockControlFSM:FSMClk|currentstate.preSetMode ; clockControlFSM:FSMClk|currentstate.setMode    ; 4.401             ;
-; clockControlFSM:FSMClk|update                  ; MinuteCounter:Mc|counter[1]                    ; 4.302             ;
-; setTime:setT|outMinutes[5]                     ; HourCounter:Hc|counter[5]                      ; 3.302             ;
-; setTime:setT|outMinutes[1]                     ; HourCounter:Hc|counter[1]                      ; 3.257             ;
-; setTime:setT|outHours[3]                       ; Hours:H|hours[3]                               ; 3.245             ;
-; setTime:setT|outSeconds[5]                     ; MinuteCounter:Mc|counter[5]                    ; 3.228             ;
-; setTime:setT|outSeconds[3]                     ; MinuteCounter:Mc|counter[3]                    ; 3.227             ;
-; setTime:setT|outHours[4]                       ; Hours:H|hours[4]                               ; 3.213             ;
-; setTime:setT|outHours[1]                       ; Hours:H|hours[1]                               ; 3.213             ;
-; setTime:setT|outSeconds[0]                     ; MinuteCounter:Mc|counter[0]                    ; 3.212             ;
-; setTime:setT|outSeconds[4]                     ; MinuteCounter:Mc|counter[4]                    ; 3.206             ;
-; setTime:setT|outSeconds[1]                     ; MinuteCounter:Mc|counter[1]                    ; 3.189             ;
-; setTime:setT|outMinutes[2]                     ; HourCounter:Hc|counter[2]                      ; 2.954             ;
-; setTime:setT|outHours[2]                       ; Hours:H|hours[2]                               ; 2.899             ;
-; setTime:setT|outSeconds[2]                     ; MinuteCounter:Mc|counter[2]                    ; 2.890             ;
-; setTime:setT|outMinutes[3]                     ; setTime:setT|outMinutes[5]                     ; 2.852             ;
-; setTime:setT|outHours[0]                       ; setTime:setT|outHours[2]                       ; 2.796             ;
-; setTime:setT|outMinutes[0]                     ; HourCounter:Hc|counter[0]                      ; 2.685             ;
-; setTime:setT|outMinutes[4]                     ; HourCounter:Hc|counter[4]                      ; 2.685             ;
-; clockControlFSM:FSMClk|currentstate.setMode    ; clockControlFSM:FSMClk|currentstate.preSetMode ; 2.024             ;
-; SW[9]                                          ; clockControlFSM:FSMClk|currentstate.preSetMode ; 2.024             ;
-; SecondCounter:Sc|pulse                         ; MinuteCounter:Mc|counter[1]                    ; 1.917             ;
-; KEY[0]                                         ; MinuteCounter:Mc|counter[1]                    ; 1.917             ;
-; HourCounter:Hc|pulse                           ; Hours:H|hours[4]                               ; 1.748             ;
-; MinuteCounter:Mc|pulse                         ; HourCounter:Hc|counter[4]                      ; 1.641             ;
-; setTime:setT|buttonPushTimer:bpt|counter[26]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.596             ;
-; setTime:setT|buttonPushTimer:bpt|counter[28]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.574             ;
-; setTime:setT|buttonPushTimer:bpt|counter[25]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.526             ;
-; setTime:setT|buttonPushTimer:bpt|counter[30]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.484             ;
-; setTime:setT|buttonPushTimer:bpt|counter[29]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.463             ;
-; setTime:setT|buttonPushTimer:bpt|counter[23]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.460             ;
-; setTime:setT|buttonPushTimer:bpt|counter[22]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.440             ;
-; setTime:setT|buttonPushTimer:bpt|counter[27]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.432             ;
-; setTime:setT|buttonPushTimer:bpt|counter[24]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.396             ;
-; HourCounter:Hc|counter[0]                      ; HourCounter:Hc|counter[0]                      ; 1.372             ;
-; HourCounter:Hc|counter[5]                      ; HourCounter:Hc|counter[4]                      ; 1.371             ;
-; HourCounter:Hc|counter[1]                      ; HourCounter:Hc|counter[4]                      ; 1.371             ;
-; HourCounter:Hc|counter[2]                      ; HourCounter:Hc|counter[4]                      ; 1.371             ;
-; HourCounter:Hc|counter[3]                      ; HourCounter:Hc|counter[4]                      ; 1.371             ;
-; HourCounter:Hc|counter[4]                      ; HourCounter:Hc|counter[4]                      ; 1.371             ;
-; setTime:setT|buttonPushTimer:bpt|counter[10]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.303             ;
-; setTime:setT|buttonPushTimer:bpt|counter[11]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.276             ;
-; setTime:setT|buttonPushTimer:bpt|counter[20]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.253             ;
-; setTime:setT|buttonPushTimer:bpt|counter[17]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.229             ;
-; setTime:setT|buttonPushTimer:bpt|counter[13]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.228             ;
-; setTime:setT|buttonPushTimer:bpt|counter[21]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.213             ;
-; setTime:setT|buttonPushTimer:bpt|counter[15]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.208             ;
-; setTime:setT|buttonPushTimer:bpt|counter[5]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.194             ;
-; setTime:setT|buttonPushTimer:bpt|counter[6]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.192             ;
-; setTime:setT|buttonPushTimer:bpt|counter[3]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.190             ;
-; setTime:setT|buttonPushTimer:bpt|counter[7]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.188             ;
-; setTime:setT|buttonPushTimer:bpt|counter[9]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.130             ;
-; setTime:setT|buttonPushTimer:bpt|counter[12]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.110             ;
-; setTime:setT|buttonPushTimer:bpt|counter[8]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.106             ;
-; setTime:setT|buttonPushTimer:bpt|counter[16]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.068             ;
-; setTime:setT|buttonPushTimer:bpt|counter[4]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.050             ;
-; setTime:setT|buttonPushTimer:bpt|counter[2]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.050             ;
-; setTime:setT|buttonPushTimer:bpt|counter[19]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.007             ;
-; setTime:setT|buttonPushTimer:bpt|counter[18]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.007             ;
-; setTime:setT|buttonPushTimer:bpt|counter[14]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.993             ;
-; setTime:setT|buttonPushTimer:bpt|counter[0]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.992             ;
-; setTime:setT|buttonPushTimer:bpt|counter[1]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.925             ;
-; clockControlFSM:FSMClk|setInitVal              ; setTime:setT|outSeconds[1]                     ; 0.537             ;
-; KEY[1]                                         ; setTime:setT|outSeconds[2]                     ; 0.469             ;
-; Hours:H|hours[0]                               ; Hours:H|hours[2]                               ; 0.360             ;
-; MinuteCounter:Mc|counter[0]                    ; MinuteCounter:Mc|counter[2]                    ; 0.360             ;
-; MinuteCounter:Mc|counter[2]                    ; MinuteCounter:Mc|counter[2]                    ; 0.349             ;
-; Hours:H|hours[2]                               ; Hours:H|hours[2]                               ; 0.344             ;
-; Hours:H|hours[4]                               ; Hours:H|hours[3]                               ; 0.332             ;
-; Hours:H|hours[3]                               ; Hours:H|hours[4]                               ; 0.328             ;
-; Hours:H|hours[1]                               ; Hours:H|hours[2]                               ; 0.313             ;
-; setTime:setT|buttonPushTimer:bpt|pulse         ; setTime:setT|outSeconds[0]                     ; 0.271             ;
-; KEY[3]                                         ; setTime:setT|outHours[1]                       ; 0.234             ;
-; MinuteCounter:Mc|counter[3]                    ; MinuteCounter:Mc|pulse                         ; 0.199             ;
-; SecondCounter:Sc|counter[29]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[28]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[27]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[26]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[25]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[30]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[23]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[22]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[21]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[20]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[19]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[18]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[17]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[16]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[15]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[14]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[13]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[12]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[11]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[10]                   ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[9]                    ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[8]                    ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[7]                    ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[6]                    ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[5]                    ; SecondCounter:Sc|pulse                         ; 0.180             ;
-; SecondCounter:Sc|counter[4]                    ; SecondCounter:Sc|pulse                         ; 0.180             ;
+; clockControlFSM:FSMClk|currentstate.preSetMode ; clockControlFSM:FSMClk|currentstate.setMode    ; 4.403             ;
+; clockControlFSM:FSMClk|update                  ; MinuteCounter:Mc|counter[1]                    ; 4.309             ;
+; setTime:setT|outHours[3]                       ; Hours:H|hours[3]                               ; 3.284             ;
+; setTime:setT|outMinutes[5]                     ; HourCounter:Hc|counter[5]                      ; 3.283             ;
+; setTime:setT|outMinutes[1]                     ; HourCounter:Hc|counter[1]                      ; 3.279             ;
+; setTime:setT|outSeconds[5]                     ; MinuteCounter:Mc|counter[5]                    ; 3.278             ;
+; setTime:setT|outMinutes[3]                     ; HourCounter:Hc|counter[3]                      ; 3.275             ;
+; setTime:setT|outSeconds[4]                     ; MinuteCounter:Mc|counter[4]                    ; 3.270             ;
+; setTime:setT|outSeconds[0]                     ; MinuteCounter:Mc|counter[0]                    ; 3.260             ;
+; setTime:setT|outMinutes[4]                     ; HourCounter:Hc|counter[4]                      ; 3.259             ;
+; setTime:setT|outHours[4]                       ; Hours:H|hours[4]                               ; 3.251             ;
+; setTime:setT|outHours[1]                       ; Hours:H|hours[1]                               ; 3.250             ;
+; setTime:setT|outHours[2]                       ; Hours:H|hours[2]                               ; 2.939             ;
+; setTime:setT|outMinutes[2]                     ; HourCounter:Hc|counter[2]                      ; 2.939             ;
+; setTime:setT|outSeconds[1]                     ; MinuteCounter:Mc|counter[1]                    ; 2.921             ;
+; setTime:setT|outHours[0]                       ; setTime:setT|outHours[2]                       ; 2.834             ;
+; setTime:setT|outMinutes[0]                     ; HourCounter:Hc|counter[0]                      ; 2.425             ;
+; setTime:setT|outSeconds[3]                     ; MinuteCounter:Mc|counter[3]                    ; 2.424             ;
+; setTime:setT|outSeconds[2]                     ; MinuteCounter:Mc|counter[2]                    ; 2.157             ;
+; clockControlFSM:FSMClk|currentstate.setMode    ; clockControlFSM:FSMClk|currentstate.preSetMode ; 1.876             ;
+; SW[9]                                          ; clockControlFSM:FSMClk|currentstate.preSetMode ; 1.876             ;
+; KEY[0]                                         ; HourCounter:Hc|pulse                           ; 1.597             ;
+; MinuteCounter:Mc|pulse                         ; HourCounter:Hc|counter[1]                      ; 1.452             ;
+; HourCounter:Hc|counter[0]                      ; HourCounter:Hc|counter[0]                      ; 1.242             ;
+; setTime:setT|buttonPushTimer:bpt|counter[28]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.231             ;
+; setTime:setT|buttonPushTimer:bpt|counter[30]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.199             ;
+; setTime:setT|buttonPushTimer:bpt|counter[29]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.157             ;
+; setTime:setT|buttonPushTimer:bpt|counter[23]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.157             ;
+; setTime:setT|buttonPushTimer:bpt|counter[22]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.152             ;
+; setTime:setT|buttonPushTimer:bpt|counter[25]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.138             ;
+; setTime:setT|buttonPushTimer:bpt|counter[24]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.112             ;
+; setTime:setT|buttonPushTimer:bpt|counter[26]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.102             ;
+; MinuteCounter:Mc|counter[5]                    ; MinuteCounter:Mc|counter[2]                    ; 1.095             ;
+; MinuteCounter:Mc|counter[1]                    ; MinuteCounter:Mc|counter[2]                    ; 1.095             ;
+; MinuteCounter:Mc|counter[0]                    ; MinuteCounter:Mc|counter[2]                    ; 1.095             ;
+; MinuteCounter:Mc|counter[2]                    ; MinuteCounter:Mc|counter[2]                    ; 1.095             ;
+; MinuteCounter:Mc|counter[3]                    ; MinuteCounter:Mc|counter[2]                    ; 1.095             ;
+; MinuteCounter:Mc|counter[4]                    ; MinuteCounter:Mc|counter[2]                    ; 1.095             ;
+; setTime:setT|buttonPushTimer:bpt|counter[27]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.063             ;
+; setTime:setT|buttonPushTimer:bpt|counter[21]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.035             ;
+; setTime:setT|buttonPushTimer:bpt|counter[2]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 1.005             ;
+; SecondCounter:Sc|pulse                         ; MinuteCounter:Mc|counter[1]                    ; 0.977             ;
+; setTime:setT|buttonPushTimer:bpt|counter[18]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.962             ;
+; HourCounter:Hc|pulse                           ; Hours:H|hours[4]                               ; 0.956             ;
+; setTime:setT|buttonPushTimer:bpt|counter[11]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.945             ;
+; setTime:setT|buttonPushTimer:bpt|counter[8]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.938             ;
+; setTime:setT|buttonPushTimer:bpt|counter[10]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.919             ;
+; setTime:setT|buttonPushTimer:bpt|counter[12]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.918             ;
+; setTime:setT|buttonPushTimer:bpt|counter[3]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.918             ;
+; setTime:setT|buttonPushTimer:bpt|counter[17]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.913             ;
+; setTime:setT|buttonPushTimer:bpt|counter[20]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.911             ;
+; setTime:setT|buttonPushTimer:bpt|counter[13]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.890             ;
+; setTime:setT|buttonPushTimer:bpt|counter[4]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.880             ;
+; setTime:setT|buttonPushTimer:bpt|counter[15]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.877             ;
+; setTime:setT|buttonPushTimer:bpt|counter[5]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.843             ;
+; setTime:setT|buttonPushTimer:bpt|counter[6]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.834             ;
+; setTime:setT|buttonPushTimer:bpt|counter[9]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.829             ;
+; setTime:setT|buttonPushTimer:bpt|counter[14]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.764             ;
+; setTime:setT|buttonPushTimer:bpt|counter[7]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.756             ;
+; setTime:setT|buttonPushTimer:bpt|counter[16]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.728             ;
+; setTime:setT|buttonPushTimer:bpt|counter[0]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.711             ;
+; setTime:setT|buttonPushTimer:bpt|counter[19]   ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.688             ;
+; setTime:setT|buttonPushTimer:bpt|counter[1]    ; setTime:setT|buttonPushTimer:bpt|pulse         ; 0.636             ;
+; KEY[2]                                         ; setTime:setT|outMinutes[2]                     ; 0.418             ;
+; KEY[1]                                         ; setTime:setT|outSeconds[2]                     ; 0.414             ;
+; clockControlFSM:FSMClk|setInitVal              ; setTime:setT|outSeconds[0]                     ; 0.370             ;
+; Hours:H|hours[0]                               ; Hours:H|hours[2]                               ; 0.364             ;
+; HourCounter:Hc|counter[2]                      ; HourCounter:Hc|counter[2]                      ; 0.350             ;
+; Hours:H|hours[2]                               ; Hours:H|hours[2]                               ; 0.345             ;
+; Hours:H|hours[4]                               ; Hours:H|hours[3]                               ; 0.343             ;
+; Hours:H|hours[3]                               ; Hours:H|hours[4]                               ; 0.337             ;
+; Hours:H|hours[1]                               ; Hours:H|hours[2]                               ; 0.314             ;
+; setTime:setT|buttonPushTimer:bpt|pulse         ; setTime:setT|outSeconds[0]                     ; 0.236             ;
+; HourCounter:Hc|counter[1]                      ; HourCounter:Hc|counter[2]                      ; 0.194             ;
+; HourCounter:Hc|counter[3]                      ; HourCounter:Hc|counter[3]                      ; 0.174             ;
+; KEY[3]                                         ; setTime:setT|outHours[1]                       ; 0.134             ;
+; SecondCounter:Sc|counter[29]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[30]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[27]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[26]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[25]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[24]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[23]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[28]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[21]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[20]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[19]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[18]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[17]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[16]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[15]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[14]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[13]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[12]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[11]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[10]                   ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[9]                    ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[8]                    ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[7]                    ; SecondCounter:Sc|pulse                         ; 0.111             ;
+; SecondCounter:Sc|counter[6]                    ; SecondCounter:Sc|pulse                         ; 0.111             ;
 +------------------------------------------------+------------------------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
@@ -2532,7 +2532,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_R[7]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_SYNC_N" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:14
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:21
 Warning (335093): TimeQuest Timing Analyzer is analyzing 2 combinational loops as latches.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'test.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
@@ -2541,29 +2541,29 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQue
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:10
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X78_Y0 to location X89_Y10
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:10
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:09
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.62 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.87 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:06
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:08
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/hp/Documents/GitHub/Drug-Dispenser/output_files/test.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 162 warnings
-    Info: Peak virtual memory: 2018 megabytes
-    Info: Processing ended: Mon Nov 16 17:37:56 2015
-    Info: Elapsed time: 00:01:13
-    Info: Total CPU time (on all processors): 00:01:15
+    Info: Peak virtual memory: 2019 megabytes
+    Info: Processing ended: Tue Nov 17 11:14:27 2015
+    Info: Elapsed time: 00:01:40
+    Info: Total CPU time (on all processors): 00:01:29
 
 
 +----------------------------+
