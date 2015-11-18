@@ -1,0 +1,197 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : -3.921
+TNS   : -3.921
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -3.844
+TNS   : -497.575
+
+Type  : Slow 1100mV 85C Model Setup 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : -3.834
+TNS   : -3.834
+
+Type  : Slow 1100mV 85C Model Setup 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : -3.647
+TNS   : -56.259
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : -0.112
+TNS   : -0.511
+
+Type  : Slow 1100mV 85C Model Hold 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : 0.437
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 2.646
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 2.820
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -97.495
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : -0.394
+TNS   : -9.743
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 0.296
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : -3.995
+TNS   : -3.995
+
+Type  : Slow 1100mV 0C Model Setup 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : -3.950
+TNS   : -3.950
+
+Type  : Slow 1100mV 0C Model Setup 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : -3.810
+TNS   : -58.532
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -3.809
+TNS   : -485.069
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.468
+TNS   : -5.691
+
+Type  : Slow 1100mV 0C Model Hold 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 2.710
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 2.826
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.443
+TNS   : -105.355
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : -0.394
+TNS   : -9.604
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 0.320
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 0.434
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -2.011
+TNS   : -226.518
+
+Type  : Fast 1100mV 85C Model Setup 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : -1.926
+TNS   : -1.926
+
+Type  : Fast 1100mV 85C Model Setup 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : -1.747
+TNS   : -26.566
+
+Type  : Fast 1100mV 85C Model Setup 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : -1.727
+TNS   : -1.727
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : -0.059
+TNS   : -0.170
+
+Type  : Fast 1100mV 85C Model Hold 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : 0.162
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 1.536
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 1.599
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.469
+TNS   : -16.707
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : -0.009
+TNS   : -0.043
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 0.345
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 0.486
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : -1.876
+TNS   : -1.876
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -1.761
+TNS   : -193.227
+
+Type  : Fast 1100mV 0C Model Setup 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : -1.714
+TNS   : -26.221
+
+Type  : Fast 1100mV 0C Model Setup 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : -1.660
+TNS   : -1.660
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.284
+TNS   : -3.315
+
+Type  : Fast 1100mV 0C Model Hold 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 1.487
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 1.604
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.490
+TNS   : -16.462
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'setTime:setT|buttonPushTimer:bpt|pulse'
+Slack : 0.028
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.preSetMode'
+Slack : 0.366
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clockControlFSM:FSMClk|currentstate.resetMode'
+Slack : 0.483
+TNS   : 0.000
+
+------------------------------------------------------------

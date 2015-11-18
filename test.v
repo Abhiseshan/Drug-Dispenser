@@ -1,119 +1,77 @@
-module test(CLOCK_50, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0);
 	input CLOCK_50;
+	input [9:0] SW; 
+	input [3:0] KEY;
+	input [35:0] GPIO_0;
+	//KEYMAAP Table
+	
+	//SW[9] Clock Set
+	//KEY[0] Reset
+	//KEY[1] IncrementSeconds
+	//KEY[2] IncrementMinutes
+	//KEY[3] IncrementHours
+	
 	output [9:0] LEDR;
 	
 	output [0:6] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
+	//Pulses
 	wire secondP, minuteP, hoursP;
-	wire [4:0] hours;
 	
+	//Counter Values
+	wire [4:0] hours;
 	wire [5:0] minutes, seconds;
 	
-	SecondCounter Sc(CLOCK_50, secondP, LEDR[3]);
-	MinuteCounter Mc(CLOCK_50, secondP, minuteP, seconds);
-	HourCounter Hc (CLOCK_50, minuteP, hoursP, minutes);
-	Hours H(CLOCK_50, hoursP, hours);
+	//OutPut Hex Values
+	wire [5:0] hexMinutes, hexSeconds;
+	wire [4:0] hexHours;
 	
-	assign LEDR[0] = secondP;
-	assign LEDR[1] = minuteP;
-	assign LEDR[2] = hoursP;
-	
-	hex h0(HEX0, seconds[3:0]);
-	hex h1(HEX1, seconds[5:4]);
-	hex h2(HEX2, minutes[3:0]);
-	hex h3(HEX3, minutes[5:4]);
-	hex h4(HEX4, hours[3:0]);
-	hex h5(HEX5, hours[4]);
-	
-endmodule
+	//Set Values
+	wire [5:0] setMinutes, setSeconds;
+	wire [4:0] setHours;
 
-module SecondCounter(input CLOCK_50, output reg pulse, output reg LED);
+	//Dispense Time Pulses
+	wire morningP, afternoonP, eveningP;
 	
-	reg [30:0] counter;
-	initial counter = 0;
+	//Dispense Signals
+	wire dispenseMorning, dispenseAfternoon, dispenseEvening;
 	
-	always @(posedge CLOCK_50)
-	begin
-		if (counter == 49999999)
-			begin
-				counter <= 0;
-				pulse <= 1;
-				LED <= !LED;
-			end
-		else
-			begin
-				counter <= counter + 1;
-				pulse <= 0;
-			end
-	end
-endmodule
+	//Update and InitValue Signals
+	wire update, setInitVal;
+	
+	//Dispenser Module 1
+	wire d1m, d1a, d1e;
+	
+	//Dispenser Module 2
+	wire d2m, d2a, d2e;
+	
+	//Counters
+	SecondCounter Sc(CLOCK_50, KEY[0], secondP);
+	MinuteCounter Mc(CLOCK_50, secondP, update, setSeconds, KEY[0], minuteP, seconds);
+	HourCounter Hc (CLOCK_50, minuteP, update, setMinutes, KEY[0], hoursP, minutes);
+	Hours H(CLOCK_50, hoursP, update, setHours, KEY[0], hours);
+	
+	//Clock Management
+	setTime setT(CLOCK_50, setInitVal, seconds, hours, minutes, KEY[3], KEY[2], KEY[1], secondP, setHours, setMinutes, setSeconds);
+	clockControlFSM FSMClk(CLOCK_50, SW[9], update, KEY[0], minutes, seconds, hours, setHours, setMinutes, setSeconds, hexHours, hexMinutes, hexSeconds, setInitVal);
 
-module MinuteCounter(input CLOCK_50, input secondsPulse, output reg pulse, output reg [5:0] counter);
-	
-	initial counter = 0;
-	
-	always @(posedge CLOCK_50)
-	begin
-		if (secondsPulse == 1)
-		begin
-			if (counter == 59)
-				begin
-					counter <= 0;
-					pulse <= 1;
-				end
-			else
-				begin
-					counter <= counter + 1;
-					pulse <= 0;
-				end
-		end
-		else
-			pulse <= 0;
-	end
-endmodule
+	//Circuit Management
+	dispenseTime dT(CLOCK_50, seconds, minutes, hours, morningP, afternoonP, eveningP);
+	dispenseControlFSM ccFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
 
-module HourCounter(input CLOCK_50, input MinutesPulse, output reg pulse, output reg [5:0] counter);	
+	//LEDR Assigned for testing purposes.
+	dispense LED0(CLOCK_50, morningP, LEDR[0]);
+	dispense LED1(CLOCK_50, afternoonP, LEDR[1]);
+	dispense LED2(CLOCK_50, eveningP, LEDR[2]);
 	
-	initial counter = 0;
+	//HEX Display for clock - To be removed later on.
+	hex h0(HEX0, hexSeconds[3:0]);
+	hex h1(HEX1, hexSeconds[5:4]);
+	hex h2(HEX2, hexMinutes[3:0]);
+	hex h3(HEX3, hexMinutes[5:4]);
+	hex h4(HEX4, hexHours[3:0]);
+	hex h5(HEX5, hexHours[4]);
 	
-	always @(posedge CLOCK_50)
-	begin
-		if (MinutesPulse == 1)
-		begin
-			if (counter == 59)
-				begin
-					counter <= 0;
-					pulse <= 1;
-				end
-			else
-				begin
-					counter <= counter + 1;
-					pulse <= 0;
-				end
-		end
-		else
-			pulse <= 0;
-	end
-endmodule
-
-module Hours(input CLOCK_50, input hourPulse, output reg [4:0] hours);
-
-	initial hours = 0;
-	
-	always @(posedge CLOCK_50)
-	begin
-		if (hourPulse == 1)
-		begin
-			if (hours == 23)
-				begin
-					hours <= 0;
-				end
-			else
-				begin
-					hours <= hours + 1;
-				end
-		end
-	end
 endmodule
 
 module hex(out,in);
@@ -137,6 +95,10 @@ module hex(out,in);
 			13 : out=7'b1000010;
 			14 : out=7'b0110000;
 			15 : out=7'b0111000;
-			default: out=7'bx;
+			default: out=7'b0;
 		endcase
 endmodule
+
+
+
+
