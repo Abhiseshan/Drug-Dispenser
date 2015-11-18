@@ -77,6 +77,30 @@ module HourCounter(input CLOCK_50, input MinutesPulse, input set, input [5:0] se
 	end
 endmodule
 
+module Hours(input CLOCK_50, input hourPulse, input set, input [4:0] setHours, input reset, output reg [4:0] hours);
+
+	initial hours = 0;
+	
+	always @(posedge CLOCK_50)
+	begin
+		if (set == 1)
+			hours <= setHours;
+		else if (reset == 0)
+			hours <= 0;
+		else if (hourPulse == 1)
+		begin
+			if (hours == 23)
+				begin
+					hours <= 0;
+				end
+			else
+				begin
+					hours <= hours + 1;
+				end
+		end
+	end
+endmodule
+
 module buttonPushTimer(input clock, output reg pulse);
 	
 	reg [30:0] counter;

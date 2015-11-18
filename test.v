@@ -57,7 +57,7 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 
 	//Circuit Management
 	dispenseTime dT(CLOCK_50, seconds, minutes, hours, morningP, afternoonP, eveningP);
-	circuitControlFSM ccFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
+	dispenseControlFSM ccFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
 
 	//LEDR Assigned for testing purposes.
 	dispense LED0(CLOCK_50, morningP, LEDR[0]);
@@ -72,40 +72,6 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	hex h4(HEX4, hexHours[3:0]);
 	hex h5(HEX5, hexHours[4]);
 	
-endmodule
-
-module testLightLED(input clock, enable, output reg LED);
-	always @(posedge clock)
-	begin
-		if (enable == 1)
-			LED <= 1;
-		else
-			LED <= 0;
-	end
-endmodule
-
-module Hours(input CLOCK_50, input hourPulse, input set, input [4:0] setHours, input reset, output reg [4:0] hours);
-
-	initial hours = 0;
-	
-	always @(posedge CLOCK_50)
-	begin
-		if (set == 1)
-			hours <= setHours;
-		else if (reset == 0)
-			hours <= 0;
-		else if (hourPulse == 1)
-		begin
-			if (hours == 23)
-				begin
-					hours <= 0;
-				end
-			else
-				begin
-					hours <= hours + 1;
-				end
-		end
-	end
 endmodule
 
 module hex(out,in);
@@ -135,131 +101,4 @@ endmodule
 
 
 
-module circuitControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
-
-	input clock, morningP, afternoonP, eveningP;
-	output reg dispenseMorning, dispenseAfternoon, dispenseEvening;
-
-	parameter steadyState = 3'b000, morning = 3'b001, afternoon = 3'b010, evening = 3'b011; //manualOverride = 3'b100
-	
-	reg [2:0] currentState, nextState;
-	initial currentState = 0;
-	
-	always @(*)
-	begin
-		case (currentState)
-			steadyState: begin
-				dispenseMorning <= 0;
-				dispenseAfternoon <= 0;
-				dispenseEvening <= 0;
-			end
-			
-			morning: begin
-				dispenseMorning <= 1;
-				dispenseAfternoon <= 0;
-				dispenseEvening <= 0;
-			end
-			
-			afternoon: begin
-				dispenseMorning <= 0;
-				dispenseAfternoon <= 1;
-				dispenseEvening <= 0;
-			end
-			
-			evening: begin
-				dispenseMorning <= 0;
-				dispenseAfternoon <= 0;
-				dispenseEvening <= 1;
-			end
-		endcase
-	end
-	
-	always @(posedge clock)
-	begin
-		if (morningP == 1)
-			currentState <= morning;
-		else if (afternoonP == 1)
-			currentState <= afternoon;
-		else if (eveningP == 1)
-			currentState <= evening;
-		else
-			currentState <= nextState;
-	end
-	
-	always @(*)
-	begin
-		case (currentState)
-			steadyState: nextState = steadyState;
-			morning: nextState = steadyState;
-			afternoon: nextState = steadyState;
-			evening: nextState = steadyState;
-		endcase
-	end
-endmodule
-
-module dispenseTime(clock, seconds, minutes, hours, dispenseMorning, dispenseAfternoon, dispenseEvening);
-	
-	input clock;
-	input [5:0] seconds, minutes;
-	input [4:0] hours;
-	
-	output reg dispenseMorning, dispenseAfternoon, dispenseEvening;
-	
-	always @(posedge clock)
-	begin
-		if (hours == 8 && minutes == 0 && seconds == 0)
-			dispenseMorning <= 1;
-		else if (hours == 13 && minutes == 0 && seconds == 0)
-			dispenseAfternoon <= 1;
-		else 	if (hours == 20 && minutes == 0 && seconds == 0)
-			dispenseEvening <= 1;
-		else begin
-			dispenseMorning <= 0;
-			dispenseEvening <= 0;
-			dispenseAfternoon <= 0;
-		end
-	end
-endmodule
-
-module dispsenser(input clock, morningP, afternoonP, eveningP, dm, da, de, output GPIO_PORT);
-	
-	reg dispense;
-	initial dispense = 0;
-	
-	always@(posedge clock)
-		if (dm == 1 && morningP == 1)
-			dispense <= 1;
-		else if (da == 1 && afternoonP == 1)
-			dispense <= 1;
-		else if (de == 1 && eveningP == 1)
-			dispense <= 1;
-		else 
-			dispense <= 0;
-			
-		dispense d(clock, dispense, GPIO_PORT);
-endmodule
-
-module dispense(input clock, signal, output reg port);
-	
-	reg [30:0] counter;
-	initial counter = 0;
-	
-	always @(posedge clock)
-	begin
-		if (signal == 1) begin
-			counter <= 0;
-			port <= 1;
-		end
-		else
-		if (counter == 49999999)  
-			begin
-				counter <= 0;
-				port <= 0;
-			end
-		else
-			begin
-				counter <= counter + 1;
-			end
-	end
-endmodule
 

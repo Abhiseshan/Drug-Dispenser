@@ -1,5 +1,5 @@
 Analysis & Synthesis report for test
-Tue Nov 17 11:13:55 2015
+Tue Nov 17 19:12:19 2015
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -13,18 +13,18 @@ Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |test|circuitControlFSM:ccFSM|currentState
+  8. State Machine - |test|dispenseControlFSM:ccFSM|currentState
   9. State Machine - |test|clockControlFSM:FSMClk|currentstate
  10. User-Specified and Inferred Latches
  11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: clockControlFSM:FSMClk
- 16. Parameter Settings for User Entity Instance: circuitControlFSM:ccFSM
- 17. Port Connectivity Checks: "hex:h5"
- 18. Port Connectivity Checks: "hex:h3"
- 19. Port Connectivity Checks: "hex:h1"
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: clockControlFSM:FSMClk
+ 15. Parameter Settings for User Entity Instance: dispenseControlFSM:ccFSM
+ 16. Port Connectivity Checks: "hex:h5"
+ 17. Port Connectivity Checks: "hex:h3"
+ 18. Port Connectivity Checks: "hex:h1"
+ 19. Port Connectivity Checks: "dispenseControlFSM:ccFSM"
  20. Post-Synthesis Netlist Statistics for Top Partition
  21. Elapsed Time Per Partition
  22. Analysis & Synthesis Messages
@@ -54,13 +54,13 @@ agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Nov 17 11:13:55 2015      ;
+; Analysis & Synthesis Status     ; Successful - Tue Nov 17 19:12:19 2015      ;
 ; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                   ; test                                       ;
 ; Top-level Entity Name           ; test                                       ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 105                                        ;
+; Total registers                 ; 204                                        ;
 ; Total pins                      ; 103                                        ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
@@ -173,15 +173,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                       ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                         ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
-; test.v                           ; yes             ; User Verilog HDL File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v   ;         ;
-; timers.v                         ; yes             ; User Verilog HDL File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v ;         ;
-; clock.v                          ; yes             ; User Verilog HDL File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v  ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                          ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
+; test.v                           ; yes             ; User Verilog HDL File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v      ;         ;
+; timers.v                         ; yes             ; User Verilog HDL File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v    ;         ;
+; clock.v                          ; yes             ; User Verilog HDL File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v     ;         ;
+; dispenser.v                      ; yes             ; User Verilog HDL File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -189,25 +190,25 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 123            ;
+; Estimate of Logic utilization (ALMs needed) ; 194            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 192            ;
+; Combinational ALUT usage for logic          ; 316            ;
 ;     -- 7 input functions                    ; 3              ;
-;     -- 6 input functions                    ; 50             ;
-;     -- 5 input functions                    ; 18             ;
-;     -- 4 input functions                    ; 33             ;
-;     -- <=3 input functions                  ; 88             ;
+;     -- 6 input functions                    ; 69             ;
+;     -- 5 input functions                    ; 24             ;
+;     -- 4 input functions                    ; 34             ;
+;     -- <=3 input functions                  ; 186            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 105            ;
+; Dedicated logic registers                   ; 204            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 103            ;
 ;                                             ;                ;
 ; Total DSP Blocks                            ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 88             ;
-; Total fan-out                               ; 1178           ;
-; Average fan-out                             ; 2.34           ;
+; Maximum fan-out                             ; 187            ;
+; Total fan-out                               ; 1815           ;
+; Average fan-out                             ; 2.50           ;
 +---------------------------------------------+----------------+
 
 
@@ -216,12 +217,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------+--------------+
 ; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Library Name ;
 +-----------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------+--------------+
-; |test                       ; 192 (0)           ; 105 (0)      ; 0                 ; 0          ; 103  ; 0            ; |test                                  ; work         ;
+; |test                       ; 316 (0)           ; 204 (0)      ; 0                 ; 0          ; 103  ; 0            ; |test                                  ; work         ;
 ;    |HourCounter:Hc|         ; 12 (12)           ; 7 (7)        ; 0                 ; 0          ; 0    ; 0            ; |test|HourCounter:Hc                   ; work         ;
-;    |Hours:H|                ; 8 (8)             ; 5 (5)        ; 0                 ; 0          ; 0    ; 0            ; |test|Hours:H                          ; work         ;
+;    |Hours:H|                ; 9 (9)             ; 5 (5)        ; 0                 ; 0          ; 0    ; 0            ; |test|Hours:H                          ; work         ;
 ;    |MinuteCounter:Mc|       ; 13 (13)           ; 7 (7)        ; 0                 ; 0          ; 0    ; 0            ; |test|MinuteCounter:Mc                 ; work         ;
 ;    |SecondCounter:Sc|       ; 39 (39)           ; 32 (32)      ; 0                 ; 0          ; 0    ; 0            ; |test|SecondCounter:Sc                 ; work         ;
 ;    |clockControlFSM:FSMClk| ; 27 (27)           ; 5 (5)        ; 0                 ; 0          ; 0    ; 0            ; |test|clockControlFSM:FSMClk           ; work         ;
+;    |dispense:LED0|          ; 39 (39)           ; 32 (32)      ; 0                 ; 0          ; 0    ; 0            ; |test|dispense:LED0                    ; work         ;
+;    |dispense:LED1|          ; 39 (39)           ; 32 (32)      ; 0                 ; 0          ; 0    ; 0            ; |test|dispense:LED1                    ; work         ;
+;    |dispense:LED2|          ; 39 (39)           ; 32 (32)      ; 0                 ; 0          ; 0    ; 0            ; |test|dispense:LED2                    ; work         ;
+;    |dispenseTime:dT|        ; 6 (6)             ; 3 (3)        ; 0                 ; 0          ; 0    ; 0            ; |test|dispenseTime:dT                  ; work         ;
 ;    |hex:h0|                 ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |test|hex:h0                           ; work         ;
 ;    |hex:h1|                 ; 3 (3)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |test|hex:h1                           ; work         ;
 ;    |hex:h2|                 ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |test|hex:h2                           ; work         ;
@@ -234,16 +239,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |test|circuitControlFSM:ccFSM|currentState                                                                 ;
-+--------------------------+----------------------+------------------------+----------------------+--------------------------+
-; Name                     ; currentState.evening ; currentState.afternoon ; currentState.morning ; currentState.steadyState ;
-+--------------------------+----------------------+------------------------+----------------------+--------------------------+
-; currentState.steadyState ; 0                    ; 0                      ; 0                    ; 0                        ;
-; currentState.morning     ; 0                    ; 0                      ; 1                    ; 1                        ;
-; currentState.afternoon   ; 0                    ; 1                      ; 0                    ; 1                        ;
-; currentState.evening     ; 1                    ; 0                      ; 0                    ; 1                        ;
-+--------------------------+----------------------+------------------------+----------------------+--------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; State Machine - |test|dispenseControlFSM:ccFSM|currentState                                                      ;
++------------------------+----------------------+------------------------+----------------------+------------------+
+; Name                   ; currentState.evening ; currentState.afternoon ; currentState.morning ; currentState.000 ;
++------------------------+----------------------+------------------------+----------------------+------------------+
+; currentState.000       ; 0                    ; 0                      ; 0                    ; 0                ;
+; currentState.morning   ; 0                    ; 0                      ; 1                    ; 1                ;
+; currentState.afternoon ; 0                    ; 1                      ; 0                    ; 1                ;
+; currentState.evening   ; 1                    ; 0                      ; 0                    ; 1                ;
++------------------------+----------------------+------------------------+----------------------+------------------+
 
 
 Encoding Type:  One-Hot
@@ -272,38 +277,22 @@ Encoding Type:  One-Hot
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                        ;
-+--------------------------------------------------+----------------------------------------+
-; Register name                                    ; Reason for Removal                     ;
-+--------------------------------------------------+----------------------------------------+
-; testLightLED:LED2|LED                            ; Stuck at VCC due to stuck port data_in ;
-; testLightLED:LED1|LED                            ; Stuck at VCC due to stuck port data_in ;
-; testLightLED:LED0|LED                            ; Stuck at VCC due to stuck port data_in ;
-; circuitControlFSM:ccFSM|currentState.steadyState ; Lost fanout                            ;
-; circuitControlFSM:ccFSM|currentState.morning     ; Lost fanout                            ;
-; circuitControlFSM:ccFSM|currentState.afternoon   ; Lost fanout                            ;
-; circuitControlFSM:ccFSM|currentState.evening     ; Lost fanout                            ;
-; circuitControlFSM:ccFSM|currentState~2           ; Lost fanout                            ;
-; circuitControlFSM:ccFSM|currentState~3           ; Lost fanout                            ;
-; dispenseTime:dT|dispenseEvening                  ; Lost fanout                            ;
-; circuitControlFSM:ccFSM|currentState~4           ; Lost fanout                            ;
-; clockControlFSM:FSMClk|currentstate~2            ; Lost fanout                            ;
-; clockControlFSM:FSMClk|currentstate~3            ; Lost fanout                            ;
-; dispenseTime:dT|dispenseAfternoon                ; Lost fanout                            ;
-; dispenseTime:dT|dispenseMorning                  ; Lost fanout                            ;
-; Total Number of Removed Registers = 15           ;                                        ;
-+--------------------------------------------------+----------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                             ;
-+-----------------------+---------------------------+---------------------------------------------------------------------+
-; Register name         ; Reason for Removal        ; Registers Removed due to This Register                              ;
-+-----------------------+---------------------------+---------------------------------------------------------------------+
-; testLightLED:LED2|LED ; Stuck at VCC              ; dispenseTime:dT|dispenseEvening, dispenseTime:dT|dispenseAfternoon, ;
-;                       ; due to stuck port data_in ; dispenseTime:dT|dispenseMorning                                     ;
-+-----------------------+---------------------------+---------------------------------------------------------------------+
++----------------------------------------------------------------------+
+; Registers Removed During Synthesis                                   ;
++-------------------------------------------------+--------------------+
+; Register name                                   ; Reason for Removal ;
++-------------------------------------------------+--------------------+
+; dispenseControlFSM:ccFSM|currentState.000       ; Lost fanout        ;
+; dispenseControlFSM:ccFSM|currentState.morning   ; Lost fanout        ;
+; dispenseControlFSM:ccFSM|currentState.afternoon ; Lost fanout        ;
+; dispenseControlFSM:ccFSM|currentState.evening   ; Lost fanout        ;
+; dispenseControlFSM:ccFSM|currentState~2         ; Lost fanout        ;
+; dispenseControlFSM:ccFSM|currentState~3         ; Lost fanout        ;
+; dispenseControlFSM:ccFSM|currentState~4         ; Lost fanout        ;
+; clockControlFSM:FSMClk|currentstate~2           ; Lost fanout        ;
+; clockControlFSM:FSMClk|currentstate~3           ; Lost fanout        ;
+; Total Number of Removed Registers = 9           ;                    ;
++-------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -311,8 +300,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 105   ;
-; Number of registers using Synchronous Clear  ; 62    ;
+; Total registers                              ; 204   ;
+; Number of registers using Synchronous Clear  ; 155   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -321,21 +310,24 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |test|SecondCounter:Sc|counter[3]          ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |test|setTime:setT|outSeconds[1]           ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |test|setTime:setT|outMinutes[1]           ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |test|setTime:setT|outHours[1]             ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |test|MinuteCounter:Mc|counter[0]          ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |test|HourCounter:Hc|counter[3]            ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |test|Hours:H|hours[0]                     ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |test|circuitControlFSM:ccFSM|currentState ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |test|clockControlFSM:FSMClk|currentstate  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |test|dispense:LED0|counter[9]              ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |test|dispense:LED1|counter[9]              ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |test|dispense:LED2|counter[29]             ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |test|SecondCounter:Sc|counter[8]           ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |test|setTime:setT|outSeconds[5]            ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |test|setTime:setT|outMinutes[3]            ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |test|setTime:setT|outHours[3]              ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |test|MinuteCounter:Mc|counter[0]           ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |test|HourCounter:Hc|counter[0]             ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |test|Hours:H|hours[3]                      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |test|dispenseControlFSM:ccFSM|currentState ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |test|clockControlFSM:FSMClk|currentstate   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -352,16 +344,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: circuitControlFSM:ccFSM ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; steadyState    ; 000   ; Unsigned Binary                             ;
-; morning        ; 001   ; Unsigned Binary                             ;
-; afternoon      ; 010   ; Unsigned Binary                             ;
-; evening        ; 011   ; Unsigned Binary                             ;
-+----------------+-------+---------------------------------------------+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dispenseControlFSM:ccFSM ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; steadyState    ; 000   ; Unsigned Binary                              ;
+; morning        ; 001   ; Unsigned Binary                              ;
+; afternoon      ; 010   ; Unsigned Binary                              ;
+; evening        ; 011   ; Unsigned Binary                              ;
++----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -392,32 +384,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "dispenseControlFSM:ccFSM"                                                                        ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; dispenseMorning   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dispenseAfternoon ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dispenseEvening   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 105                         ;
+; arriav_ff             ; 204                         ;
 ;     ENA               ; 36                          ;
-;     SCLR              ; 62                          ;
-;     plain             ; 7                           ;
-; arriav_lcell_comb     ; 199                         ;
-;     arith             ; 62                          ;
-;         1 data inputs ; 62                          ;
+;     SCLR              ; 155                         ;
+;     plain             ; 13                          ;
+; arriav_lcell_comb     ; 323                         ;
+;     arith             ; 155                         ;
+;         1 data inputs ; 155                         ;
 ;     extend            ; 3                           ;
 ;         7 data inputs ; 3                           ;
-;     normal            ; 134                         ;
+;     normal            ; 165                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 13                          ;
-;         3 data inputs ; 13                          ;
-;         4 data inputs ; 33                          ;
-;         5 data inputs ; 18                          ;
-;         6 data inputs ; 50                          ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 34                          ;
+;         5 data inputs ; 24                          ;
+;         6 data inputs ; 69                          ;
 ; boundary_port         ; 103                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.59                        ;
+; Average LUT depth     ; 2.84                        ;
 +-----------------------+-----------------------------+
 
 
@@ -436,26 +439,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Tue Nov 17 11:13:36 2015
+    Info: Processing started: Tue Nov 17 19:11:59 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test -c test
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 8 design units, including 8 entities, in source file test.v
+Info (12021): Found 2 design units, including 2 entities, in source file test.v
     Info (12023): Found entity 1: test
-    Info (12023): Found entity 2: testLightLED
-    Info (12023): Found entity 3: Hours
-    Info (12023): Found entity 4: hex
-    Info (12023): Found entity 5: circuitControlFSM
-    Info (12023): Found entity 6: dispenseTime
-    Info (12023): Found entity 7: dispsenser
-    Info (12023): Found entity 8: dispense
-Info (12021): Found 4 design units, including 4 entities, in source file timers.v
+    Info (12023): Found entity 2: hex
+Info (12021): Found 5 design units, including 5 entities, in source file timers.v
     Info (12023): Found entity 1: SecondCounter
     Info (12023): Found entity 2: MinuteCounter
     Info (12023): Found entity 3: HourCounter
-    Info (12023): Found entity 4: buttonPushTimer
+    Info (12023): Found entity 4: Hours
+    Info (12023): Found entity 5: buttonPushTimer
 Info (12021): Found 2 design units, including 2 entities, in source file clock.v
     Info (12023): Found entity 1: clockControlFSM
     Info (12023): Found entity 2: setTime
+Info (12021): Found 4 design units, including 4 entities, in source file dispenser.v
+    Info (12023): Found entity 1: dispenseControlFSM
+    Info (12023): Found entity 2: dispenseTime
+    Info (12023): Found entity 3: dispsenser
+    Info (12023): Found entity 4: dispense
 Warning (10236): Verilog HDL Implicit Net warning at test.v(60): created implicit net for "clock"
 Info (12127): Elaborating entity "test" for the top level hierarchy
 Warning (10034): Output port "LEDR[9..3]" at test.v(14) has no driver
@@ -466,29 +469,27 @@ Warning (10230): Verilog HDL assignment warning at timers.v(43): truncated value
 Info (12128): Elaborating entity "HourCounter" for hierarchy "HourCounter:Hc"
 Warning (10230): Verilog HDL assignment warning at timers.v(71): truncated value with size 32 to match size of target (6)
 Info (12128): Elaborating entity "Hours" for hierarchy "Hours:H"
-Warning (10230): Verilog HDL assignment warning at test.v(103): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at timers.v(98): truncated value with size 32 to match size of target (5)
 Info (12128): Elaborating entity "setTime" for hierarchy "setTime:setT"
 Warning (10230): Verilog HDL assignment warning at clock.v(123): truncated value with size 32 to match size of target (6)
 Warning (10230): Verilog HDL assignment warning at clock.v(130): truncated value with size 32 to match size of target (6)
 Warning (10230): Verilog HDL assignment warning at clock.v(137): truncated value with size 32 to match size of target (5)
 Info (12128): Elaborating entity "buttonPushTimer" for hierarchy "setTime:setT|buttonPushTimer:bpt"
-Warning (10230): Verilog HDL assignment warning at timers.v(95): truncated value with size 32 to match size of target (31)
+Warning (10230): Verilog HDL assignment warning at timers.v(119): truncated value with size 32 to match size of target (31)
 Info (12128): Elaborating entity "clockControlFSM" for hierarchy "clockControlFSM:FSMClk"
 Warning (10240): Verilog HDL Always Construct warning at clock.v(26): inferring latch(es) for variable "update", which holds its previous value in one or more paths through the always construct
 Warning (10240): Verilog HDL Always Construct warning at clock.v(26): inferring latch(es) for variable "setInitVal", which holds its previous value in one or more paths through the always construct
 Info (10041): Inferred latch for "setInitVal" at clock.v(26)
 Info (10041): Inferred latch for "update" at clock.v(26)
 Info (12128): Elaborating entity "dispenseTime" for hierarchy "dispenseTime:dT"
-Info (12128): Elaborating entity "circuitControlFSM" for hierarchy "circuitControlFSM:ccFSM"
-Info (12128): Elaborating entity "testLightLED" for hierarchy "testLightLED:LED0"
+Info (12128): Elaborating entity "dispenseControlFSM" for hierarchy "dispenseControlFSM:ccFSM"
+Info (12128): Elaborating entity "dispense" for hierarchy "dispense:LED0"
+Warning (10230): Verilog HDL assignment warning at dispenser.v(124): truncated value with size 32 to match size of target (31)
 Info (12128): Elaborating entity "hex" for hierarchy "hex:h0"
 Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13012): Latch clockControlFSM:FSMClk|setInitVal has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal clockControlFSM:FSMClk|currentstate.setMode
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at VCC
-    Warning (13410): Pin "LEDR[1]" is stuck at VCC
-    Warning (13410): Pin "LEDR[2]" is stuck at VCC
     Warning (13410): Pin "LEDR[3]" is stuck at GND
     Warning (13410): Pin "LEDR[4]" is stuck at GND
     Warning (13410): Pin "LEDR[5]" is stuck at GND
@@ -502,7 +503,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX5[2]" is stuck at GND
     Warning (13410): Pin "HEX5[1]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 45 input pin(s) that do not drive logic
@@ -551,14 +552,14 @@ Warning (21074): Design contains 45 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "GPIO_0[33]"
     Warning (15610): No output dependent on input pin "GPIO_0[34]"
     Warning (15610): No output dependent on input pin "GPIO_0[35]"
-Info (21057): Implemented 296 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 420 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 51 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 193 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 78 warnings
+    Info (21061): Implemented 317 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 76 warnings
     Info: Peak virtual memory: 738 megabytes
-    Info: Processing ended: Tue Nov 17 11:13:55 2015
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:41
+    Info: Processing ended: Tue Nov 17 19:12:19 2015
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:40
 
 
