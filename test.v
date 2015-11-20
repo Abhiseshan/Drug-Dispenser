@@ -39,11 +39,8 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	//Update and InitValue Signals
 	wire update, setInitVal;
 	
-	//Dispenser Module 1
-	wire d1m, d1a, d1e;
-	
-	//Dispenser Module 2
-	wire d2m, d2a, d2e;
+	//Dispenser Modules
+	wire [2:0] m1, m2;	
 	
 	//Counters
 	SecondCounter Sc(CLOCK_50, KEY[0], secondP);
@@ -59,10 +56,17 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	dispenseTime dT(CLOCK_50, seconds, minutes, hours, morningP, afternoonP, eveningP);
 	dispenseControlFSM ccFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
 
+	//Dispense Setters
+	dispenseSetterFSM setter(SW[9:0], m1, m2);
+	
+	//Dispense Controllers
+	dispenser dm1 (CLOCK_50, morningP, afternoonP, eveningP, m1, LEDR[1]);
+	dispenser dm2 (CLOCK_50, morningP, afternoonP, eveningP, m2, LEDR[2]);
+	
 	//LEDR Assigned for testing purposes.
-	dispense LED0(CLOCK_50, morningP, LEDR[0]);
-	dispense LED1(CLOCK_50, afternoonP, LEDR[1]);
-	dispense LED2(CLOCK_50, eveningP, LEDR[2]);
+	//dispense LED0(CLOCK_50, morningP, LEDR[0]);
+	//dispense LED1(CLOCK_50, afternoonP, LEDR[1]);
+	//dispense LED2(CLOCK_50, eveningP, LEDR[2]);
 	
 	//HEX Display for clock - To be removed later on.
 	hex h0(HEX0, hexSeconds[3:0]);
@@ -98,7 +102,3 @@ module hex(out,in);
 			default: out=7'b0;
 		endcase
 endmodule
-
-
-
-
