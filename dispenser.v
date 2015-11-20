@@ -84,22 +84,24 @@ module dispenseTime(clock, seconds, minutes, hours, dispenseMorning, dispenseAft
 	end
 endmodule
 
-module dispsenser(input clock, morningP, afternoonP, eveningP, dm, da, de, output GPIO_PORT);
+module dispenser(input clock, morningP, afternoonP, eveningP, input [2:0] m, output GPIO_PORT);
 	
 	reg dispense;
 	initial dispense = 0;
 	
 	always@(posedge clock)
-		if (dm == 1 && morningP == 1)
+	begin
+		if (m[0] == 1 && morningP == 1)
 			dispense <= 1;
-		else if (da == 1 && afternoonP == 1)
+		else if (m[1] == 1 && afternoonP == 1)
 			dispense <= 1;
-		else if (de == 1 && eveningP == 1)
+		else if (m[2] == 1 && eveningP == 1)
 			dispense <= 1;
 		else 
 			dispense <= 0;
+	end	
 			
-		dispense d(clock, dispense, GPIO_PORT);
+	dispense d(clock, dispense, GPIO_PORT);
 endmodule
 
 module dispense(input clock, signal, output reg port);
@@ -123,5 +125,41 @@ module dispense(input clock, signal, output reg port);
 			begin
 				counter <= counter + 1;
 			end
+	end
+endmodule
+
+module dispenseSetterFSM(set, m1, m2);
+	
+	input [9:0] set;
+	output reg [2:0] m1,m2;
+	
+	reg [2:0] currentState;
+	
+	parameter base = 3'b000, sset1 = 3'b001, sset2 = 3'b010;
+	
+	always@ (*)
+	begin
+		case (currentState)
+			sset1:
+				begin
+					m1[0] <= set[0];
+					m1[1] <= set[1];
+					m1[2] <= set[2];
+				end
+			sset2:
+				begin
+					m2[0] <= set[0];
+					m2[1] <= set[1];
+					m2[2] <= set[2];
+				end
+		endcase
+	end
+
+	always@(set[8])
+	begin
+		if (set[8] == 1)
+			currentState <= set[2:0];
+		else
+			currentState <= base;
 	end
 endmodule
