@@ -1,4 +1,8 @@
-module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0);
+module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, AUD_XCK, AUD_DACDAT, I2C_SDAT, I2C_SCLK);
+
+/*****************************************************************************
+ *                             Port Declarations                             *
+ *****************************************************************************/	
 	input CLOCK_50;
 	input [9:0] SW; 
 	input [3:0] KEY;
@@ -15,6 +19,25 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	
 	output [0:6] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
+	
+	//Audio Module
+	input	AUD_ADCDAT;
+
+	// Bidirectionals
+	inout	AUD_BCLK;
+	inout	AUD_ADCLRCK;
+	inout	AUD_DACLRCK;
+	inout	I2C_SDAT;
+
+	// Outputs
+	output AUD_XCK;
+	output AUD_DACDAT;
+	output I2C_SCLK;
+
+/*****************************************************************************
+ *                 Internal Wires and Registers Declarations                 *
+ *****************************************************************************/
+ 
 	//Pulses
 	wire secondP, minuteP, hoursP;
 	
@@ -42,6 +65,10 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	//Dispenser Modules
 	wire [2:0] m1, m2;	
 	
+	//Alarm Enable
+	wire alarmEnable;
+	assign alarmEnable = morningP || afternoonP || eveningP;
+	
 	//Counters
 	SecondCounter Sc(CLOCK_50, KEY[0], secondP);
 	MinuteCounter Mc(CLOCK_50, secondP, update, setSeconds, KEY[0], minuteP, seconds);
@@ -63,10 +90,9 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	dispenser dm1 (CLOCK_50, morningP, afternoonP, eveningP, m1, LEDR[1]);
 	dispenser dm2 (CLOCK_50, morningP, afternoonP, eveningP, m2, LEDR[2]);
 	
-	//LEDR Assigned for testing purposes.
-	//dispense LED0(CLOCK_50, morningP, LEDR[0]);
-	//dispense LED1(CLOCK_50, afternoonP, LEDR[1]);
-	//dispense LED2(CLOCK_50, eveningP, LEDR[2]);
+	
+	//Alarm
+	Alarm alm(CLOCK_50, KEY, alarmEnable, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, I2C_SDAT, AUD_XCK, AUD_DACDAT, I2C_SCLK);
 	
 	//HEX Display for clock - To be removed later on.
 	hex h0(HEX0, hexSeconds[3:0]);
@@ -75,7 +101,6 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	hex h3(HEX3, hexMinutes[5:4]);
 	hex h4(HEX4, hexHours[3:0]);
 	hex h5(HEX5, hexHours[4]);
-	
 endmodule
 
 module hex(out,in);

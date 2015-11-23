@@ -9,153 +9,175 @@ z2
 cModel Technology
 Z0 dC:/Users/hp/Documents/GitHub/Drug-Dispenser/simulation/modelsim
 vbuttonPushTimer
-Z1 !s110 1447776963
+Z1 !s110 1448057403
 !i10b 1
-!s100 <6o_4;n=Cf4?fNh?o?[jY3
-I:_g8YEnQPP0C<_zmY<IIf2
+!s100 =02iOAEFJf3QDNmd:Z[>V0
+IW3D1@o2^29dnmY<V?AMF@2
 Z2 V`JN@9S9cnhjKRR_L]QIcM3
 R0
-Z3 w1447775502
+Z3 w1447806123
 Z4 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v
 Z5 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v
-L0 80
+L0 104
 Z6 OV;L;10.3d;59
 r1
 !s85 0
 31
-Z7 !s108 1447776963.453000
+Z7 !s108 1448057403.846000
 Z8 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v|
 !i113 1
 Z10 o-vlog01compat -work work
 Z11 !s92 -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser
 nbutton@push@timer
-vcircuitControlFSM
-R1
-!i10b 1
-!s100 `dKek^?:hcOkD<`QaeFzR1
-IKkMeLj<U9cDV1IO]9Tjo51
-R2
-R0
-Z12 w1447776747
-Z13 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v
-Z14 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v
-L0 136
-R6
-r1
-!s85 0
-31
-Z15 !s108 1447776963.370000
-Z16 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v|
-Z17 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v|
-!i113 1
-R10
-R11
-ncircuit@control@f@s@m
 vclockControlFSM
-Z18 !s110 1447776964
+R1
 !i10b 1
 !s100 k`65=__cUCfHe?T4^:X;]3
 IeH><;TW8P2E5;0J?l]6nQ3
 R2
 R0
-Z19 w1447775508
-Z20 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v
-Z21 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v
+Z12 w1447806122
+Z13 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v
+Z14 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v
 L0 1
 R6
 r1
 !s85 0
 31
-Z22 !s108 1447776964.429000
-Z23 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v|
-Z24 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v|
+Z15 !s108 1448057403.922000
+Z16 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v|
+Z17 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v|
 !i113 1
 R10
 R11
 nclock@control@f@s@m
 vdispense
-R1
+Z18 !s110 1448057404
 !i10b 1
-!s100 3glM7ALJ=Xmn3GDEIo8FO2
-IA?9h1RPbc>JD`zBXNZgYg2
+!s100 G:m;Z?YjIPHcAQSc]bNOS2
+IETkIkJmBFHeF6FjTBdXGQ0
 R2
 R0
-R12
-R13
-R14
-L0 239
+Z19 w1448056483
+Z20 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v
+Z21 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v
+L0 107
 R6
 r1
 !s85 0
 31
-R15
-R16
-R17
+Z22 !s108 1448057403.990000
+Z23 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v|
+Z24 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v|
 !i113 1
 R10
 R11
-vdispenseTime
-R1
+vdispenseControlFSM
+R18
 !i10b 1
-!s100 _0X5zT9a49VaEdczf3EK93
-IOjhWY47mXUL]77JET<Z<P0
+!s100 KYCfUZMFjfNfUMMo_2j;@0
+I2YnhZ1TNLOd3noEzYL_UR1
 R2
 R0
-R12
-R13
-R14
-L0 197
+R19
+R20
+R21
+L0 1
 R6
 r1
 !s85 0
 31
-R15
-R16
-R17
+R22
+R23
+R24
+!i113 1
+R10
+R11
+ndispense@control@f@s@m
+vdispenser
+R18
+!i10b 1
+!s100 U3o90Ai]Q<^T6H>?zLAHf0
+I4=HK4lGPEX54D7FKY^mK_3
+R2
+R0
+R19
+R20
+R21
+L0 87
+R6
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 1
+R10
+R11
+vdispenseSetterFSM
+R18
+!i10b 1
+!s100 TbgP?X[FZdB`KYlC_j_VR3
+IG^n?;DR5GbmC@VS_UILlI3
+R2
+R0
+R19
+R20
+R21
+L0 131
+R6
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 1
+R10
+R11
+ndispense@setter@f@s@m
+vdispenseTime
+R18
+!i10b 1
+!s100 jME<i>8GU>CEY5KmF[^nA0
+I[Wm99D0ME3VD0V6HAlCQo2
+R2
+R0
+R19
+R20
+R21
+L0 63
+R6
+r1
+!s85 0
+31
+R22
+R23
+R24
 !i113 1
 R10
 R11
 ndispense@time
-vdispsenser
-R1
-!i10b 1
-!s100 dAoEaz@6mZzGhAhKg;ADi0
-InLDlzU>ACVaS6T9>W31=L0
-R2
-R0
-R12
-R13
-R14
-L0 221
-R6
-r1
-!s85 0
-31
-R15
-R16
-R17
-!i113 1
-R10
-R11
 vhex
 R1
 !i10b 1
-!s100 OEz_1M9WI[NKGI?lSf]^F0
-InWem:2hBliYF5mnhcI2Wa0
+!s100 A>D?:Z^UVIVGlFagDNmYF2
+I1f_CRLS_JF4dW8<_>`Lo80
 R2
 R0
-R12
-R13
-R14
-L0 109
+R19
+Z25 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v
+Z26 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v
+L0 81
 R6
 r1
 !s85 0
 31
-R15
-R16
-R17
+Z27 !s108 1448057403.780000
+Z28 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v|
+Z29 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v|
 !i113 1
 R10
 R11
@@ -184,21 +206,21 @@ n@hour@counter
 vHours
 R1
 !i10b 1
-!s100 9K_811m<W5ZGNa8A[lg301
-I5PmEQn4;<km@oXXWF^LEd1
+!s100 [^cGf@zjhhz==`Gio7l5f3
+IW[B@EXIUH0ICe26Lz_UEg0
 R2
 R0
-R12
-R13
-R14
-L0 85
+R3
+R4
+R5
+L0 80
 R6
 r1
 !s85 0
 31
-R15
-R16
-R17
+R7
+R8
+R9
 !i113 1
 R10
 R11
@@ -248,23 +270,23 @@ R10
 R11
 n@second@counter
 vsetTime
-R18
+R1
 !i10b 1
 !s100 50@0iQ;Hbia9NcVD3nbdd2
 I6S<JVAf1C1K;3<;ozLU[U0
 R2
 R0
-R19
-R20
-R21
+R12
+R13
+R14
 L0 92
 R6
 r1
 !s85 0
 31
-R22
-R23
-R24
+R15
+R16
+R17
 !i113 1
 R10
 R11
@@ -272,43 +294,21 @@ nset@time
 vtest
 R1
 !i10b 1
-!s100 673<WM4<HGe^zaK@iGV]C0
-I3cfYmUnh>^^a3]_3EZTDZ1
+!s100 k6_Se<eQ^oJlD@BcZcZa]0
+IzRk]U9LSD0B<;J5`jU>P41
 R2
 R0
-R12
-R13
-R14
+R19
+R25
+R26
 L0 1
 R6
 r1
 !s85 0
 31
-R15
-R16
-R17
+R27
+R28
+R29
 !i113 1
 R10
 R11
-vtestLightLED
-R1
-!i10b 1
-!s100 VDCV^Vb[PiDiAc;6W;7Y_2
-I2fmTjj1]R?<eM6_ARzH0`0
-R2
-R0
-R12
-R13
-R14
-L0 77
-R6
-r1
-!s85 0
-31
-R15
-R16
-R17
-!i113 1
-R10
-R11
-ntest@light@l@e@d

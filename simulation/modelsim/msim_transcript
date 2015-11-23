@@ -15,41 +15,36 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 11:15:53 on Nov 17,2015
+# Start time: 16:57:25 on Nov 20,2015
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v 
 # -- Compiling module test
-# -- Compiling module testLightLED
-# -- Compiling module Hours
 # -- Compiling module hex
-# -- Compiling module circuitControlFSM
-# -- Compiling module dispenseTime
-# -- Compiling module dispsenser
-# -- Compiling module dispense
 # 
 # Top level modules:
 # 	test
-# 	dispsenser
-# End time: 11:15:53 on Nov 17,2015, Elapsed time: 0:00:00
+# End time: 16:57:25 on Nov 20,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 11:15:53 on Nov 17,2015
+# Start time: 16:57:25 on Nov 20,2015
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v 
 # -- Compiling module SecondCounter
 # -- Compiling module MinuteCounter
 # -- Compiling module HourCounter
+# -- Compiling module Hours
 # -- Compiling module buttonPushTimer
 # 
 # Top level modules:
 # 	SecondCounter
 # 	MinuteCounter
 # 	HourCounter
+# 	Hours
 # 	buttonPushTimer
-# End time: 11:15:53 on Nov 17,2015, Elapsed time: 0:00:00
+# End time: 16:57:26 on Nov 20,2015, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 11:15:54 on Nov 17,2015
+# Start time: 16:57:26 on Nov 20,2015
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v 
 # -- Compiling module clockControlFSM
 # -- Compiling module setTime
@@ -57,13 +52,52 @@
 # Top level modules:
 # 	clockControlFSM
 # 	setTime
-# End time: 11:15:54 on Nov 17,2015, Elapsed time: 0:00:00
+# End time: 16:57:26 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 16:57:26 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v 
+# -- Compiling module dispenseControlFSM
+# -- Compiling module dispenseTime
+# -- Compiling module dispenser
+# -- Compiling module dispense
+# -- Compiling module dispenseSetterFSM
+# 
+# Top level modules:
+# 	dispenseControlFSM
+# 	dispenseTime
+# 	dispenser
+# 	dispenseSetterFSM
+# End time: 16:57:26 on Nov 20,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vsim
 # vsim -gui "+altera" -l msim_transcript -do "test_run_msim_rtl_verilog.do" 
-# Start time: 11:16:01 on Nov 17,2015
-# Loading work.circuitControlFSM
+# Start time: 16:58:06 on Nov 20,2015
+# Loading work.test
+# Loading work.SecondCounter
+# Loading work.MinuteCounter
+# Loading work.HourCounter
+# Loading work.Hours
+# Loading work.setTime
+# Loading work.buttonPushTimer
+# Loading work.clockControlFSM
+# Loading work.dispenseTime
+# Loading work.dispenseControlFSM
+# Loading work.dispenseSetterFSM
+# Loading work.dispenser
+# Loading work.dispense
+# Loading work.hex
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(73): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h1
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(75): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h3
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(77): [PCDPC] - Port size (4) does not match connection size (1) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h5
 # do test_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
@@ -76,41 +110,36 @@ vsim
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 11:16:03 on Nov 17,2015
+# Start time: 16:58:12 on Nov 20,2015
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v 
 # -- Compiling module test
-# -- Compiling module testLightLED
-# -- Compiling module Hours
 # -- Compiling module hex
-# -- Compiling module circuitControlFSM
-# -- Compiling module dispenseTime
-# -- Compiling module dispsenser
-# -- Compiling module dispense
 # 
 # Top level modules:
 # 	test
-# 	dispsenser
-# End time: 11:16:03 on Nov 17,2015, Elapsed time: 0:00:00
+# End time: 16:58:12 on Nov 20,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 11:16:03 on Nov 17,2015
+# Start time: 16:58:13 on Nov 20,2015
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v 
 # -- Compiling module SecondCounter
 # -- Compiling module MinuteCounter
 # -- Compiling module HourCounter
+# -- Compiling module Hours
 # -- Compiling module buttonPushTimer
 # 
 # Top level modules:
 # 	SecondCounter
 # 	MinuteCounter
 # 	HourCounter
+# 	Hours
 # 	buttonPushTimer
-# End time: 11:16:03 on Nov 17,2015, Elapsed time: 0:00:00
+# End time: 16:58:13 on Nov 20,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 11:16:04 on Nov 17,2015
+# Start time: 16:58:13 on Nov 20,2015
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v 
 # -- Compiling module clockControlFSM
 # -- Compiling module setTime
@@ -118,40 +147,364 @@ vsim
 # Top level modules:
 # 	clockControlFSM
 # 	setTime
-# End time: 11:16:04 on Nov 17,2015, Elapsed time: 0:00:00
+# End time: 16:58:13 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 16:58:13 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v 
+# -- Compiling module dispenseControlFSM
+# -- Compiling module dispenseTime
+# -- Compiling module dispenser
+# -- Compiling module dispense
+# -- Compiling module dispenseSetterFSM
+# 
+# Top level modules:
+# 	dispenseControlFSM
+# 	dispenseTime
+# 	dispenser
+# 	dispenseSetterFSM
+# End time: 16:58:13 on Nov 20,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-add wave -position end  sim:/circuitControlFSM/steadyState
-add wave -position end  sim:/circuitControlFSM/morning
-add wave -position end  sim:/circuitControlFSM/afternoon
-add wave -position end  sim:/circuitControlFSM/evening
-add wave -position end  sim:/circuitControlFSM/clock
-add wave -position end  sim:/circuitControlFSM/morningP
-add wave -position end  sim:/circuitControlFSM/afternoonP
-add wave -position end  sim:/circuitControlFSM/eveningP
-add wave -position end  sim:/circuitControlFSM/dispenseMorning
-add wave -position end  sim:/circuitControlFSM/dispenseAfternoon
-add wave -position end  sim:/circuitControlFSM/dispenseEvening
-add wave -position end  sim:/circuitControlFSM/currentState
-add wave -position end  sim:/circuitControlFSM/nextState
-force -freeze sim:/circuitControlFSM/clock 1 0, 0 {50 ps} -r 100
-force -freeze sim:/circuitControlFSM/currentState 0 0
-run
-noforce sim:/circuitControlFSM/currentState
-run
-force -freeze sim:/circuitControlFSM/afternoonP 1 0
-run
-force -freeze sim:/circuitControlFSM/afternoonP 0 0
+add wave -position end  sim:/test/CLOCK_50
+add wave -position end  sim:/test/secondP
+add wave -position end  sim:/test/minuteP
+add wave -position end  sim:/test/hoursP
+add wave -position end  sim:/test/m1
+add wave -position end  sim:/test/m2
+add wave -position end  sim:/test/morningP
+add wave -position end  sim:/test/afternoonP
+add wave -position end  sim:/test/eveningP
+force -freeze sim:/test/CLOCK_50 1 0, 0 {50 ps} -r 100
+add wave -position end  sim:/test/SW
+force -freeze sim:/test/SW 0 0
 run
 run
-force -freeze sim:/circuitControlFSM/morningP 1 0
-run
-force -freeze sim:/circuitControlFSM/morningP 0 0
-run
-force -freeze sim:/circuitControlFSM/eveningP 1 0
-run
-force -freeze sim:/circuitControlFSM/eveningP 0 0
+force -freeze sim:/test/SW 0100000111 0
 run
 run
-# End time: 11:17:26 on Nov 17,2015, Elapsed time: 0:01:25
+force -freeze {sim:/test/SW[8]} 0 0
+run
+force -freeze {sim:/test/SW[8]} 1 0
+run
+force -freeze {sim:/test/SW[8]} 0 0
+run
+force -freeze {sim:/test/SW[2]} 0 0
+force -freeze {sim:/test/SW[1]} 0 0
+force -freeze {sim:/test/SW[8]} 1 0
+run
+force -freeze {sim:/test/SW[1]} 1 0
+force -freeze {sim:/test/SW[2]} 1 0
+run
+force -freeze {sim:/test/SW[8]} 0 0
+run
+force -freeze {sim:/test/SW[2]} 0 0
+force -freeze {sim:/test/SW[0]} 0 0
+run
+force -freeze {sim:/test/SW[8]} 1 0
+run
+force -freeze {sim:/test/SW[2]} 1 0
+force -freeze {sim:/test/SW[8]} 0 0
+run
+run
+add wave -position end  sim:/test/LEDR
+force -freeze sim:/test/morningP 1 0
+run
+force -freeze sim:/test/morningP 0 0
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/test/afternoonP 1 0
+run
+force -freeze sim:/test/afternoonP 0 0
+run
+run
+force -freeze sim:/test/eveningP 1 0
+run
+run
+force -freeze sim:/test/eveningP 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/test/LEDR 0 0
+run
+noforce sim:/test/LEDR
+run
+run
+run
+add wave -position end  sim:/test/dm2/d/counter
+force -freeze sim:/test/dm2/d/counter 4999999 0
+# Invalid binary digit: 4.
+# ** Error: (vsim-4011) Invalid force value: 4999999 0.
+# 
+run
+run
+# Break key hit
+# Break key hit
+# Break key hit
+# Break key hit
+# Break key hit
+run
+run
+run
+run
+vsim
+# vsim 
+# Start time: 17:08:07 on Nov 20,2015
+# Loading work.test
+# Loading work.SecondCounter
+# Loading work.MinuteCounter
+# Loading work.HourCounter
+# Loading work.Hours
+# Loading work.setTime
+# Loading work.buttonPushTimer
+# Loading work.clockControlFSM
+# Loading work.dispenseTime
+# Loading work.dispenseControlFSM
+# Loading work.dispenseSetterFSM
+# Loading work.dispenser
+# Loading work.dispense
+# Loading work.hex
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(73): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h1
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(75): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h3
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(77): [PCDPC] - Port size (4) does not match connection size (1) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h5
+# WARNING: No extended dataflow license exists
+# do test_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim PE vmap 10.3d Lib Mapping Utility 2014.10 Oct  7 2014
+# vmap -modelsim_quiet work rtl_work 
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:08:09 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v 
+# -- Compiling module test
+# -- Compiling module hex
+# 
+# Top level modules:
+# 	test
+# End time: 17:08:09 on Nov 20,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:08:09 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v 
+# -- Compiling module SecondCounter
+# -- Compiling module MinuteCounter
+# -- Compiling module HourCounter
+# -- Compiling module Hours
+# -- Compiling module buttonPushTimer
+# 
+# Top level modules:
+# 	SecondCounter
+# 	MinuteCounter
+# 	HourCounter
+# 	Hours
+# 	buttonPushTimer
+# End time: 17:08:09 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:08:09 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v 
+# -- Compiling module clockControlFSM
+# -- Compiling module setTime
+# 
+# Top level modules:
+# 	clockControlFSM
+# 	setTime
+# End time: 17:08:09 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:08:09 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v 
+# -- Compiling module dispenseControlFSM
+# -- Compiling module dispenseTime
+# -- Compiling module dispenser
+# -- Compiling module dispense
+# -- Compiling module dispenseSetterFSM
+# 
+# Top level modules:
+# 	dispenseControlFSM
+# 	dispenseTime
+# 	dispenser
+# 	dispenseSetterFSM
+# End time: 17:08:09 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+add wave -position end  sim:/test/m1
+add wave -position end  sim:/test/m2
+force -freeze sim:/test/m1 010 0
+force -freeze sim:/test/m2 110 0
+add wave -position end  sim:/test/CLOCK_50
+add wave -position end  sim:/test/morningP
+add wave -position end  sim:/test/afternoonP
+add wave -position end  sim:/test/eveningP
+add wave -position end  sim:/test/morningP
+force -freeze sim:/test/CLOCK_50 1 0, 0 {50 ps} -r 100
+add wave -position end  sim:/test/LEDR
+run
+run
+force -freeze sim:/test/afternoonP 1 0
+run
+force -freeze sim:/test/afternoonP 0 0
+run
+run
+vsim
+# vsim 
+# Start time: 17:10:02 on Nov 20,2015
+# Loading work.test
+# Loading work.SecondCounter
+# Loading work.MinuteCounter
+# Loading work.HourCounter
+# Loading work.Hours
+# Loading work.setTime
+# Loading work.buttonPushTimer
+# Loading work.clockControlFSM
+# Loading work.dispenseTime
+# Loading work.dispenseControlFSM
+# Loading work.dispenseSetterFSM
+# Loading work.dispenser
+# Loading work.dispense
+# Loading work.hex
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(73): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h1
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(75): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h3
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(77): [PCDPC] - Port size (4) does not match connection size (1) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(81).
+# 
+#         Region: /test/h5
+# WARNING: No extended dataflow license exists
+# do test_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim PE vmap 10.3d Lib Mapping Utility 2014.10 Oct  7 2014
+# vmap -modelsim_quiet work rtl_work 
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:10:03 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v 
+# -- Compiling module test
+# -- Compiling module hex
+# 
+# Top level modules:
+# 	test
+# End time: 17:10:03 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:10:03 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v 
+# -- Compiling module SecondCounter
+# -- Compiling module MinuteCounter
+# -- Compiling module HourCounter
+# -- Compiling module Hours
+# -- Compiling module buttonPushTimer
+# 
+# Top level modules:
+# 	SecondCounter
+# 	MinuteCounter
+# 	HourCounter
+# 	Hours
+# 	buttonPushTimer
+# End time: 17:10:03 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:10:03 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v 
+# -- Compiling module clockControlFSM
+# -- Compiling module setTime
+# 
+# Top level modules:
+# 	clockControlFSM
+# 	setTime
+# End time: 17:10:03 on Nov 20,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v}
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 17:10:03 on Nov 20,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v 
+# -- Compiling module dispenseControlFSM
+# -- Compiling module dispenseTime
+# -- Compiling module dispenser
+# -- Compiling module dispense
+# -- Compiling module dispenseSetterFSM
+# 
+# Top level modules:
+# 	dispenseControlFSM
+# 	dispenseTime
+# 	dispenser
+# 	dispenseSetterFSM
+# End time: 17:10:04 on Nov 20,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+add wave -position end  sim:/test/CLOCK_50
+add wave -position end  sim:/test/morningP
+add wave -position end  sim:/test/afternoonP
+add wave -position end  sim:/test/eveningP
+add wave -position end  sim:/test/m1
+add wave -position end  sim:/test/m2
+force -freeze sim:/test/m1 001 0
+force -freeze sim:/test/m2 100 0
+force -freeze sim:/test/CLOCK_50 1 0, 0 {50 ps} -r 100
+add wave -position end  sim:/test/LEDR
+run
+run
+force -freeze sim:/test/morningP 1 0
+run
+force -freeze sim:/test/morningP 0 0
+run
+run
+force -freeze sim:/test/eveningP 1 0
+run
+force -freeze sim:/test/eveningP 0 0
+run
+run
+run
+# End time: 17:11:44 on Nov 20,2015, Elapsed time: 0:01:42
+# Errors: 0, Warnings: 4

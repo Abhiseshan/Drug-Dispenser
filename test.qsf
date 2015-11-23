@@ -47,7 +47,6 @@ set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
-set_global_assignment -name VERILOG_FILE test.v
 set_location_assignment PIN_AJ4 -to ADC_CS_N
 set_location_assignment PIN_AK4 -to ADC_DIN
 set_location_assignment PIN_AK3 -to ADC_DOUT
@@ -310,6 +309,17 @@ set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE alarm.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Audio_Controller.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Audio_Clock.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_SYNC_FIFO.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Clock_Edge.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Audio_Out_Serializer.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Audio_In_Deserializer.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Audio_Bit_Counter.v
+set_global_assignment -name VERILOG_FILE test.v
 set_global_assignment -name VERILOG_FILE timers.v
 set_global_assignment -name VERILOG_FILE clock.v
 set_global_assignment -name VERILOG_FILE dispenser.v
