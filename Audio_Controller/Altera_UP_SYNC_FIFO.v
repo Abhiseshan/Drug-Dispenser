@@ -115,7 +115,7 @@ scfifo	Sync_FIFO (
 );
 defparam
 	Sync_FIFO.add_ram_output_register	= "OFF",
-	Sync_FIFO.intended_device_family	= "Cyclone V",
+	Sync_FIFO.intended_device_family	= "Cyclone II",
 	Sync_FIFO.lpm_numwords				= DATA_DEPTH,
 	Sync_FIFO.lpm_showahead				= "ON",
 	Sync_FIFO.lpm_type					= "scfifo",

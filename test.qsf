@@ -311,6 +311,16 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_J12 -to I2C_SCLK
+set_location_assignment PIN_K12 -to I2C_SDAT
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE2_Audio_Example -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE2_Audio_Example -section_id Top
+set_global_assignment -name PARTITION_COLOR 2147039 -entity DE2_Audio_Example -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE2_Audio_Example -section_id Top
+set_global_assignment -name VERILOG_FILE vga_adapter/vga_pll.v
+set_global_assignment -name VERILOG_FILE vga_adapter/vga_controller.v
+set_global_assignment -name VERILOG_FILE vga_adapter/vga_address_translator.v
+set_global_assignment -name VERILOG_FILE vga_adapter/vga_adapter.v
 set_global_assignment -name VERILOG_FILE alarm.v
 set_global_assignment -name VERILOG_FILE Audio_Controller/Audio_Controller.v
 set_global_assignment -name VERILOG_FILE Audio_Controller/Audio_Clock.v

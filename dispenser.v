@@ -128,38 +128,20 @@ module dispense(input clock, signal, output reg port);
 	end
 endmodule
 
-module dispenseSetterFSM(set, m1, m2);
+module dispenseSetter(clock, set, m1, m2);
 	
+	input clock;
 	input [9:0] set;
 	output reg [2:0] m1,m2;
-	
-	reg [2:0] currentState;
-	
-	parameter base = 3'b000, sset1 = 3'b001, sset2 = 3'b010;
-	
-	always@ (*)
+		
+	always @(posedge clock)
 	begin
-		case (currentState)
-			sset1:
-				begin
-					m1[0] <= set[0];
-					m1[1] <= set[1];
-					m1[2] <= set[2];
-				end
-			sset2:
-				begin
-					m2[0] <= set[0];
-					m2[1] <= set[1];
-					m2[2] <= set[2];
-				end
-		endcase
-	end
-
-	always@(set[8])
-	begin
-		if (set[8] == 1)
-			currentState <= set[2:0];
-		else
-			currentState <= base;
+		if (set[8])
+		begin
+			if (set[2:0] == 3'b001)
+				m1 <= set[5:3];
+			else if (set[2:0] == 3'b010)
+				m2 <= set[5:3];
+		end
 	end
 endmodule
