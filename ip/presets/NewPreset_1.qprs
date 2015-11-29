@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ip>
+ <presets version="12.1">
+  <preset
+     name="NewPreset 1"
+     kind="altera_up_avalon_audio"
+     version="All"
+     description="">
+   <parameter name="dw" value="24" />
+   <parameter name="avalon_bus_type" value="Memory Mapped" />
+   <parameter name="audio_in" value="true" />
+   <parameter name="audio_out" value="true" />
+  </preset>
+ </presets>
+</ip>

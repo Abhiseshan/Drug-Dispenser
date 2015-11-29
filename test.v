@@ -13,14 +13,27 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0,
 	input CLOCK_50;
 	input [9:0] SW; 
 	input [3:0] KEY;
-	input [35:0] GPIO_0;
+	output [35:0] GPIO_0;
 	//KEYMAAP Table
 	
 	//SW[9] Clock Set
+	//SW[8] Dispenser Set
+	//SW[7] Dispenser Override
+	
 	//KEY[0] Reset
 	//KEY[1] IncrementSeconds
 	//KEY[2] IncrementMinutes
-	//KEY[3] IncrementHours
+	//KEY[3] IncrementHours / Dispense Override
+	
+	output			VGA_CLK;   				//	VGA Clock
+	output			VGA_HS;					//	VGA H_SYNC
+	output			VGA_VS;					//	VGA V_SYNC
+	output			VGA_BLANK_N;				//	VGA BLANK
+	output			VGA_SYNC_N;				//	VGA SYNC
+	output	[9:0]	VGA_R;   				//	VGA Red[9:0]
+	output	[9:0]	VGA_G;	 				//	VGA Green[9:0]
+	output	[9:0]	VGA_B;   				//	VGA Blue[9:0}
+	
 	
 	output [9:0] LEDR;
 	
@@ -41,14 +54,6 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0,
 	output AUD_DACDAT;
 	output I2C_SCLK;
 	
-	output			VGA_CLK;   				//	VGA Clock
-	output			VGA_HS;					//	VGA H_SYNC
-	output			VGA_VS;					//	VGA V_SYNC
-	output			VGA_BLANK_N;				//	VGA BLANK
-	output			VGA_SYNC_N;				//	VGA SYNC
-	output	[9:0]	VGA_R;   				//	VGA Red[9:0]
-	output	[9:0]	VGA_G;	 				//	VGA Green[9:0]
-	output	[9:0]	VGA_B;   				//	VGA Blue[9:0}
 
 /*****************************************************************************
  *                 Internal Wires and Registers Declarations                 *
@@ -79,22 +84,16 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0,
 	wire update, setInitVal;
 	
 	//Dispenser Modules
-	wire [2:0] m1, m2;	
+	wire [2:0] m1, m2;
+
+	//Dispenser Overrides
+	wire ov1, ov2;
 	
 	//Alarm Enable
 	wire alarmEnable;
 	assign alarmEnable = morningP || afternoonP || eveningP;
 	
-	//Reset VGA
-	wire resetn;
-	assign resetn = KEY[0];
 	
-	// Create the colour, x, y and writeEn wires that are inputs to the controller.
-
-	wire [2:0] colour;
-	wire [7:0] x;
-	wire [6:0] y;
-	wire writeEn;
 	
 	//Counters
 	SecondCounter Sc(CLOCK_50, KEY[0], secondP);
@@ -107,46 +106,25 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0,
 	clockControlFSM FSMClk(CLOCK_50, SW[9], update, KEY[0], minutes, seconds, hours, setHours, setMinutes, setSeconds, hexHours, hexMinutes, hexSeconds, setInitVal);
 
 	//Circuit Management
-	dispenseTime dT(CLOCK_50, seconds, minutes, hours, morningP, afternoonP, eveningP);
-	dispenseControlFSM ccFSM(CLOCK_50, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
+	dispenseTime dT(CLOCK_50, secondP, seconds, minutes, hours, morningP, afternoonP, eveningP);
 
 	//Dispense Setters
 	dispenseSetter setter(CLOCK_50, SW[9:0],m1, m2);
 	
-	//Dispense Controllers
-	dispenser dm1 (CLOCK_50, morningP, afternoonP, eveningP, m1, LEDR[1]);
-	dispenser dm2 (CLOCK_50, morningP, afternoonP, eveningP, m2, LEDR[2]);
+	//Manual Override
+	manualOverride mo1(CLOCK_50, SW[9:0], KEY[3], ov1, ov2);
 	
+	//Dispense Controllers
+	dispenser dm1(CLOCK_50, morningP, afternoonP, eveningP, ov1, m1, LEDR[1]);
+	dispenser dm1G(CLOCK_50, morningP, afternoonP, eveningP, ov1, m1, GPIO_0[0]);
+	dispenser dm2(CLOCK_50, morningP, afternoonP, eveningP, ove2, m2, LEDR[2]);
 	
 	//Alarm
-	alarm alm(CLOCK_50, KEY, alarmEnable, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, I2C_SDAT, AUD_XCK, AUD_DACDAT, I2C_SCLK);
+	//alarm alm(CLOCK_50, KEY, alarmEnable, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, I2C_SDAT, AUD_XCK, AUD_DACDAT, I2C_SCLK);
 	
-	// Create an Instance of a VGA controller - there can be only one!
-	// Define the number of colours as well as the initial background
-	// image file (.MIF) for the controller.
-	vga_adapter VGA(
-			.resetn(resetn),
-			.clock(CLOCK_50),
-			.colour(colour),
-			.x(x),
-			.y(y),
-			.plot(writeEn),
-			/* Signals for the DAC to drive the monitor. */
-			.VGA_R(VGA_R),
-			.VGA_G(VGA_G),
-			.VGA_B(VGA_B),
-			.VGA_HS(VGA_HS),
-			.VGA_VS(VGA_VS),
-			.VGA_BLANK(VGA_BLANK_N),
-			.VGA_SYNC(VGA_SYNC_N),
-			.VGA_CLK(VGA_CLK));
-		defparam VGA.RESOLUTION = "160x120";
-		defparam VGA.MONOCHROME = "FALSE";
-		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-		defparam VGA.BACKGROUND_IMAGE = "pepemono.mif";
+	VGA vgaAdapter(CLOCK_50, secondP, KEY[0], VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B );
 	
 	//HEX Display for clock - To be removed later on.
-	hex h0(HEX0, hexSeconds[3:0]);
 	hex h1(HEX1, hexSeconds[5:4]);
 	hex h2(HEX2, hexMinutes[3:0]);
 	hex h3(HEX3, hexMinutes[5:4]);

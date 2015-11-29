@@ -1,0 +1,44 @@
+module VGA(clock, );
+
+	wire [1:0] state;
+
+	vga_address_translator user_input_translator(.x(x), .y(y), .mem_address(address));
+ 
+	m7304 meme0(address, clock, 0, 0, meme0C);
+	mmeme1 meme1(address, clock, 0, 0, meme1C);
+	mmeme2 meme2(address, clock, 0, 0, meme2C);
+
+	always @(*)
+	begin
+		if (state == 0)
+			color <= meme0C;
+		if (state == 1)
+			color <= meme1C;
+		if (state == 2)
+			color <= meme2C;
+		else
+			color <= 1'b0;
+	end
+	
+	screensaverCounter sc(clock, secondP, state);
+endmodule
+
+module screensaverCounter(input clock, secondP, output reg state);
+	always @(posedge clock)		
+		if (state == 2 && counter == 10) begin
+			state <= 0;
+			counter <= 0;
+		end
+		else if (state == 1 && counter == 10) begin
+			state <= 2;
+			counter <= 0;
+		end
+		else if (state == 0 && counter == 10) begin
+			state <= 1;
+			counter <= 0;
+		end
+		else
+			if (secondP == 0)
+				counter = counter + 1;
+	end
+endmodule
