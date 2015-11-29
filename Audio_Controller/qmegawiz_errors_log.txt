@@ -1,0 +1,28 @@
+
+
+C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Clock.v
+
+Nov 22 08PM:23:49>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Clock.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Clock.v
+
+Nov 22 08PM:24:03>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Clock.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Clock.v
+
+Nov 22 08PM:24:40>: Error in CNX file format.
+
+Error messages are listed in file
+C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Clock.cnxerr.
+
+Can't create the custom megafunction variation file(s)

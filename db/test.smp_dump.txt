@@ -1,4 +1,11 @@
 
+State Machine - |test|dispenseControlFSM:ccFSM|currentState
+Name currentState.evening currentState.afternoon currentState.morning currentState.000 
+currentState.000 0 0 0 0 
+currentState.morning 0 0 1 1 
+currentState.afternoon 0 1 0 1 
+currentState.evening 1 0 0 1 
+
 State Machine - |test|clockControlFSM:FSMClk|currentstate
 Name currentstate.resetMode currentstate.clockMode currentstate.preSetMode currentstate.setMode currentstate.updateMode 
 currentstate.setMode 0 0 0 0 0 

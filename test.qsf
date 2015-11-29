@@ -101,8 +101,8 @@ set_location_assignment PIN_AE13 -to DRAM_RAS_N
 set_location_assignment PIN_AK12 -to DRAM_UDQM
 set_location_assignment PIN_AA13 -to DRAM_WE_N
 set_location_assignment PIN_AA12 -to FAN_CTRL
-set_location_assignment PIN_J12 -to I2C_SCLK
-set_location_assignment PIN_K12 -to I2C_SDAT
+set_location_assignment PIN_J12 -to FPGA_I2C_SCLK
+set_location_assignment PIN_K12 -to FPGA_I2C_SDAT
 set_location_assignment PIN_AC18 -to GPIO_0[0]
 set_location_assignment PIN_AH18 -to GPIO_0[10]
 set_location_assignment PIN_AH17 -to GPIO_0[11]
@@ -306,23 +306,29 @@ set_location_assignment PIN_F13 -to VGA_R[7]
 set_location_assignment PIN_C10 -to VGA_SYNC_N
 set_location_assignment PIN_D11 -to VGA_VS
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_J12 -to I2C_SCLK
+set_location_assignment PIN_K12 -to I2C_SDAT
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE2_Audio_Example -section_id Top
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE2_Audio_Example -section_id Top
 set_global_assignment -name PARTITION_COLOR 2147039 -entity DE2_Audio_Example -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE2_Audio_Example -section_id Top
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE vga.v
-set_global_assignment -name VERILOG_FILE meme2.v
-set_global_assignment -name VERILOG_FILE meme1.v
-set_global_assignment -name VERILOG_FILE 7304.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_pll.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_controller.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_address_translator.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_adapter.v
+set_global_assignment -name VERILOG_FILE alarm.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Audio_Controller.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Audio_Clock.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_SYNC_FIFO.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Clock_Edge.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Audio_Out_Serializer.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Audio_In_Deserializer.v
+set_global_assignment -name VERILOG_FILE Audio_Controller/Altera_UP_Audio_Bit_Counter.v
 set_global_assignment -name VERILOG_FILE test.v
 set_global_assignment -name VERILOG_FILE timers.v
 set_global_assignment -name VERILOG_FILE clock.v

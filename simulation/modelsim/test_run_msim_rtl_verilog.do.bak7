@@ -1,0 +1,25 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter/vga_pll.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter/vga_controller.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter/vga_address_translator.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/vga_adapter/vga_adapter.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/alarm.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller/Audio_Controller.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller/Audio_Clock.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller/Altera_UP_SYNC_FIFO.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller/Altera_UP_Clock_Edge.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller/Altera_UP_Audio_Out_Serializer.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller/Altera_UP_Audio_In_Deserializer.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/Audio_Controller/Altera_UP_Audio_Bit_Counter.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/test.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/timers.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/clock.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/dispenser.v}
+vlog -vlog01compat -work work +incdir+//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/db {//SRVD/Homes$/rajases1/Desktop/Drug-Dispenser-milestone/db/audio_clock_altpll.v}
+
