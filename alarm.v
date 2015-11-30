@@ -29,7 +29,7 @@ module alarm(
  *****************************************************************************/
 // Inputs
 input				CLOCK_50;
-input		[0:0]	KEY;
+input				KEY;
 input 			enable;
 input				AUD_ADCDAT;
 
@@ -141,7 +141,7 @@ assign write_audio_out			= audio_in_available & audio_out_allowed;
 Audio_Controller Audio_Controller (
 	// Inputs
 	.CLOCK_50						(CLOCK_50),
-	.reset						(~KEY[0]),
+	.reset						(~KEY),
 
 	.clear_audio_in_memory		(),
 	.read_audio_in				(read_audio_in),
@@ -171,12 +171,12 @@ Audio_Controller Audio_Controller (
 
 );
 
-/*avconf #(.USE_MIC_INPUT(1)) avc (
+avconf #(.USE_MIC_INPUT(1)) avc (
 	.I2C_SCLK					(I2C_SCLK),
 	.I2C_SDAT					(I2C_SDAT),
 	.CLOCK_50					(CLOCK_50),
-	.reset						(~KEY[0])
-);*/
+	.reset						(~KEY)
+);
 endmodule
 
 

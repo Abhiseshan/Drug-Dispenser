@@ -317,6 +317,15 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity D
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE2_Audio_Example -section_id Top
 set_global_assignment -name PARTITION_COLOR 2147039 -entity DE2_Audio_Example -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE2_Audio_Example -section_id Top
+set_global_assignment -name VERILOG_FILE dispensing2.v
+set_global_assignment -name VERILOG_FILE dispensing1.v
+set_global_assignment -name VERILOG_FILE timeset.v
+set_global_assignment -name VERILOG_FILE setdispenser.v
+set_global_assignment -name VERILOG_FILE menu.v
+set_global_assignment -name VERILOG_FILE manual.v
+set_global_assignment -name VERILOG_FILE about.v
+set_global_assignment -name VERILOG_FILE avconf/I2C_Controller.v
+set_global_assignment -name VERILOG_FILE avconf/avconf.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_pll.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_controller.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_address_translator.v
@@ -333,4 +342,5 @@ set_global_assignment -name VERILOG_FILE test.v
 set_global_assignment -name VERILOG_FILE timers.v
 set_global_assignment -name VERILOG_FILE clock.v
 set_global_assignment -name VERILOG_FILE dispenser.v
+set_global_assignment -name VERILOG_FILE VGA.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
