@@ -7,47 +7,47 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/hp/Desktop/Drug-Dispenser-milestone/simulation/modelsim
+Z0 dC:/Users/hp/Documents/GitHub/Drug-Dispenser/simulation/modelsim
 vbuttonPushTimer
-Z1 !s110 1448830099
+Z1 !s110 1449002832
 !i10b 1
 !s100 =02iOAEFJf3QDNmd:Z[>V0
-I8_FKkBZbalTPQ:ALDfbRX0
+IW3D1@o2^29dnmY<V?AMF@2
 Z2 V`JN@9S9cnhjKRR_L]QIcM3
 R0
 Z3 w1448474442
-Z4 8C:/Users/hp/Desktop/Drug-Dispenser-milestone/timers.v
-Z5 FC:/Users/hp/Desktop/Drug-Dispenser-milestone/timers.v
+Z4 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v
+Z5 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v
 L0 104
 Z6 OV;L;10.3d;59
 r1
 !s85 0
 31
-Z7 !s108 1448830099.321000
-Z8 !s107 C:/Users/hp/Desktop/Drug-Dispenser-milestone/timers.v|
-Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone|C:/Users/hp/Desktop/Drug-Dispenser-milestone/timers.v|
+Z7 !s108 1449002832.210000
+Z8 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v|
 !i113 1
 Z10 o-vlog01compat -work work
-Z11 !s92 -vlog01compat -work work +incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone
+Z11 !s92 -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser
 nbutton@push@timer
 vclockControlFSM
 R1
 !i10b 1
 !s100 k`65=__cUCfHe?T4^:X;]3
-IJnCg2TeGDE4:D@D2F;X^F1
+IeH><;TW8P2E5;0J?l]6nQ3
 R2
 R0
 R3
-Z12 8C:/Users/hp/Desktop/Drug-Dispenser-milestone/clock.v
-Z13 FC:/Users/hp/Desktop/Drug-Dispenser-milestone/clock.v
+Z12 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v
+Z13 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v
 L0 1
 R6
 r1
 !s85 0
 31
-Z14 !s108 1448830099.391000
-Z15 !s107 C:/Users/hp/Desktop/Drug-Dispenser-milestone/clock.v|
-Z16 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone|C:/Users/hp/Desktop/Drug-Dispenser-milestone/clock.v|
+Z14 !s108 1449002832.283000
+Z15 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v|
+Z16 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v|
 !i113 1
 R10
 R11
@@ -56,20 +56,20 @@ vdispense
 R1
 !i10b 1
 !s100 ^9aWfXFLgRMbf5eM240fB0
-IR1ib[:]Tf7ah;;lmg_L>_3
+IO:M]G^H8]9P1K5@=Q5bOU1
 R2
 R0
-Z17 w1448829859
-Z18 8C:/Users/hp/Desktop/Drug-Dispenser-milestone/dispenser.v
-Z19 FC:/Users/hp/Desktop/Drug-Dispenser-milestone/dispenser.v
+Z17 w1448829860
+Z18 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v
+Z19 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v
 L0 159
 R6
 r1
 !s85 0
 31
-Z20 !s108 1448830099.455000
-Z21 !s107 C:/Users/hp/Desktop/Drug-Dispenser-milestone/dispenser.v|
-Z22 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone|C:/Users/hp/Desktop/Drug-Dispenser-milestone/dispenser.v|
+Z20 !s108 1449002832.351000
+Z21 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v|
+Z22 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v|
 !i113 1
 R10
 R11
@@ -77,7 +77,7 @@ vdispenseControlFSM
 R1
 !i10b 1
 !s100 KYCfUZMFjfNfUMMo_2j;@0
-Ih[<ZDaNh<4::7H?R4cAHH2
+I2YnhZ1TNLOd3noEzYL_UR1
 R2
 R0
 R17
@@ -99,7 +99,7 @@ vdispenser
 R1
 !i10b 1
 !s100 hWa09J=h@LSLP?^1lc:6T2
-IWGk9I>]Tg>d9H:GVHMfFk0
+IOT[Qb1N_MTF<Q2fT0o72b1
 R2
 R0
 R17
@@ -116,11 +116,33 @@ R22
 !i113 1
 R10
 R11
+vdispenserEnabled
+R1
+!i10b 1
+!s100 TR8EG`<T92jIXz398UM:N3
+I_aeR8mK45PAg:oDW>nQfn1
+R2
+R0
+Z23 w1449002433
+Z24 8C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v
+Z25 FC:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v
+L0 164
+R6
+r1
+!s85 0
+31
+Z26 !s108 1449002832.057000
+Z27 !s107 C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v|
+Z28 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser|C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v|
+!i113 1
+R10
+R11
+ndispenser@enabled
 vdispenseSetter
 R1
 !i10b 1
 !s100 hR8[65;Y7OW:4S6AkVNiz3
-IT5Y;GIZg?lN4>BP=ERC>R0
+IT:DGR[e9VWLU]K`4ke7Ak2
 R2
 R0
 R17
@@ -142,7 +164,7 @@ vdispenseTime
 R1
 !i10b 1
 !s100 DafNl;:ooA:9;j02AG5Pj3
-I_I9HYPWTHziIdd:chf6`T3
+IQmKNgbTAW<K01:2^KMj311
 R2
 R0
 R17
@@ -163,21 +185,21 @@ ndispense@time
 vhex
 R1
 !i10b 1
-!s100 BYl<dWc4A852@W^1WM2:51
-I>[O^E2lkX97oo^Pehz52Y2
+!s100 6m<QHYVTQgjg_;=00ocQm2
+I?fGLLJ]>VMlN19C:^QUnz0
 R2
 R0
-Z23 w1448828217
-Z24 8C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v
-Z25 FC:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v
-L0 167
+R23
+R24
+R25
+L0 139
 R6
 r1
 !s85 0
 31
-Z26 !s108 1448830099.144000
-Z27 !s107 C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v|
-Z28 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone|C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v|
+R26
+R27
+R28
 !i113 1
 R10
 R11
@@ -185,7 +207,7 @@ vHourCounter
 R1
 !i10b 1
 !s100 0[=W^i`@V>QcB5<`6=i5j1
-I5i@6>M:OIHjaBLjD@QSmz1
+IZ@n7mhYz1L]9z>ZI9FQH@2
 R2
 R0
 R3
@@ -207,7 +229,7 @@ vHours
 R1
 !i10b 1
 !s100 [^cGf@zjhhz==`Gio7l5f3
-I>U^P]T_OJdef;G:ke;W=M2
+IW[B@EXIUH0ICe26Lz_UEg0
 R2
 R0
 R3
@@ -229,7 +251,7 @@ vmanualOverride
 R1
 !i10b 1
 !s100 67S;PAY[c2:D6Y>@65j^n2
-IXgZ=LS<_bUcTe@MIbWF1D0
+IXaS;LGGJ=_?=e9HZ0DfzD3
 R2
 R0
 R17
@@ -251,7 +273,7 @@ vMinuteCounter
 R1
 !i10b 1
 !s100 G[L77Wz7^z[B3N;AJIo2h2
-I@zYMKRZUAHJf`gldfEfCk2
+IfWZJFAC3ooDT1kB_ZDkWG2
 R2
 R0
 R3
@@ -273,7 +295,7 @@ vpwm
 R1
 !i10b 1
 !s100 QeQ[iX8]U=B@P;^DXbEjV2
-IhKT?GILCAdV8;czD=EJI93
+IXz8bnz1S;dE9SfjLKKMWV3
 R2
 R0
 R17
@@ -294,7 +316,7 @@ vSecondCounter
 R1
 !i10b 1
 !s100 3a3FXF185aK3OXSIRCG:n3
-ITHBO1M[U=@YJGf^4@3KQ@0
+I];G2V7Oj>[n@@E^8odXne3
 R2
 R0
 R3
@@ -316,7 +338,7 @@ vsetTime
 R1
 !i10b 1
 !s100 50@0iQ;Hbia9NcVD3nbdd2
-IEa2l85aL>m?hI83NUO?OH1
+I6S<JVAf1C1K;3<;ozLU[U0
 R2
 R0
 R3
@@ -337,8 +359,8 @@ nset@time
 vtest
 R1
 !i10b 1
-!s100 KMKMcM``Oj=?<lj?m3a;>0
-I<4KB=NQ4VOM0C?OWS3>zH1
+!s100 zSZ5SBaQj9IVY>eNkVFFM0
+I[Tg>G67VRI0cR16UnUnKF3
 R2
 R0
 R23

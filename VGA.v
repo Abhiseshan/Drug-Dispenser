@@ -51,8 +51,6 @@ module VGA(clock, reset, inp, secondP, dispensing, VGA_CLK, VGA_HS, VGA_VS, VGA_
 			colour<= dispensing1C;
 		else if (dispensing == 1 && ani == 0)
 			colour<= dispensing2C;
-		else if(inp==4'b0000)
-			colour<= menuC;
 		else if(inp==4'b0001)
 			colour<= aboutC;
 		else if(inp==4'b1000)
@@ -66,7 +64,7 @@ module VGA(clock, reset, inp, secondP, dispensing, VGA_CLK, VGA_HS, VGA_VS, VGA_
 		else if (dispensing == 1 && ani == 0)
 			colour<= dispensing2C;
 		else
-			colour<= 1'b0;
+			colour<= menuC;
 	end
 		
 	vga_adapter VGA(
@@ -99,7 +97,7 @@ module dispensingAnimation(input clock, output reg animation);
 	
 	always@(posedge clock)
 	begin
-		if (counter == 19500) begin
+		if (counter == 99500) begin
 			counter <= 0;
 				animation = !animation;
 			end

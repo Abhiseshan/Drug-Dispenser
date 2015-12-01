@@ -13,21 +13,22 @@
 # ** Warning: Copied C:/altera/15.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone {C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 15:48:19 on Nov 29,2015
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone" C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v 
+# Start time: 15:47:12 on Dec 01,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v 
 # -- Compiling module test
 # -- Compiling module hex
+# -- Compiling module dispenserEnabled
 # 
 # Top level modules:
 # 	test
-# End time: 15:48:19 on Nov 29,2015, Elapsed time: 0:00:00
+# End time: 15:47:12 on Dec 01,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone {C:/Users/hp/Desktop/Drug-Dispenser-milestone/timers.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 15:48:19 on Nov 29,2015
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone" C:/Users/hp/Desktop/Drug-Dispenser-milestone/timers.v 
+# Start time: 15:47:12 on Dec 01,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v 
 # -- Compiling module SecondCounter
 # -- Compiling module MinuteCounter
 # -- Compiling module HourCounter
@@ -40,24 +41,24 @@
 # 	HourCounter
 # 	Hours
 # 	buttonPushTimer
-# End time: 15:48:19 on Nov 29,2015, Elapsed time: 0:00:00
+# End time: 15:47:12 on Dec 01,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone {C:/Users/hp/Desktop/Drug-Dispenser-milestone/clock.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 15:48:19 on Nov 29,2015
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone" C:/Users/hp/Desktop/Drug-Dispenser-milestone/clock.v 
+# Start time: 15:47:12 on Dec 01,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v 
 # -- Compiling module clockControlFSM
 # -- Compiling module setTime
 # 
 # Top level modules:
 # 	clockControlFSM
 # 	setTime
-# End time: 15:48:19 on Nov 29,2015, Elapsed time: 0:00:00
+# End time: 15:47:12 on Dec 01,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone {C:/Users/hp/Desktop/Drug-Dispenser-milestone/dispenser.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser {C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 15:48:19 on Nov 29,2015
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Desktop/Drug-Dispenser-milestone" C:/Users/hp/Desktop/Drug-Dispenser-milestone/dispenser.v 
+# Start time: 15:47:12 on Dec 01,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/hp/Documents/GitHub/Drug-Dispenser" C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v 
 # -- Compiling module dispenseControlFSM
 # -- Compiling module dispenseTime
 # -- Compiling module dispenseSetter
@@ -72,12 +73,12 @@
 # 	dispenseSetter
 # 	manualOverride
 # 	dispenser
-# End time: 15:48:19 on Nov 29,2015, Elapsed time: 0:00:00
+# End time: 15:47:12 on Dec 01,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vsim test
 # vsim -gui "+altera" -l msim_transcript -do "test_run_msim_rtl_verilog.do" 
-# Start time: 15:48:24 on Nov 29,2015
+# Start time: 15:47:14 on Dec 01,2015
 # Loading work.test
 # Loading work.SecondCounter
 # Loading work.MinuteCounter
@@ -93,32 +94,91 @@ vsim test
 # Loading work.dispenser
 # Loading work.dispense
 # Loading work.pwm
+# Loading work.dispenserEnabled
 # Loading work.hex
-# ** Warning: (vsim-3015) C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v(160): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v(167).
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(132): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(139).
 # 
 #         Region: /test/h1
-# ** Warning: (vsim-3015) C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v(162): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v(167).
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(134): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(139).
 # 
 #         Region: /test/h3
-# ** Warning: (vsim-3015) C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v(164): [PCDPC] - Port size (4) does not match connection size (1) for port 'in'. The port definition is at: C:/Users/hp/Desktop/Drug-Dispenser-milestone/test.v(167).
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(136): [PCDPC] - Port size (4) does not match connection size (1) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(139).
 # 
 #         Region: /test/h5
 add wave -position end  sim:/test/CLOCK_50
-force -freeze sim:/test/CLOCK_50 1 0, 0 {50 ps} -r 100
 add wave -position end  sim:/test/LEDR
-add wave -position end  sim:/test/dispenseEvening
-add wave -position end  sim:/test/dispenseAfternoon
-add wave -position end  sim:/test/morningP
-add wave -position end  sim:/test/afternoonP
-add wave -position end  sim:/test/eveningP
-add wave -position end  sim:/test/hours
-add wave -position end  sim:/test/minutes
-add wave -position end  sim:/test/seconds
+add wave -position end  sim:/test/alarmEnable
+add wave -position end  sim:/test/alarmOut
+add wave -position end  sim:/test/ov1
+force -freeze sim:/test/CLOCK_50 1 0, 0 {50 ps} -r 100
+run
+run
+force -freeze sim:/test/ov1 St1 0
+run
+force -freeze sim:/test/ov1 St0 0
+run
+run
+run
+run
+run -all
+add wave -position end  sim:/test/DE/counter
+run -continue
+vsim test
+# vsim 
+# Start time: 15:51:31 on Dec 01,2015
+# Loading work.test
+# Loading work.SecondCounter
+# Loading work.MinuteCounter
+# Loading work.HourCounter
+# Loading work.Hours
+# Loading work.setTime
+# Loading work.buttonPushTimer
+# Loading work.clockControlFSM
+# Loading work.dispenseTime
+# Loading work.dispenseControlFSM
+# Loading work.dispenseSetter
+# Loading work.manualOverride
+# Loading work.dispenser
+# Loading work.dispense
+# Loading work.pwm
+# Loading work.dispenserEnabled
+# Loading work.hex
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(132): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(139).
+# 
+#         Region: /test/h1
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(134): [PCDPC] - Port size (4) does not match connection size (2) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(139).
+# 
+#         Region: /test/h3
+# ** Warning: (vsim-3015) C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(136): [PCDPC] - Port size (4) does not match connection size (1) for port 'in'. The port definition is at: C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v(139).
+# 
+#         Region: /test/h5
+# WARNING: No extended dataflow license exists
+add wave -position end  sim:/test/CLOCK_50
+add wave -position end  sim:/test/LEDR
+add wave -position end  sim:/test/alarmEnable
+add wave -position end  sim:/test/alarmOut
+add wave -position end  sim:/test/ov1
 add wave -position end  sim:/test/secondP
+force -freeze sim:/test/CLOCK_50 1 0, 0 {50 ps} -r 100
+run
+run
+force -freeze sim:/test/ov1 St1 0
+run
+force -freeze sim:/test/ov1 St0 0
+run
+force -freeze sim:/test/secondP St1 0
+run
 force -freeze sim:/test/secondP St0 0
-force -freeze sim:/test/hours 1000 0
-force -freeze sim:/test/minutes 0 0
-force -freeze sim:/test/seconds 0 0
+run
+force -freeze sim:/test/secondP St1 0
+run
+force -freeze sim:/test/secondP St1 1
+run
+force -freeze sim:/test/secondP St1 0
+run
+force -freeze sim:/test/secondP St1 0
+run
+force -freeze sim:/test/secondP St0 0
 run
 force -freeze sim:/test/secondP St1 0
 run
@@ -127,31 +187,9 @@ run
 run
 run
 run
-add wave -position end  sim:/test/m1
-force -freeze sim:/test/m1 1 0
-force -freeze sim:/test/m1 111 0
-run
-run
-force -freeze sim:/test/secondP St1 0
-run
-force -freeze sim:/test/secondP St0 0
 run
 run
 run
 run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# End time: 15:50:47 on Nov 29,2015, Elapsed time: 0:02:23
-# Errors: 0, Warnings: 3
+# End time: 15:53:45 on Dec 01,2015, Elapsed time: 0:02:14
+# Errors: 0, Warnings: 4
