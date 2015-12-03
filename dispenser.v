@@ -156,7 +156,7 @@ module dispenser(input clock, morningP, afternoonP, eveningP, override, input [2
 	dispense d(clock, dispense, GPIO_PORT);
 endmodule
 
-module dispense(input clock, signal, output port);
+module dispense(input clock, signal, output reg port);
 		
 	reg [30:0] counter;
 	initial counter = 0;
@@ -166,13 +166,13 @@ module dispense(input clock, signal, output port);
 	begin
 		if (signal == 1) begin
 			counter <= 0;
-			pwmSignal <= 1;
+			port <= 1;
 		end
 		else
-		if (counter == 10)  
+		if (counter == 10000000)  
 			begin
 				counter <= 0;
-				pwmSignal <= 0;
+				port <= 0;
 			end
 		else
 			begin
@@ -180,16 +180,54 @@ module dispense(input clock, signal, output port);
 			end
 	end 
 	
-	pwm pwm1(clock,  pwmSignal, port);
+	//pwm pwm1(clock,  pwmSignal, port);
 endmodule
 
 module pwm(input clock, signal, output reg port);
 	
-	always @(posedge clock)
+	/*always @(posedge clock)
 	begin
 		if (signal == 1)
 			port <= !port;
 		else
 			port <= 0;
+	end */
+	
+	reg [30:0] counter;
+	initial counter = 0;
+	
+	always @(posedge clock)
+	begin
+		if (signal == 1 && counter == 100) begin
+			counter <= 0;
+			port <= !port;
+		end
+		else
+			counter <= counter + 1;
+	end
+	
+endmodule
+
+module dispenserEnabled(input clock, secondP, enable, output reg alarmEnable);
+	
+	reg count;
+	reg [2:0] counter;
+	initial counter = 1'b0;
+	
+	always @(posedge clock)
+	begin
+		if (enable == 1) begin
+			alarmEnable <= 1;
+			count <= 1;
+			counter <= 0;
+		end
+		else if (secondP == 1) begin
+			if (counter == 5) begin
+				alarmEnable <= 0;
+				count <= 0;
+			end
+			else if (count == 1)
+				counter <= counter + 1;
+		end
 	end
 endmodule

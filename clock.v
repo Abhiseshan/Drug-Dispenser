@@ -8,10 +8,14 @@ module clockControlFSM(clock, set, update, reset, minutes, seconds, hours, setHo
 	input [5:0] setMinutes, setSeconds;
 	input [4:0] setHours;
 	
+	//output [5:0] hexMinutes, hexSeconds;
+	//output [4:0] hexHours;
+	
+	output reg update, setInitVal;
+	
 	output reg [5:0] outminutes, outseconds;
 	output reg [4:0] outhours;
 	
-	output reg update, setInitVal;
 	initial update = 0;
 	initial setInitVal = 0;
 	
@@ -87,6 +91,16 @@ module clockControlFSM(clock, set, update, reset, minutes, seconds, hours, setHo
 			resetMode: nextstate = (set == 1)?setMode:clockMode;
 		endcase
 	end
+	
+	//hexToDec secondsDec(outSeconds, hexSeconds);
+	//hexToDec minutesDec(outMinutes, hexMinutes);
+	//hexToDec hoursDec(outHours, hexHours);
+	
+	//assign hexSeconds = (outSeconds[3:0] + 16*outSeconds[5:4]);
+	//assign hexMinutes = (outMinutes[3:0] + 16*outMinutes[5:4]);
+	//assign hexHours = (outHours[3:0] + 16*outHours[4]);
+
+	
 endmodule
 
 module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMinutes, incrementSeconds, secondsP, outHours, outMinutes, outSeconds);
@@ -95,9 +109,6 @@ module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMin
 	
 	input [5:0] seconds, minutes;
 	input [4:0] hours;
-	
-	reg [5:0] setSeconds, setMinutes;
-	reg [4:0] setHours;
 	
 	output reg [5:0] outSeconds, outMinutes;
 	output reg [4:0] outHours;
@@ -140,3 +151,7 @@ module setTime(clock, set, seconds, hours, minutes, incrementHours, incrementMin
 	
 	buttonPushTimer bpt(clock, push);
 endmodule 
+
+module hexToDec(input [5:0] inp, output [5:0] out);
+	assign out = (inp[3:0] + 16*inp[5:4]);
+endmodule

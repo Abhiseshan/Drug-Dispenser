@@ -1,6 +1,6 @@
-module VGA(clock, reset, inp, secondP, dispensing, VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B);
+module VGA(clock, reset, inp, secondP, dispensing, lowmeds, VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B);
 	
-	input clock, reset, secondP, dispensing;
+	input clock, reset, secondP, dispensing, lowmeds;
 	input [3:0] inp;
 	
 	output			VGA_CLK;   				//	VGA Clock
@@ -13,7 +13,7 @@ module VGA(clock, reset, inp, secondP, dispensing, VGA_CLK, VGA_HS, VGA_VS, VGA_
 	output	[9:0]	VGA_B;   				//	VGA Blue[9:0}
 
 	wire [14:0] address;	
-	wire [2:0] menuC, aboutC, timesetC, dispenserC, manualC, dispensing1C, dispensing2C;
+	wire [2:0] menuC, aboutC, timesetC, dispenserC, manualC, dispensing1C, dispensing2C, lowmedsC;
 	wire ani;
 	
 	reg plot;
@@ -43,10 +43,13 @@ module VGA(clock, reset, inp, secondP, dispensing, VGA_CLK, VGA_HS, VGA_VS, VGA_
 	manual vgamanual(address, clock, 0, 0, manualC);
 	dispensing1 vgadisp1(address, clock, 0, 0, dispensing1C);
 	dispensing2 vgadisp2(address, clock, 0, 0, dispensing2C);
+	lowmeds vgalowmeds(address, clock, 0, 0, lowmedsC);
 	
 	dispensingAnimation dani (clock, ani);
 	always@(*)
 	begin
+		if (lowmeds == 1)
+			colour<= lowmedsC;
 		if(dispensing == 1 && ani == 1)
 			colour<= dispensing1C;
 		else if (dispensing == 1 && ani == 0)
@@ -97,7 +100,7 @@ module dispensingAnimation(input clock, output reg animation);
 	
 	always@(posedge clock)
 	begin
-		if (counter == 99500) begin
+		if (counter == 4999999) begin
 			counter <= 0;
 				animation = !animation;
 			end

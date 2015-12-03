@@ -86,7 +86,7 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0,
 	
 	//Alarm Enable
 	wire alarmEnable, alarmOut;
-	assign alarmEnable = morningP || afternoonP || eveningP || ov1 || ov2;
+	assign alarmEnable = (morningP && m1[0]) || (morningP && m2[0])   || (afternoonP && m1[1]) || (afternoonP && m2[1]) || (eveningP && m1[2]) || (eveningP && m2[2]) || ov1 || ov2;
 	
 
 
@@ -120,12 +120,12 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0,
 	dispenser dm2 (CLOCK_50, morningP, afternoonP, eveningP, ov2, m2, LEDR[2]);
 		
 	//Alarm
-	//alarm alm(CLOCK_50, KEY[0], alarmOut, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, I2C_SDAT, AUD_XCK, AUD_DACDAT, I2C_SCLK);
+	alarm alm(CLOCK_50, KEY[0], alarmOut, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, I2C_SDAT, AUD_XCK, AUD_DACDAT, I2C_SCLK);
 	dispenserEnabled DE(CLOCK_50, secondP, alarmEnable, alarmOut);
 	dispenserEnabled DE1(CLOCK_50, secondP, alarmEnable, LEDR[4]);
 	
 	//VGA
-	//VGA vg1(CLOCK_50, KEY[0], SW[9:6], secondP, alarmOut, VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B);
+	VGA vg1(CLOCK_50, KEY[0], SW[9:6], secondP, alarmOut, GPIO_0[1], VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B);
 	
 	//HEX Display for clock - To be removed later on.
 	hex h0(HEX0, hexSeconds[3:0]);
@@ -159,27 +159,4 @@ module hex(out,in);
 			15 : out=7'b0111000;
 			default: out=7'b0;
 		endcase
-endmodule
-
-module dispenserEnabled(input clock, secondP, enable, output reg alarmEnable);
-	
-	reg count;
-	reg [2:0] counter;
-	initial counter = 1'b0;
-	
-	always @(posedge clock)
-	begin
-		if (enable == 1) begin
-			alarmEnable <= 1;
-			count <= 1;
-		end
-		if (secondP == 1) begin
-			if (counter == 5) begin
-				alarmEnable <= 0;
-				count <= 0;
-			end
-			else if (count == 1)
-				counter <= counter + 1;
-		end
-	end
 endmodule
