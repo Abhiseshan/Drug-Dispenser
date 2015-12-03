@@ -1,4 +1,10 @@
 
+State Machine - |test|alarm:alm|avconf:avc|mSetup_ST
+Name mSetup_ST.0000 mSetup_ST.0010 mSetup_ST.0001 
+mSetup_ST.0000 0 0 0 
+mSetup_ST.0001 1 0 1 
+mSetup_ST.0010 1 1 0 
+
 State Machine - |test|dispenseControlFSM:ccFSM|currentState
 Name currentState.evening currentState.afternoon currentState.morning currentState.000 
 currentState.000 0 0 0 0 

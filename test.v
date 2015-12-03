@@ -1,20 +1,59 @@
-module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0);
+module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, AUD_XCK, AUD_DACDAT, I2C_SDAT, I2C_SCLK, VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B);
+
+/*****************************************************************************
+ *                             Port Declarations                             *
+ *****************************************************************************/	
 	input CLOCK_50;
 	input [9:0] SW; 
 	input [3:0] KEY;
-	input [35:0] GPIO_0;
-	//KEYMAAP Table
+	output [35:0] GPIO_0;
+
+	//KEYMAP Table
 	
 	//SW[9] Clock Set
+	//SW[8] Dispense Set
+	//Sw[9] Override Set
+	
+	//SW[2:0] Dispenser Chooser
+	//SW[5:3] Time Chooser
+	
 	//KEY[0] Reset
 	//KEY[1] IncrementSeconds
 	//KEY[2] IncrementMinutes
-	//KEY[3] IncrementHours
+	//KEY[3] IncrementHours / ManualOverride
 	
 	output [9:0] LEDR;
 	
 	output [0:6] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
+	
+	//Audio Module
+	input	AUD_ADCDAT;
+
+	// Bidirectionals
+	inout	AUD_BCLK;
+	inout	AUD_ADCLRCK;
+	inout	AUD_DACLRCK;
+	inout	I2C_SDAT;
+
+	// Outputs
+	output AUD_XCK;
+	output AUD_DACDAT;
+	output I2C_SCLK;
+	
+	output			VGA_CLK;   				//	VGA Clock
+	output			VGA_HS;					//	VGA H_SYNC
+	output			VGA_VS;					//	VGA V_SYNC
+	output			VGA_BLANK_N;				//	VGA BLANK
+	output			VGA_SYNC_N;				//	VGA SYNC
+	output	[9:0]	VGA_R;   				//	VGA Red[9:0]
+	output	[9:0]	VGA_G;	 				//	VGA Green[9:0]
+	output	[9:0]	VGA_B;   				//	VGA Blue[9:0}
+
+/*****************************************************************************
+ *                 Internal Wires and Registers Declarations                 *
+ *****************************************************************************/
+ 
 	//Pulses
 	wire secondP, minuteP, hoursP;
 	
@@ -39,11 +78,21 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	//Update and InitValue Signals
 	wire update, setInitVal;
 	
-	//Dispenser Module 1
-	wire d1m, d1a, d1e;
+	//Dispenser Modules
+	wire [2:0] m1, m2;	
 	
-	//Dispenser Module 2
-	wire d2m, d2a, d2e;
+	//Dispenser Overrides
+	wire ov1, ov2;
+	
+	//Alarm Enable
+	wire alarmEnable, alarmOut;
+	assign alarmEnable = (morningP && m1[0]) || (morningP && m2[0])   || (afternoonP && m1[1]) || (afternoonP && m2[1]) || (eveningP && m1[2]) || (eveningP && m2[2]) || ov1 || ov2;
+	
+
+
+/*****************************************************************************
+ *                             Module Management                             *
+ *****************************************************************************/
 	
 	//Counters
 	SecondCounter Sc(CLOCK_50, KEY[0], secondP);
@@ -56,13 +105,27 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	clockControlFSM FSMClk(CLOCK_50, SW[9], update, KEY[0], minutes, seconds, hours, setHours, setMinutes, setSeconds, hexHours, hexMinutes, hexSeconds, setInitVal);
 
 	//Circuit Management
-	dispenseTime dT(CLOCK_50, seconds, minutes, hours, morningP, afternoonP, eveningP);
-	dispenseControlFSM ccFSM(clock, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
+	dispenseTime dT(CLOCK_50, secondP, seconds, minutes, hours, morningP, afternoonP, eveningP);
+	dispenseControlFSM ccFSM(CLOCK_50, morningP, afternoonP, eveningP, dispenseMorning, dispenseAfternoon, dispenseEvening);
 
-	//LEDR Assigned for testing purposes.
-	dispense LED0(CLOCK_50, morningP, LEDR[0]);
-	dispense LED1(CLOCK_50, afternoonP, LEDR[1]);
-	dispense LED2(CLOCK_50, eveningP, LEDR[2]);
+	//Dispense Setters
+	dispenseSetter setter(CLOCK_50, SW[9:0],m1, m2);
+	
+	//Manual Override
+	manualOverride mo1(CLOCK_50, SW[9:0], KEY[3], ov1, ov2);
+
+	//Dispense Controllers
+	dispenser dm1 (CLOCK_50, morningP, afternoonP, eveningP, ov1, m1, LEDR[1]);
+	dispenser dm1t (CLOCK_50, morningP, afternoonP, eveningP, ov1, m1, GPIO_0[0]); //To gpio out [0
+	dispenser dm2 (CLOCK_50, morningP, afternoonP, eveningP, ov2, m2, LEDR[2]);
+		
+	//Alarm
+	alarm alm(CLOCK_50, KEY[0], alarmOut, AUD_ADCDAT, AUD_BCLK, AUD_ADCLRCK, AUD_DACLRCK, I2C_SDAT, AUD_XCK, AUD_DACDAT, I2C_SCLK);
+	dispenserEnabled DE(CLOCK_50, secondP, alarmEnable, alarmOut);
+	dispenserEnabled DE1(CLOCK_50, secondP, alarmEnable, LEDR[4]);
+	
+	//VGA
+	VGA vg1(CLOCK_50, KEY[0], SW[9:6], secondP, alarmOut, GPIO_0[1], VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B);
 	
 	//HEX Display for clock - To be removed later on.
 	hex h0(HEX0, hexSeconds[3:0]);
@@ -71,7 +134,6 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0)
 	hex h3(HEX3, hexMinutes[5:4]);
 	hex h4(HEX4, hexHours[3:0]);
 	hex h5(HEX5, hexHours[4]);
-	
 endmodule
 
 module hex(out,in);
@@ -98,7 +160,3 @@ module hex(out,in);
 			default: out=7'b0;
 		endcase
 endmodule
-
-
-
-

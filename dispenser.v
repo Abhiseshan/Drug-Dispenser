@@ -60,9 +60,9 @@ module dispenseControlFSM(clock, morningP, afternoonP, eveningP, dispenseMorning
 	end
 endmodule
 
-module dispenseTime(clock, seconds, minutes, hours, dispenseMorning, dispenseAfternoon, dispenseEvening);
+module dispenseTime(clock, secondP, seconds, minutes, hours, dispenseMorning, dispenseAfternoon, dispenseEvening);
 	
-	input clock;
+	input clock, secondP;
 	input [5:0] seconds, minutes;
 	input [4:0] hours;
 	
@@ -70,12 +70,19 @@ module dispenseTime(clock, seconds, minutes, hours, dispenseMorning, dispenseAft
 	
 	always @(posedge clock)
 	begin
-		if (hours == 8 && minutes == 0 && seconds == 0)
-			dispenseMorning <= 1;
-		else if (hours == 13 && minutes == 0 && seconds == 0)
-			dispenseAfternoon <= 1;
-		else 	if (hours == 20 && minutes == 0 && seconds == 0)
-			dispenseEvening <= 1;
+		if (secondP == 1) begin
+			if (hours == 8 && minutes == 0 && seconds == 0)
+				dispenseMorning <= 1;
+			else if (hours == 13 && minutes == 0 && seconds == 0)
+				dispenseAfternoon <= 1;
+			else 	if (hours == 20 && minutes == 0 && seconds == 0)
+				dispenseEvening <= 1;
+			else begin
+				dispenseMorning <= 0;
+				dispenseEvening <= 0;
+				dispenseAfternoon <= 0;
+			end
+		end
 		else begin
 			dispenseMorning <= 0;
 			dispenseEvening <= 0;
@@ -84,28 +91,76 @@ module dispenseTime(clock, seconds, minutes, hours, dispenseMorning, dispenseAft
 	end
 endmodule
 
-module dispsenser(input clock, morningP, afternoonP, eveningP, dm, da, de, output GPIO_PORT);
+module dispenseSetter(clock, set, m1, m2);
+	
+	input clock;
+	input [9:0] set;
+	output reg [2:0] m1,m2;
+		
+	always @(posedge clock)
+	begin
+		if (set[8])
+		begin
+			if (set[2:0] == 3'b001)
+				m1 <= set[5:3];
+			else if (set[2:0] == 3'b010)
+				m2 <= set[5:3];
+		end
+	end
+endmodule
+
+module manualOverride(clock, sw, key, ov1, ov2);
+	input clock, key;
+	input [9:0] sw;
+	output reg ov1, ov2;
+	
+	always @(posedge clock) 
+	begin
+		if (sw[7] == 1) begin
+			if (key == 0) begin
+				if (sw[2:0] == 3'b001)
+					ov1 <= 1;
+				else if (sw[2:0] == 3'b010)
+					ov2 <= 1;
+				else begin
+					ov1 <= 0;
+					ov2 <= 0;
+				end
+			end
+		end
+		else begin
+			ov1 <= 0;
+			ov2 <= 0;
+		end
+	end
+endmodule
+module dispenser(input clock, morningP, afternoonP, eveningP, override, input [2:0] m, output GPIO_PORT);
 	
 	reg dispense;
 	initial dispense = 0;
 	
 	always@(posedge clock)
-		if (dm == 1 && morningP == 1)
+	begin
+		if (m[0] == 1 && morningP == 1)
 			dispense <= 1;
-		else if (da == 1 && afternoonP == 1)
+		else if (m[1] == 1 && afternoonP == 1)
 			dispense <= 1;
-		else if (de == 1 && eveningP == 1)
+		else if (m[2] == 1 && eveningP == 1)
+			dispense <= 1;
+		else if (override == 1)
 			dispense <= 1;
 		else 
 			dispense <= 0;
+	end	
 			
-		dispense d(clock, dispense, GPIO_PORT);
+	dispense d(clock, dispense, GPIO_PORT);
 endmodule
 
 module dispense(input clock, signal, output reg port);
-	
+		
 	reg [30:0] counter;
 	initial counter = 0;
+	reg pwmSignal;
 	
 	always @(posedge clock)
 	begin
@@ -114,7 +169,7 @@ module dispense(input clock, signal, output reg port);
 			port <= 1;
 		end
 		else
-		if (counter == 49999999)  
+		if (counter == 10000000)  
 			begin
 				counter <= 0;
 				port <= 0;
@@ -123,5 +178,56 @@ module dispense(input clock, signal, output reg port);
 			begin
 				counter <= counter + 1;
 			end
+	end 
+	
+	//pwm pwm1(clock,  pwmSignal, port);
+endmodule
+
+module pwm(input clock, signal, output reg port);
+	
+	/*always @(posedge clock)
+	begin
+		if (signal == 1)
+			port <= !port;
+		else
+			port <= 0;
+	end */
+	
+	reg [30:0] counter;
+	initial counter = 0;
+	
+	always @(posedge clock)
+	begin
+		if (signal == 1 && counter == 100) begin
+			counter <= 0;
+			port <= !port;
+		end
+		else
+			counter <= counter + 1;
+	end
+	
+endmodule
+
+module dispenserEnabled(input clock, secondP, enable, output reg alarmEnable);
+	
+	reg count;
+	reg [2:0] counter;
+	initial counter = 1'b0;
+	
+	always @(posedge clock)
+	begin
+		if (enable == 1) begin
+			alarmEnable <= 1;
+			count <= 1;
+			counter <= 0;
+		end
+		else if (secondP == 1) begin
+			if (counter == 5) begin
+				alarmEnable <= 0;
+				count <= 0;
+			end
+			else if (count == 1)
+				counter <= counter + 1;
+		end
 	end
 endmodule
