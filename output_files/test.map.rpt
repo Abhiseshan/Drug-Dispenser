@@ -1,6 +1,6 @@
 Analysis & Synthesis report for test
-Wed Dec 02 12:10:43 2015
-Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+Sat Dec 05 23:58:25 2015
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
 ---------------------
@@ -113,27 +113,27 @@ agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Dec 02 12:10:42 2015       ;
-; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Full Version ;
-; Revision Name                   ; test                                        ;
-; Top-level Entity Name           ; test                                        ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 612                                         ;
-; Total pins                      ; 146                                         ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 477,184                                     ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 2                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++---------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sat Dec 05 23:58:25 2015      ;
+; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
+; Revision Name                   ; test                                       ;
+; Top-level Entity Name           ; test                                       ;
+; Family                          ; Cyclone V                                  ;
+; Logic utilization (in ALMs)     ; N/A                                        ;
+; Total registers                 ; 612                                        ;
+; Total pins                      ; 146                                        ;
+; Total virtual pins              ; 0                                          ;
+; Total block memory bits         ; 477,184                                    ;
+; Total DSP Blocks                ; 0                                          ;
+; Total HSSI RX PCSs              ; 0                                          ;
+; Total HSSI PMA RX Deserializers ; 0                                          ;
+; Total HSSI TX PCSs              ; 0                                          ;
+; Total HSSI PMA TX Serializers   ; 0                                          ;
+; Total PLLs                      ; 2                                          ;
+; Total DLLs                      ; 0                                          ;
++---------------------------------+--------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -224,106 +224,98 @@ agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ; < 0.1%      ;
-;     Processors 5-8         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                   ;
-+--------------------------------------------------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                                                 ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                     ; Library ;
-+--------------------------------------------------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------+---------+
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispensing2.v                                      ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispensing2.v                                      ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispensing1.v                                      ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispensing1.v                                      ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/timeset.v                                          ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/timeset.v                                          ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/setdispenser.v                                     ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/setdispenser.v                                     ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/menu.v                                             ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/menu.v                                             ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/manual.v                                           ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/manual.v                                           ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/about.v                                            ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/about.v                                            ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/avconf/I2C_Controller.v                            ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/avconf/I2C_Controller.v                            ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/avconf/avconf.v                                    ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/avconf/avconf.v                                    ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_pll.v                              ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_pll.v                              ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_controller.v                       ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_controller.v                       ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_address_translator.v               ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_address_translator.v               ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_adapter.v                          ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/vga_adapter/vga_adapter.v                          ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/alarm.v                                            ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/alarm.v                                            ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Audio_Controller.v                ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Audio_Controller.v                ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Audio_Clock.v                     ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Audio_Clock.v                     ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_SYNC_FIFO.v             ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_SYNC_FIFO.v             ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Clock_Edge.v            ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Clock_Edge.v            ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_Out_Serializer.v  ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_Out_Serializer.v  ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_In_Deserializer.v ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_In_Deserializer.v ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_Bit_Counter.v     ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_Bit_Counter.v     ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/test.v                                             ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/test.v                                             ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/timers.v                                           ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/timers.v                                           ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/clock.v                                            ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/clock.v                                            ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispenser.v                                        ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispenser.v                                        ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/VGA.v                                              ; yes             ; User Verilog HDL File                  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/VGA.v                                              ;         ;
-; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/lowmeds.v                                          ; yes             ; User Wizard-Generated File             ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/lowmeds.v                                          ;         ;
-; scfifo.tdf                                                                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/scfifo.tdf                                        ;         ;
-; a_regfifo.inc                                                                                    ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_regfifo.inc                                     ;         ;
-; a_dpfifo.inc                                                                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_dpfifo.inc                                      ;         ;
-; a_i2fifo.inc                                                                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_i2fifo.inc                                      ;         ;
-; a_fffifo.inc                                                                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_fffifo.inc                                      ;         ;
-; a_f2fifo.inc                                                                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_f2fifo.inc                                      ;         ;
-; aglobal150.inc                                                                                   ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/aglobal150.inc                                    ;         ;
-; scfifo_b8a1.tdf                                                                                  ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/scfifo_b8a1.tdf                                 ;         ;
-; a_dpfifo_uv91.tdf                                                                                ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/a_dpfifo_uv91.tdf                               ;         ;
-; altsyncram_tne1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_tne1.tdf                             ;         ;
-; cmpr_6l8.tdf                                                                                     ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/cmpr_6l8.tdf                                    ;         ;
-; cntr_h2b.tdf                                                                                     ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/cntr_h2b.tdf                                    ;         ;
-; cntr_u27.tdf                                                                                     ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/cntr_u27.tdf                                    ;         ;
-; cntr_i2b.tdf                                                                                     ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/cntr_i2b.tdf                                    ;         ;
-; altpll.tdf                                                                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altpll.tdf                                        ;         ;
-; stratix_pll.inc                                                                                  ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/stratix_pll.inc                                   ;         ;
-; stratixii_pll.inc                                                                                ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/stratixii_pll.inc                                 ;         ;
-; cycloneii_pll.inc                                                                                ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/cycloneii_pll.inc                                 ;         ;
-; audio_clock_altpll.v                                                                             ; yes             ; Auto-Found Verilog HDL File            ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/audio_clock_altpll.v                            ;         ;
-; altsyncram.tdf                                                                                   ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altsyncram.tdf                                    ;         ;
-; stratix_ram_block.inc                                                                            ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/stratix_ram_block.inc                             ;         ;
-; lpm_mux.inc                                                                                      ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_mux.inc                                       ;         ;
-; lpm_decode.inc                                                                                   ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_decode.inc                                    ;         ;
-; a_rdenreg.inc                                                                                    ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_rdenreg.inc                                     ;         ;
-; altrom.inc                                                                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altrom.inc                                        ;         ;
-; altram.inc                                                                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altram.inc                                        ;         ;
-; altdpram.inc                                                                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altdpram.inc                                      ;         ;
-; altsyncram_8pn1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_8pn1.tdf                             ;         ;
-; ../menu.mif                                                                                      ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/menu.mif                                                          ;         ;
-; decode_7la.tdf                                                                                   ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/decode_7la.tdf                                  ;         ;
-; decode_01a.tdf                                                                                   ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/decode_01a.tdf                                  ;         ;
-; mux_ifb.tdf                                                                                      ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/mux_ifb.tdf                                     ;         ;
-; altsyncram_esn1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_esn1.tdf                             ;         ;
-; about.mif                                                                                        ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/about.mif                                          ;         ;
-; altsyncram_e3o1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_e3o1.tdf                             ;         ;
-; timeset.mif                                                                                      ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/timeset.mif                                        ;         ;
-; altsyncram_cko1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_cko1.tdf                             ;         ;
-; setdispenser.mif                                                                                 ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/setdispenser.mif                                   ;         ;
-; altsyncram_hvn1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_hvn1.tdf                             ;         ;
-; manual.mif                                                                                       ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/manual.mif                                         ;         ;
-; altsyncram_oeo1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_oeo1.tdf                             ;         ;
-; dispensing1.mif                                                                                  ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispensing1.mif                                    ;         ;
-; altsyncram_peo1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_peo1.tdf                             ;         ;
-; dispensing2.mif                                                                                  ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/dispensing2.mif                                    ;         ;
-; altsyncram_f3o1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_f3o1.tdf                             ;         ;
-; lowmeds.mif                                                                                      ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/lowmeds.mif                                        ;         ;
-; altsyncram_e4m1.tdf                                                                              ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altsyncram_e4m1.tdf                             ;         ;
-; menu.mif                                                                                         ; yes             ; Auto-Found Memory Initialization File  ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/menu.mif                                           ;         ;
-; altpll_80u.tdf                                                                                   ; yes             ; Auto-Found AHDL File                   ; //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/db/altpll_80u.tdf                                  ;         ;
-+--------------------------------------------------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                   ;
++----------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                   ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                   ; Library ;
++----------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
+; dispensing2.v                                      ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispensing2.v                                      ;         ;
+; dispensing1.v                                      ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispensing1.v                                      ;         ;
+; timeset.v                                          ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/timeset.v                                          ;         ;
+; setdispenser.v                                     ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/setdispenser.v                                     ;         ;
+; menu.v                                             ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/menu.v                                             ;         ;
+; manual.v                                           ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/manual.v                                           ;         ;
+; about.v                                            ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/about.v                                            ;         ;
+; avconf/I2C_Controller.v                            ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/avconf/I2C_Controller.v                            ;         ;
+; avconf/avconf.v                                    ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/avconf/avconf.v                                    ;         ;
+; vga_adapter/vga_pll.v                              ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/vga_adapter/vga_pll.v                              ;         ;
+; vga_adapter/vga_controller.v                       ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/vga_adapter/vga_controller.v                       ;         ;
+; vga_adapter/vga_address_translator.v               ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/vga_adapter/vga_address_translator.v               ;         ;
+; vga_adapter/vga_adapter.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/vga_adapter/vga_adapter.v                          ;         ;
+; alarm.v                                            ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/alarm.v                                            ;         ;
+; Audio_Controller/Audio_Controller.v                ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Controller.v                ;         ;
+; Audio_Controller/Audio_Clock.v                     ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Audio_Clock.v                     ;         ;
+; Audio_Controller/Altera_UP_SYNC_FIFO.v             ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Altera_UP_SYNC_FIFO.v             ;         ;
+; Audio_Controller/Altera_UP_Clock_Edge.v            ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Altera_UP_Clock_Edge.v            ;         ;
+; Audio_Controller/Altera_UP_Audio_Out_Serializer.v  ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_Out_Serializer.v  ;         ;
+; Audio_Controller/Altera_UP_Audio_In_Deserializer.v ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_In_Deserializer.v ;         ;
+; Audio_Controller/Altera_UP_Audio_Bit_Counter.v     ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/Audio_Controller/Altera_UP_Audio_Bit_Counter.v     ;         ;
+; test.v                                             ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/test.v                                             ;         ;
+; timers.v                                           ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/timers.v                                           ;         ;
+; clock.v                                            ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/clock.v                                            ;         ;
+; dispenser.v                                        ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispenser.v                                        ;         ;
+; VGA.v                                              ; yes             ; User Verilog HDL File                  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/VGA.v                                              ;         ;
+; lowmeds.v                                          ; yes             ; User Wizard-Generated File             ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/lowmeds.v                                          ;         ;
+; scfifo.tdf                                         ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/scfifo.tdf                                      ;         ;
+; a_regfifo.inc                                      ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_regfifo.inc                                   ;         ;
+; a_dpfifo.inc                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_dpfifo.inc                                    ;         ;
+; a_i2fifo.inc                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_i2fifo.inc                                    ;         ;
+; a_fffifo.inc                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_fffifo.inc                                    ;         ;
+; a_f2fifo.inc                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_f2fifo.inc                                    ;         ;
+; aglobal150.inc                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/aglobal150.inc                                  ;         ;
+; db/scfifo_b8a1.tdf                                 ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/scfifo_b8a1.tdf                                 ;         ;
+; db/a_dpfifo_uv91.tdf                               ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/a_dpfifo_uv91.tdf                               ;         ;
+; db/altsyncram_tne1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_tne1.tdf                             ;         ;
+; db/cmpr_6l8.tdf                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/cmpr_6l8.tdf                                    ;         ;
+; db/cntr_h2b.tdf                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/cntr_h2b.tdf                                    ;         ;
+; db/cntr_u27.tdf                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/cntr_u27.tdf                                    ;         ;
+; db/cntr_i2b.tdf                                    ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/cntr_i2b.tdf                                    ;         ;
+; altpll.tdf                                         ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altpll.tdf                                      ;         ;
+; stratix_pll.inc                                    ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/stratix_pll.inc                                 ;         ;
+; stratixii_pll.inc                                  ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/stratixii_pll.inc                               ;         ;
+; cycloneii_pll.inc                                  ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/cycloneii_pll.inc                               ;         ;
+; db/audio_clock_altpll.v                            ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/audio_clock_altpll.v                            ;         ;
+; altsyncram.tdf                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altsyncram.tdf                                  ;         ;
+; stratix_ram_block.inc                              ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/stratix_ram_block.inc                           ;         ;
+; lpm_mux.inc                                        ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_mux.inc                                     ;         ;
+; lpm_decode.inc                                     ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_decode.inc                                  ;         ;
+; a_rdenreg.inc                                      ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/a_rdenreg.inc                                   ;         ;
+; altrom.inc                                         ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altrom.inc                                      ;         ;
+; altram.inc                                         ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altram.inc                                      ;         ;
+; altdpram.inc                                       ; yes             ; Megafunction                           ; c:/altera/15.0/quartus/libraries/megafunctions/altdpram.inc                                    ;         ;
+; db/altsyncram_8pn1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_8pn1.tdf                             ;         ;
+; ../menu.mif                                        ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/menu.mif                                           ;         ;
+; db/decode_7la.tdf                                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/decode_7la.tdf                                  ;         ;
+; db/decode_01a.tdf                                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/decode_01a.tdf                                  ;         ;
+; db/mux_ifb.tdf                                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/mux_ifb.tdf                                     ;         ;
+; db/altsyncram_esn1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_esn1.tdf                             ;         ;
+; ../about.mif                                       ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/about.mif                                          ;         ;
+; db/altsyncram_e3o1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_e3o1.tdf                             ;         ;
+; ../timeset.mif                                     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/timeset.mif                                        ;         ;
+; db/altsyncram_cko1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_cko1.tdf                             ;         ;
+; ../setdispenser.mif                                ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/setdispenser.mif                                   ;         ;
+; db/altsyncram_hvn1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_hvn1.tdf                             ;         ;
+; ../manual.mif                                      ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/manual.mif                                         ;         ;
+; db/altsyncram_oeo1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_oeo1.tdf                             ;         ;
+; ../dispensing1.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispensing1.mif                                    ;         ;
+; db/altsyncram_peo1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_peo1.tdf                             ;         ;
+; ../dispensing2.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/dispensing2.mif                                    ;         ;
+; db/altsyncram_f3o1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_f3o1.tdf                             ;         ;
+; ../lowmeds.mif                                     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/lowmeds.mif                                        ;         ;
+; db/altsyncram_e4m1.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altsyncram_e4m1.tdf                             ;         ;
+; db/altpll_80u.tdf                                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/hp/Documents/GitHub/Drug-Dispenser/db/altpll_80u.tdf                                  ;         ;
++----------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -2855,7 +2847,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -2864,10 +2856,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 15.0.0 Build 145 04/22/2015 SJ Full Version
-    Info: Processing started: Wed Dec 02 12:10:20 2015
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Sat Dec 05 23:57:46 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test -c test
-Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file dispensing2.v
     Info (12023): Found entity 1: dispensing2
 Info (12021): Found 1 design units, including 1 entities, in source file dispensing1.v
@@ -2968,7 +2960,7 @@ Info (12128): Elaborating entity "dispenseSetter" for hierarchy "dispenseSetter:
 Info (12128): Elaborating entity "manualOverride" for hierarchy "manualOverride:mo1"
 Info (12128): Elaborating entity "dispenser" for hierarchy "dispenser:dm1"
 Info (12128): Elaborating entity "dispense" for hierarchy "dispenser:dm1|dispense:d"
-Warning (10230): Verilog HDL assignment warning at dispenser.v(179): truncated value with size 32 to match size of target (31)
+Warning (10230): Verilog HDL assignment warning at dispenser.v(180): truncated value with size 32 to match size of target (31)
 Info (12128): Elaborating entity "alarm" for hierarchy "alarm:alm"
 Warning (10230): Verilog HDL assignment warning at alarm.v(90): truncated value with size 32 to match size of target (19)
 Info (12128): Elaborating entity "rateCounter" for hierarchy "alarm:alm|rateCounter:rateCount"
@@ -2991,26 +2983,26 @@ Info (12133): Instantiated megafunction "alarm:alm|Audio_Controller:Audio_Contro
     Info (12134): Parameter "overflow_checking" = "OFF"
     Info (12134): Parameter "underflow_checking" = "OFF"
     Info (12134): Parameter "use_eab" = "ON"
-Warning (12125): Using design file db/scfifo_b8a1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/scfifo_b8a1.tdf
     Info (12023): Found entity 1: scfifo_b8a1
 Info (12128): Elaborating entity "scfifo_b8a1" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated"
-Warning (12125): Using design file db/a_dpfifo_uv91.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_uv91.tdf
     Info (12023): Found entity 1: a_dpfifo_uv91
 Info (12128): Elaborating entity "a_dpfifo_uv91" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated|a_dpfifo_uv91:dpfifo"
-Warning (12125): Using design file db/altsyncram_tne1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_tne1.tdf
     Info (12023): Found entity 1: altsyncram_tne1
 Info (12128): Elaborating entity "altsyncram_tne1" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated|a_dpfifo_uv91:dpfifo|altsyncram_tne1:FIFOram"
-Warning (12125): Using design file db/cmpr_6l8.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_6l8.tdf
     Info (12023): Found entity 1: cmpr_6l8
 Info (12128): Elaborating entity "cmpr_6l8" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated|a_dpfifo_uv91:dpfifo|cmpr_6l8:almost_full_comparer"
 Info (12128): Elaborating entity "cmpr_6l8" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated|a_dpfifo_uv91:dpfifo|cmpr_6l8:three_comparison"
-Warning (12125): Using design file db/cntr_h2b.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_h2b.tdf
     Info (12023): Found entity 1: cntr_h2b
 Info (12128): Elaborating entity "cntr_h2b" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated|a_dpfifo_uv91:dpfifo|cntr_h2b:rd_ptr_msb"
-Warning (12125): Using design file db/cntr_u27.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_u27.tdf
     Info (12023): Found entity 1: cntr_u27
 Info (12128): Elaborating entity "cntr_u27" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated|a_dpfifo_uv91:dpfifo|cntr_u27:usedw_counter"
-Warning (12125): Using design file db/cntr_i2b.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_i2b.tdf
     Info (12023): Found entity 1: cntr_i2b
 Info (12128): Elaborating entity "cntr_i2b" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_b8a1:auto_generated|a_dpfifo_uv91:dpfifo|cntr_i2b:wr_ptr"
 Info (12128): Elaborating entity "Altera_UP_Audio_Out_Serializer" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer"
@@ -3072,7 +3064,7 @@ Info (12133): Instantiated megafunction "alarm:alm|Audio_Controller:Audio_Contro
     Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "valid_lock_multiplier" = "1"
-Warning (12125): Using design file db/audio_clock_altpll.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/audio_clock_altpll.v
     Info (12023): Found entity 1: Audio_Clock_altpll
 Info (12128): Elaborating entity "Audio_Clock_altpll" for hierarchy "alarm:alm|Audio_Controller:Audio_Controller|Audio_Clock:Audio_Clock|altpll:altpll_component|Audio_Clock_altpll:auto_generated"
 Info (12128): Elaborating entity "avconf" for hierarchy "alarm:alm|avconf:avc"
@@ -3102,7 +3094,7 @@ Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(78): truncat
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(77): truncated value with size 32 to match size of target (1)
 Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(90): truncated value with size 32 to match size of target (6)
 Info (12128): Elaborating entity "dispenserEnabled" for hierarchy "dispenserEnabled:DE"
-Warning (10230): Verilog HDL assignment warning at dispenser.v(230): truncated value with size 32 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at dispenser.v(231): truncated value with size 32 to match size of target (3)
 Info (12128): Elaborating entity "VGA" for hierarchy "VGA:vg1"
 Warning (10230): Verilog HDL assignment warning at VGA.v(26): truncated value with size 32 to match size of target (8)
 Warning (10230): Verilog HDL assignment warning at VGA.v(29): truncated value with size 32 to match size of target (7)
@@ -3126,16 +3118,16 @@ Info (12133): Instantiated megafunction "VGA:vg1|menu:vgamenu|altsyncram:altsync
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_8pn1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8pn1.tdf
     Info (12023): Found entity 1: altsyncram_8pn1
 Info (12128): Elaborating entity "altsyncram_8pn1" for hierarchy "VGA:vg1|menu:vgamenu|altsyncram:altsyncram_component|altsyncram_8pn1:auto_generated"
-Warning (12125): Using design file db/decode_7la.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
     Info (12023): Found entity 1: decode_7la
 Info (12128): Elaborating entity "decode_7la" for hierarchy "VGA:vg1|menu:vgamenu|altsyncram:altsyncram_component|altsyncram_8pn1:auto_generated|decode_7la:decode3"
-Warning (12125): Using design file db/decode_01a.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
     Info (12023): Found entity 1: decode_01a
 Info (12128): Elaborating entity "decode_01a" for hierarchy "VGA:vg1|menu:vgamenu|altsyncram:altsyncram_component|altsyncram_8pn1:auto_generated|decode_01a:rden_decode"
-Warning (12125): Using design file db/mux_ifb.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ifb.tdf
     Info (12023): Found entity 1: mux_ifb
 Info (12128): Elaborating entity "mux_ifb" for hierarchy "VGA:vg1|menu:vgamenu|altsyncram:altsyncram_component|altsyncram_8pn1:auto_generated|mux_ifb:mux2"
 Info (12128): Elaborating entity "about" for hierarchy "VGA:vg1|about:vgaabout"
@@ -3157,9 +3149,20 @@ Info (12133): Instantiated megafunction "VGA:vg1|about:vgaabout|altsyncram:altsy
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_esn1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_esn1.tdf
     Info (12023): Found entity 1: altsyncram_esn1
 Info (12128): Elaborating entity "altsyncram_esn1" for hierarchy "VGA:vg1|about:vgaabout|altsyncram:altsyncram_component|altsyncram_esn1:auto_generated"
+Warning (113031): 19200 out of 19200 addresses are reinitialized. The latest initialized data will replace the existing data. There are 19200 warnings found, and 10 warnings are reported.
+    Warning (113030): Memory Initialization File address 19040 is reinitialized
+    Warning (113030): Memory Initialization File address 19041 is reinitialized
+    Warning (113030): Memory Initialization File address 19042 is reinitialized
+    Warning (113030): Memory Initialization File address 19043 is reinitialized
+    Warning (113030): Memory Initialization File address 19044 is reinitialized
+    Warning (113030): Memory Initialization File address 19045 is reinitialized
+    Warning (113030): Memory Initialization File address 19046 is reinitialized
+    Warning (113030): Memory Initialization File address 19047 is reinitialized
+    Warning (113030): Memory Initialization File address 19048 is reinitialized
+    Warning (113030): Memory Initialization File address 19049 is reinitialized
 Info (12128): Elaborating entity "timeset" for hierarchy "VGA:vg1|timeset:vgatimeset"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:vg1|timeset:vgatimeset|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "VGA:vg1|timeset:vgatimeset|altsyncram:altsyncram_component"
@@ -3179,9 +3182,20 @@ Info (12133): Instantiated megafunction "VGA:vg1|timeset:vgatimeset|altsyncram:a
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_e3o1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_e3o1.tdf
     Info (12023): Found entity 1: altsyncram_e3o1
 Info (12128): Elaborating entity "altsyncram_e3o1" for hierarchy "VGA:vg1|timeset:vgatimeset|altsyncram:altsyncram_component|altsyncram_e3o1:auto_generated"
+Warning (113031): 19200 out of 19200 addresses are reinitialized. The latest initialized data will replace the existing data. There are 19200 warnings found, and 10 warnings are reported.
+    Warning (113030): Memory Initialization File address 19040 is reinitialized
+    Warning (113030): Memory Initialization File address 19041 is reinitialized
+    Warning (113030): Memory Initialization File address 19042 is reinitialized
+    Warning (113030): Memory Initialization File address 19043 is reinitialized
+    Warning (113030): Memory Initialization File address 19044 is reinitialized
+    Warning (113030): Memory Initialization File address 19045 is reinitialized
+    Warning (113030): Memory Initialization File address 19046 is reinitialized
+    Warning (113030): Memory Initialization File address 19047 is reinitialized
+    Warning (113030): Memory Initialization File address 19048 is reinitialized
+    Warning (113030): Memory Initialization File address 19049 is reinitialized
 Info (12128): Elaborating entity "setdispenser" for hierarchy "VGA:vg1|setdispenser:vgadispenser"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:vg1|setdispenser:vgadispenser|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "VGA:vg1|setdispenser:vgadispenser|altsyncram:altsyncram_component"
@@ -3201,9 +3215,20 @@ Info (12133): Instantiated megafunction "VGA:vg1|setdispenser:vgadispenser|altsy
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_cko1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_cko1.tdf
     Info (12023): Found entity 1: altsyncram_cko1
 Info (12128): Elaborating entity "altsyncram_cko1" for hierarchy "VGA:vg1|setdispenser:vgadispenser|altsyncram:altsyncram_component|altsyncram_cko1:auto_generated"
+Warning (113031): 19200 out of 19200 addresses are reinitialized. The latest initialized data will replace the existing data. There are 19200 warnings found, and 10 warnings are reported.
+    Warning (113030): Memory Initialization File address 19040 is reinitialized
+    Warning (113030): Memory Initialization File address 19041 is reinitialized
+    Warning (113030): Memory Initialization File address 19042 is reinitialized
+    Warning (113030): Memory Initialization File address 19043 is reinitialized
+    Warning (113030): Memory Initialization File address 19044 is reinitialized
+    Warning (113030): Memory Initialization File address 19045 is reinitialized
+    Warning (113030): Memory Initialization File address 19046 is reinitialized
+    Warning (113030): Memory Initialization File address 19047 is reinitialized
+    Warning (113030): Memory Initialization File address 19048 is reinitialized
+    Warning (113030): Memory Initialization File address 19049 is reinitialized
 Info (12128): Elaborating entity "manual" for hierarchy "VGA:vg1|manual:vgamanual"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:vg1|manual:vgamanual|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "VGA:vg1|manual:vgamanual|altsyncram:altsyncram_component"
@@ -3223,9 +3248,20 @@ Info (12133): Instantiated megafunction "VGA:vg1|manual:vgamanual|altsyncram:alt
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_hvn1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hvn1.tdf
     Info (12023): Found entity 1: altsyncram_hvn1
 Info (12128): Elaborating entity "altsyncram_hvn1" for hierarchy "VGA:vg1|manual:vgamanual|altsyncram:altsyncram_component|altsyncram_hvn1:auto_generated"
+Warning (113031): 19200 out of 19200 addresses are reinitialized. The latest initialized data will replace the existing data. There are 19200 warnings found, and 10 warnings are reported.
+    Warning (113030): Memory Initialization File address 19040 is reinitialized
+    Warning (113030): Memory Initialization File address 19041 is reinitialized
+    Warning (113030): Memory Initialization File address 19042 is reinitialized
+    Warning (113030): Memory Initialization File address 19043 is reinitialized
+    Warning (113030): Memory Initialization File address 19044 is reinitialized
+    Warning (113030): Memory Initialization File address 19045 is reinitialized
+    Warning (113030): Memory Initialization File address 19046 is reinitialized
+    Warning (113030): Memory Initialization File address 19047 is reinitialized
+    Warning (113030): Memory Initialization File address 19048 is reinitialized
+    Warning (113030): Memory Initialization File address 19049 is reinitialized
 Info (12128): Elaborating entity "dispensing1" for hierarchy "VGA:vg1|dispensing1:vgadisp1"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:vg1|dispensing1:vgadisp1|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "VGA:vg1|dispensing1:vgadisp1|altsyncram:altsyncram_component"
@@ -3245,9 +3281,20 @@ Info (12133): Instantiated megafunction "VGA:vg1|dispensing1:vgadisp1|altsyncram
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_oeo1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_oeo1.tdf
     Info (12023): Found entity 1: altsyncram_oeo1
 Info (12128): Elaborating entity "altsyncram_oeo1" for hierarchy "VGA:vg1|dispensing1:vgadisp1|altsyncram:altsyncram_component|altsyncram_oeo1:auto_generated"
+Warning (113031): 19200 out of 19200 addresses are reinitialized. The latest initialized data will replace the existing data. There are 19200 warnings found, and 10 warnings are reported.
+    Warning (113030): Memory Initialization File address 19040 is reinitialized
+    Warning (113030): Memory Initialization File address 19041 is reinitialized
+    Warning (113030): Memory Initialization File address 19042 is reinitialized
+    Warning (113030): Memory Initialization File address 19043 is reinitialized
+    Warning (113030): Memory Initialization File address 19044 is reinitialized
+    Warning (113030): Memory Initialization File address 19045 is reinitialized
+    Warning (113030): Memory Initialization File address 19046 is reinitialized
+    Warning (113030): Memory Initialization File address 19047 is reinitialized
+    Warning (113030): Memory Initialization File address 19048 is reinitialized
+    Warning (113030): Memory Initialization File address 19049 is reinitialized
 Info (12128): Elaborating entity "dispensing2" for hierarchy "VGA:vg1|dispensing2:vgadisp2"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:vg1|dispensing2:vgadisp2|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "VGA:vg1|dispensing2:vgadisp2|altsyncram:altsyncram_component"
@@ -3267,9 +3314,20 @@ Info (12133): Instantiated megafunction "VGA:vg1|dispensing2:vgadisp2|altsyncram
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_peo1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_peo1.tdf
     Info (12023): Found entity 1: altsyncram_peo1
 Info (12128): Elaborating entity "altsyncram_peo1" for hierarchy "VGA:vg1|dispensing2:vgadisp2|altsyncram:altsyncram_component|altsyncram_peo1:auto_generated"
+Warning (113031): 19200 out of 19200 addresses are reinitialized. The latest initialized data will replace the existing data. There are 19200 warnings found, and 10 warnings are reported.
+    Warning (113030): Memory Initialization File address 19040 is reinitialized
+    Warning (113030): Memory Initialization File address 19041 is reinitialized
+    Warning (113030): Memory Initialization File address 19042 is reinitialized
+    Warning (113030): Memory Initialization File address 19043 is reinitialized
+    Warning (113030): Memory Initialization File address 19044 is reinitialized
+    Warning (113030): Memory Initialization File address 19045 is reinitialized
+    Warning (113030): Memory Initialization File address 19046 is reinitialized
+    Warning (113030): Memory Initialization File address 19047 is reinitialized
+    Warning (113030): Memory Initialization File address 19048 is reinitialized
+    Warning (113030): Memory Initialization File address 19049 is reinitialized
 Info (12128): Elaborating entity "lowmeds" for hierarchy "VGA:vg1|lowmeds:vgalowmeds"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:vg1|lowmeds:vgalowmeds|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "VGA:vg1|lowmeds:vgalowmeds|altsyncram:altsyncram_component"
@@ -3289,7 +3347,7 @@ Info (12133): Instantiated megafunction "VGA:vg1|lowmeds:vgalowmeds|altsyncram:a
     Info (12134): Parameter "widthad_a" = "15"
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_byteena_a" = "1"
-Warning (12125): Using design file db/altsyncram_f3o1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_f3o1.tdf
     Info (12023): Found entity 1: altsyncram_f3o1
 Info (12128): Elaborating entity "altsyncram_f3o1" for hierarchy "VGA:vg1|lowmeds:vgalowmeds|altsyncram:altsyncram_component|altsyncram_f3o1:auto_generated"
 Info (12128): Elaborating entity "dispensingAnimation" for hierarchy "VGA:vg1|dispensingAnimation:dani"
@@ -3313,7 +3371,7 @@ Info (12133): Instantiated megafunction "VGA:vg1|vga_adapter:VGA|altsyncram:Vide
     Info (12134): Parameter "CLOCK_ENABLE_OUTPUT_B" = "BYPASS"
     Info (12134): Parameter "POWER_UP_UNINITIALIZED" = "FALSE"
     Info (12134): Parameter "INIT_FILE" = "menu.mif"
-Warning (12125): Using design file db/altsyncram_e4m1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_e4m1.tdf
     Info (12023): Found entity 1: altsyncram_e4m1
 Info (12128): Elaborating entity "altsyncram_e4m1" for hierarchy "VGA:vg1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_e4m1:auto_generated"
 Info (12128): Elaborating entity "vga_pll" for hierarchy "VGA:vg1|vga_adapter:VGA|vga_pll:mypll"
@@ -3331,7 +3389,7 @@ Info (12133): Instantiated megafunction "VGA:vg1|vga_adapter:VGA|vga_pll:mypll|a
     Info (12134): Parameter "clk0_divide_by" = "2"
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
-Warning (12125): Using design file db/altpll_80u.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
     Info (12023): Found entity 1: altpll_80u
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "VGA:vg1|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated"
 Info (12128): Elaborating entity "vga_controller" for hierarchy "VGA:vg1|vga_adapter:VGA|vga_controller:controller"
@@ -3458,7 +3516,7 @@ Warning (20013): Ignored assignments for entity "DE2_Audio_Example" -- entity do
     Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE2_Audio_Example -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE2_Audio_Example -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE2_Audio_Example -section_id Top was ignored
-Info (144001): Generated suppressed messages file //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/output_files/test.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/hp/Documents/GitHub/Drug-Dispenser/output_files/test.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 8 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance alarm:alm|Audio_Controller:Audio_Controller|Audio_Clock:Audio_Clock|altpll:altpll_component|Audio_Clock_altpll:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock.
@@ -3472,16 +3530,16 @@ Info (21057): Implemented 1395 device resources after synthesis - the final reso
     Info (21061): Implemented 1047 logic cells
     Info (21064): Implemented 200 RAM segments
     Info (21065): Implemented 2 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 172 warnings
-    Info: Peak virtual memory: 796 megabytes
-    Info: Processing ended: Wed Dec 02 12:10:43 2015
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 218 warnings
+    Info: Peak virtual memory: 783 megabytes
+    Info: Processing ended: Sat Dec 05 23:58:26 2015
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:00:43
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in //SRVD/Homes$/rajases1/Desktop/Drug-Dispenser/output_files/test.map.smsg.
+The suppressed messages can be found in C:/Users/hp/Documents/GitHub/Drug-Dispenser/output_files/test.map.smsg.
 
 

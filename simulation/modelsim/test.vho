@@ -15,9 +15,9 @@
 
 -- VENDOR "Altera"
 -- PROGRAM "Quartus II 64-Bit"
--- VERSION "Version 15.0.0 Build 145 04/22/2015 SJ Full Version"
+-- VERSION "Version 15.0.0 Build 145 04/22/2015 SJ Web Edition"
 
--- DATE "12/02/2015 12:12:26"
+-- DATE "12/06/2015 00:01:28"
 
 -- 
 -- Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -41,30 +41,30 @@ ENTITY 	test IS
 	CLOCK_50 : IN std_logic;
 	SW : IN std_logic_vector(9 DOWNTO 0);
 	KEY : IN std_logic_vector(3 DOWNTO 0);
-	LEDR : BUFFER std_logic_vector(9 DOWNTO 0);
-	HEX0 : BUFFER std_logic_vector(0 TO 6);
-	HEX1 : BUFFER std_logic_vector(0 TO 6);
-	HEX2 : BUFFER std_logic_vector(0 TO 6);
-	HEX3 : BUFFER std_logic_vector(0 TO 6);
-	HEX4 : BUFFER std_logic_vector(0 TO 6);
-	HEX5 : BUFFER std_logic_vector(0 TO 6);
-	GPIO_0 : BUFFER std_logic_vector(35 DOWNTO 0);
+	LEDR : OUT std_logic_vector(9 DOWNTO 0);
+	HEX0 : OUT std_logic_vector(0 TO 6);
+	HEX1 : OUT std_logic_vector(0 TO 6);
+	HEX2 : OUT std_logic_vector(0 TO 6);
+	HEX3 : OUT std_logic_vector(0 TO 6);
+	HEX4 : OUT std_logic_vector(0 TO 6);
+	HEX5 : OUT std_logic_vector(0 TO 6);
+	GPIO_0 : OUT std_logic_vector(35 DOWNTO 0);
 	AUD_ADCDAT : IN std_logic;
-	AUD_BCLK : BUFFER std_logic;
-	AUD_ADCLRCK : BUFFER std_logic;
-	AUD_DACLRCK : BUFFER std_logic;
-	AUD_XCK : BUFFER std_logic;
-	AUD_DACDAT : BUFFER std_logic;
-	I2C_SDAT : BUFFER std_logic;
-	I2C_SCLK : BUFFER std_logic;
-	VGA_CLK : BUFFER std_logic;
-	VGA_HS : BUFFER std_logic;
-	VGA_VS : BUFFER std_logic;
-	VGA_BLANK_N : BUFFER std_logic;
-	VGA_SYNC_N : BUFFER std_logic;
-	VGA_R : BUFFER std_logic_vector(9 DOWNTO 0);
-	VGA_G : BUFFER std_logic_vector(9 DOWNTO 0);
-	VGA_B : BUFFER std_logic_vector(9 DOWNTO 0)
+	AUD_BCLK : INOUT std_logic;
+	AUD_ADCLRCK : INOUT std_logic;
+	AUD_DACLRCK : INOUT std_logic;
+	AUD_XCK : OUT std_logic;
+	AUD_DACDAT : OUT std_logic;
+	I2C_SDAT : INOUT std_logic;
+	I2C_SCLK : OUT std_logic;
+	VGA_CLK : OUT std_logic;
+	VGA_HS : OUT std_logic;
+	VGA_VS : OUT std_logic;
+	VGA_BLANK_N : OUT std_logic;
+	VGA_SYNC_N : OUT std_logic;
+	VGA_R : OUT std_logic_vector(9 DOWNTO 0);
+	VGA_G : OUT std_logic_vector(9 DOWNTO 0);
+	VGA_B : OUT std_logic_vector(9 DOWNTO 0)
 	);
 END test;
 
@@ -239,12 +239,8 @@ SIGNAL ww_HEX4 : std_logic_vector(0 TO 6);
 SIGNAL ww_HEX5 : std_logic_vector(0 TO 6);
 SIGNAL ww_GPIO_0 : std_logic_vector(35 DOWNTO 0);
 SIGNAL ww_AUD_ADCDAT : std_logic;
-SIGNAL ww_AUD_BCLK : std_logic;
-SIGNAL ww_AUD_ADCLRCK : std_logic;
-SIGNAL ww_AUD_DACLRCK : std_logic;
 SIGNAL ww_AUD_XCK : std_logic;
 SIGNAL ww_AUD_DACDAT : std_logic;
-SIGNAL ww_I2C_SDAT : std_logic;
 SIGNAL ww_I2C_SCLK : std_logic;
 SIGNAL ww_VGA_CLK : std_logic;
 SIGNAL ww_VGA_HS : std_logic;
@@ -2568,12 +2564,8 @@ HEX4 <= ww_HEX4;
 HEX5 <= ww_HEX5;
 GPIO_0 <= ww_GPIO_0;
 ww_AUD_ADCDAT <= AUD_ADCDAT;
-AUD_BCLK <= ww_AUD_BCLK;
-AUD_ADCLRCK <= ww_AUD_ADCLRCK;
-AUD_DACLRCK <= ww_AUD_DACLRCK;
 AUD_XCK <= ww_AUD_XCK;
 AUD_DACDAT <= ww_AUD_DACDAT;
-I2C_SDAT <= ww_I2C_SDAT;
 I2C_SCLK <= ww_I2C_SCLK;
 VGA_CLK <= ww_VGA_CLK;
 VGA_HS <= ww_VGA_HS;
@@ -6097,7 +6089,7 @@ GENERIC MAP (
 PORT MAP (
 	i => VCC,
 	devoe => ww_devoe,
-	o => ww_AUD_BCLK);
+	o => AUD_BCLK);
 
 -- Location: IOOBUF_X8_Y81_N19
 \AUD_ADCLRCK~output\ : cyclonev_io_obuf
@@ -6110,7 +6102,7 @@ GENERIC MAP (
 PORT MAP (
 	i => VCC,
 	devoe => ww_devoe,
-	o => ww_AUD_ADCLRCK);
+	o => AUD_ADCLRCK);
 
 -- Location: IOOBUF_X24_Y81_N2
 \AUD_DACLRCK~output\ : cyclonev_io_obuf
@@ -6123,7 +6115,7 @@ GENERIC MAP (
 PORT MAP (
 	i => VCC,
 	devoe => ww_devoe,
-	o => ww_AUD_DACLRCK);
+	o => AUD_DACLRCK);
 
 -- Location: IOOBUF_X12_Y81_N2
 \I2C_SDAT~output\ : cyclonev_io_obuf
@@ -6137,7 +6129,7 @@ PORT MAP (
 	i => \alm|avc|u0|ALT_INV_SDO~DUPLICATE_q\,
 	oe => VCC,
 	devoe => ww_devoe,
-	o => ww_I2C_SDAT);
+	o => I2C_SDAT);
 
 -- Location: IOIBUF_X32_Y0_N1
 \CLOCK_50~input\ : cyclonev_io_ibuf
@@ -7166,7 +7158,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_I2C_SDAT,
+	i => I2C_SDAT,
 	o => \I2C_SDAT~input_o\);
 
 -- Location: MLABCELL_X34_Y59_N6
@@ -18324,7 +18316,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_AUD_DACLRCK,
+	i => AUD_DACLRCK,
 	o => \AUD_DACLRCK~input_o\);
 
 -- Location: FF_X42_Y56_N50
@@ -18365,7 +18357,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_AUD_ADCLRCK,
+	i => AUD_ADCLRCK,
 	o => \AUD_ADCLRCK~input_o\);
 
 -- Location: FF_X48_Y55_N5
@@ -21483,7 +21475,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_AUD_BCLK,
+	i => AUD_BCLK,
 	o => \AUD_BCLK~input_o\);
 
 -- Location: LABCELL_X46_Y56_N30

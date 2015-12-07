@@ -134,6 +134,7 @@ module manualOverride(clock, sw, key, ov1, ov2);
 		end
 	end
 endmodule
+
 module dispenser(input clock, morningP, afternoonP, eveningP, override, input [2:0] m, output GPIO_PORT);
 	
 	reg dispense;
@@ -166,13 +167,13 @@ module dispense(input clock, signal, output reg port);
 	begin
 		if (signal == 1) begin
 			counter <= 0;
-			port <= 1;
+			pwmSignal <= 1;
 		end
 		else
 		if (counter == 10000000)  
 			begin
 				counter <= 0;
-				port <= 0;
+				pwmSignal <= 0;
 			end
 		else
 			begin
@@ -180,7 +181,7 @@ module dispense(input clock, signal, output reg port);
 			end
 	end 
 	
-	//pwm pwm1(clock,  pwmSignal, port);
+	pwm pwm1(clock,  pwmSignal, port);
 endmodule
 
 module pwm(input clock, signal, output reg port);

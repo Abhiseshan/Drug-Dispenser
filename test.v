@@ -127,7 +127,7 @@ module test(CLOCK_50, SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0,
 	//VGA
 	VGA vg1(CLOCK_50, KEY[0], SW[9:6], secondP, alarmOut, GPIO_0[1], VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B);
 	
-	//HEX Display for clock - To be removed later on.
+	//HEX Display for clock
 	hex h0(HEX0, hexSeconds[3:0]);
 	hex h1(HEX1, hexSeconds[5:4]);
 	hex h2(HEX2, hexMinutes[3:0]);
